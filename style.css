@@ -149,13 +149,36 @@ nav a:hover {
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  left: 20px;
 }
 
 .logo img {
   height: 40px;
   width: auto;
 }
+
+.nav-center ul {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
 
 /* Footer */
 footer {
