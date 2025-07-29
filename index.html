@@ -1,89 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Homepage - TMD</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Homepage - TMD
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
   <!-- navbar -->
-  <header>
-<nav class="navbar">
-  <a href="index.html" class="logo">
-    <img src="TMD-Thumbnail.jpg" alt="TMD Logo" />
-  </a>
-
-  <div class="nav-center">
-    <ul>
-      <li><a href="homepage.html">Home</a></li>
-      <li><a href="features.html">Services</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="#">Login</a></li>
-    </ul>
-  </div>
-</nav>
-
-</header>
-  
-
+  <header id="navbar-container">
+  </header>
   <!-- Hero Section -->
-  <section id="hero">
-    <h1>ITSM & Asset Management for Aussie MSPs</h1>
-    <p>Simplify your IT operations with our all-in-one, locally hosted platform. Built by engineers. Priced for humans.</p>
-    <button>Start Free Trial</button>
-    <button>View Pricing</button>
+  <section class="container" id="hero">
+   <h1>
+    ITSM &amp; Asset Management for Aussie MSPs
+   </h1>
+   <p>
+    Simplify your IT operations with our all-in-one, locally hosted platform. Built by engineers. Priced for humans.
+   </p>
+   <button>
+    Start Free Trial
+   </button>
+   <button>
+    View Pricing
+   </button>
   </section>
-
+  <!-- Intro Video Section -->
+<section class="container intro-video">
+  <h2>Discover TMD</h2>
+  <video controls>
+    <source src="TMD - teaser.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
+</section>
   <!-- Why TMD Section -->
-  <section id="why-tmd">
-    <h2>Why TMD</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>🧾 Ticketing Made Simple</h3>
-        <p>Submit, track, and resolve tickets without the bloat.</p>
-      </div>
-      <div class="feature">
-        <h3>💻 Full Asset Visibility</h3>
-        <p>Know what hardware and software your clients are using — and where.</p>
-      </div>
-      <div class="feature">
-        <h3>🇦🇺 Hosted on AWS Sydney</h3>
-        <p>Fast, secure, compliant, and fully supported in Australia.</p>
-      </div>
+  <section class="container" id="why-tmd">
+   <h2>
+    Why TMD
+   </h2>
+   <div class="features">
+    <div class="feature">
+     <h3>
+      🧾 Ticketing Made Simple
+     </h3>
+     <p>
+      Submit, track, and resolve tickets without the bloat.
+     </p>
     </div>
+    <div class="feature">
+     <h3>
+      💻 Full Asset Visibility
+     </h3>
+     <p>
+      Know what hardware and software your clients are using — and where.
+     </p>
+    </div>
+    <div class="feature">
+     <h3>
+      🇦🇺 Hosted on AWS Sydney
+     </h3>
+     <p>
+      Fast, secure, compliant, and fully supported in Australia.
+     </p>
+    </div>
+   </div>
   </section>
-
   <!-- Demo CTA Section -->
-  <section id="demo-cta">
-    <h2>Need to see it in action?</h2>
-    <p>Book a quick walkthrough and see how TMD fits your workflow.</p>
-    <button>Book a Demo</button>
+  <section class="container" id="demo-cta">
+   <h2>
+    Need to see it in action?
+   </h2>
+   <p>
+    Book a quick walkthrough and see how TMD fits your workflow.
+   </p>
+   <button>
+    Book a Demo
+   </button>
   </section>
-
+  <!-- Ticketing Layout Section -->
+  <section class="ticket-section container" id="ticketing">
+   <h2>
+    Submit a Ticket
+   </h2>
+   <p>
+    Need help? Submit your request below and our support team will get back to you ASAP.
+   </p>
+   <form class="ticket-form">
+    <input placeholder="Your Name" required="" type="text"/>
+    <input placeholder="Your Email" required="" type="email"/>
+    <textarea placeholder="Describe your issue..." required="" rows="4"></textarea>
+    <button class="primary-btn" type="submit">
+     Submit Ticket
+    </button>
+   </form>
+  </section>
   <!-- Client Portal CTA -->
-  <section id="client-portal">
-    <p>Already using TMD?<br />
-    <a href="#">Log in to Client Portal →</a></p>
+  <section class="container" id="client-portal">
+   <p>
+    Already using TMD?
+    <br/>
+    <a href="#">
+     Log in to Client Portal →
+    </a>
+   </p>
   </section>
-
   <!-- Footer -->
-   <footer>
-  <p>© 2025 The Managed Desk. Built in Australia. Hosted on AWS Sydney.</p>
-  <ul>
-    <li><a href="about.html">About</a></li>
-    <li><a href="features.html">Features</a></li>
-    <li><a href="pricing.html">Pricing</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="terms.html">Terms & Privacy</a></li>
-  </ul>
-</footer>
-
- 
-
-</body>
+  <footer class="container">
+   <p>
+    © 2025 The Managed Desk. Built in Australia. Hosted on AWS Sydney.
+   </p>
+   <ul>
+    <li>
+     <a href="about.html">
+      About
+     </a>
+    </li>
+    <li>
+     <a href="features.html">
+      Features
+     </a>
+    </li>
+    <li>
+     <a href="pricing.html">
+      Pricing
+     </a>
+    </li>
+    <li>
+     <a href="contact.html">
+      Contact
+     </a>
+    </li>
+    <li>
+     <a href="terms.html">
+      Terms &amp; Privacy
+     </a>
+    </li>
+   </ul>
+  </footer>
+  <script src="navbar.js">
+  </script>
+ </body>
 </html>
-
-<!-- Force redeploy -->
