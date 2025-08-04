@@ -4,7 +4,7 @@
 fetch('navbar.html')
   .then(response => response.text())
   .then(data => {
-    document.getElementById('navbar-placeholder').innerHTML = data;
+    document.getElementById('navbar-container').innerHTML = data;
 
     // Bind the hamburger menu toggle after navbar is loaded
     const toggle = document.getElementById("nav-toggle");
