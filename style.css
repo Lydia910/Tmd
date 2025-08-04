@@ -871,3 +871,9 @@ footer {
   gap: 15px; /* Add spacing between buttons */
   margin-top: 20px; /* Space above buttons */
 }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
