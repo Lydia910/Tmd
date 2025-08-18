@@ -873,9 +873,26 @@ footer {
 }
 
 
-/* ===== About page: text left + image right ===== */
-#about-page .hero-inner,
-#about-page .who-layout {
+/* =========================
+   ABOUT PAGE — scoped styles
+   ========================= */
+
+/* 0) Safety reset: neutralize any old floats on about images */
+#hero .about-icon,
+#who-we-are .about-icon {
+  float: none !important;
+  width: auto;
+  margin: 0;
+}
+
+/* ---------------------------------
+   1) HERO (text left, image right)
+   Applies only when .about-icon exists,
+   so other pages' #hero won't be affected.
+---------------------------------- */
+#hero { overflow: hidden; } /* prevent oversized SVG overflow */
+
+#hero .hero-inner:has(.about-icon) {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -885,36 +902,122 @@ footer {
   padding: 40px 20px;
 }
 
-#about-page .hero-text,
-#about-page .who-text {
-  flex: 1 1 520px;  
+#hero .hero-inner .hero-text {
+  flex: 1 1 55%;
   min-width: 280px;
 }
 
-#about-page .about-icon {
-  flex: 1 1 480px;  
-  min-width: 320px;
+#hero .hero-inner .about-icon {
+  flex: 1 1 45%;
+  max-width: 520px;      /* increase to 560–600px if you want a larger image */
   text-align: right;
 }
 
-#about-page .about-icon img {
+#hero .hero-inner .about-icon img {
   width: 100%;
-  max-width: 520px;  
   height: auto;
+  display: block;
 }
 
+/* ---------------------------------
+   2) WHO WE ARE (text left, image right)
+---------------------------------- */
+#who-we-are { overflow: hidden; }
+
+#who-we-are .who-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+#who-we-are .who-text {
+  flex: 1 1 55%;
+  min-width: 280px;
+}
+
+#who-we-are .about-icon {
+  flex: 1 1 45%;
+  max-width: 520px;
+  text-align: right;
+}
+
+#who-we-are .about-icon img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------------------------------
+   3) OUR MISSION & VALUES (3 columns)
+---------------------------------- */
+#about-page .values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  align-items: start;
+  text-align: center;
+}
+
+#about-page .value-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#about-page .value-icon img {
+  width: 56px;
+  height: 56px;
+  display: block;
+}
+
+/* ---------------------------------
+   4) WHAT MAKES US DIFFERENT (4 columns)
+---------------------------------- */
+#about-page .diff-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+  align-items: start;
+  text-align: center;
+}
+
+#about-page .diff-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#about-page .diff-icon img {
+  width: 56px;
+  height: 56px;
+  display: block;
+}
+
+/* ---------------------------------
+   5) RESPONSIVE (stack + smaller images)
+---------------------------------- */
 @media (max-width: 991px) {
-  #about-page .hero-inner,
-  #about-page .who-layout {
+  #hero .hero-inner:has(.about-icon),
+  #who-we-are .who-layout {
     flex-direction: column;
     text-align: center;
     gap: 24px;
   }
-  #about-page .about-icon {
+
+  #hero .hero-inner .about-icon,
+  #who-we-are .about-icon {
     text-align: center;
-    min-width: 0;
+    max-width: 360px; /* reduce hero & who-we-are image size on mobile */
   }
-  #about-page .about-icon img {
-    max-width: 360px;
-  }
+}
+
+@media (max-width: 900px) {
+  #about-page .values-grid { grid-template-columns: 1fr; }
+  #about-page .diff-grid    { grid-template-columns: 1fr 1fr; }
 }
