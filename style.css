@@ -873,74 +873,94 @@ footer {
 }
 
 
-/* ===== About: image on the right, same scale as mockup ===== */
-
-/* Tunable knobs – change these two values if you want slightly bigger/smaller */
-:root {
-  --about-illus-max: 460px; /* desktop max width for the illustration */
-  --about-illus-basis: 42%; /* how much of the row the image takes on desktop */
-  --about-row-gap: 56px;    /* spacing between text and image */
-}
-
-/* Layout rows */
-#hero .hero-inner,
-#who-we-are .who-layout {
+/* ========= About page (scoped) ========= */
+/* text-left + image-right layout for hero & who-we-are */
+#about-page .hero-inner,
+#about-page .who-layout {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--about-row-gap);
-  max-width: 1100px;         /* keep content line-length similar to mock */
+  gap: 40px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 48px 20px;
+  padding: 48px 20px; /* comfortable spacing */
 }
 
-/* Text blocks (roughly 58%) */
-#hero .hero-text,
-#who-we-are .who-text {
-  flex: 1 1 calc(58% - var(--about-row-gap));
-  min-width: 320px;
-  max-width: 640px;          /* prevents overly long lines */
+#about-page .hero-text,
+#about-page .who-text {
+  flex: 1 1 560px;   /* text column */
+  min-width: 280px;
 }
 
-/* Image blocks (roughly 42%) */
-#hero .about-icon,
-#who-we-are .about-icon {
-  flex: 0 0 var(--about-illus-basis);
-  max-width: var(--about-illus-max);
+/* right-side illustration column */
+#about-page .about-icon {
+  flex: 0 0 360px;   /* fix the visual width of the image column */
   text-align: right;
 }
-
-/* Image sizing */
-#hero .about-icon img,
-#who-we-are .about-icon img {
+#about-page .about-icon img {
   width: 100%;
+  max-width: 360px;  /* final image size */
   height: auto;
+}
+
+/* 3-up & 4-up grids */
+#about-page .values-grid,
+#about-page .diff-grid {
+  display: grid;
+  gap: 32px;
+  align-items: start;
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#about-page .values-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+#about-page .diff-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* cards & icons inside the grids */
+#about-page .value,
+#about-page .diff-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#about-page .value-icon,
+#about-page .diff-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#about-page .value-icon img,
+#about-page .diff-icon img {
+  width: 56px;
+  height: 56px;
   display: block;
 }
 
-/* Tablet: slightly smaller images */
-@media (max-width: 1024px) {
-  :root {
-    --about-illus-max: 380px;
-    --about-illus-basis: 40%;
-    --about-row-gap: 40px;
-  }
-}
-
-/* Mobile: stack vertically and center, smaller image */
-@media (max-width: 768px) {
-  #hero .hero-inner,
-  #who-we-are .who-layout {
+/* responsive: stack on narrow screens */
+@media (max-width: 991px) {
+  #about-page .hero-inner,
+  #about-page .who-layout {
     flex-direction: column;
     text-align: center;
     gap: 24px;
   }
-  :root {
-    --about-illus-max: 320px;
-    --about-illus-basis: 100%;
-  }
-  #hero .about-icon,
-  #who-we-are .about-icon {
+  #about-page .about-icon {
     text-align: center;
+    flex: 0 1 auto;
+  }
+
+  #about-page .values-grid {
+    grid-template-columns: 1fr;         /* 1 column */
+  }
+  #about-page .diff-grid {
+    grid-template-columns: 1fr 1fr;     /* 2 columns */
   }
 }
