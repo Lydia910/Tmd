@@ -92,6 +92,9 @@
     close,
     addMessage,
     /**
+     * userText: Text entered by the user
+     * addMessage(role, text): Call this to add a message to the UI (role = “user” | “bot”)
+     * Integrate your API/plugin here, then send the reply back using addMessage(“bot”, “...”)
      * Set a handler that receives (text, addMessage).
      * The handler should call addMessage('bot', reply) when it has a result.
      * Example:
