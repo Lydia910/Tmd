@@ -873,49 +873,48 @@ footer {
 }
 
 
-/* ===== About page only ===== */
-#about-page .values-grid{
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0,1fr)); 
-  gap:32px;
-  align-items:start;  
-  text-align:center;
+/* ===== About page: text left + image right ===== */
+#about-page .hero-inner,
+#about-page .who-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-#about-page .diff-grid{
-  display:grid;
-  grid-template-columns:repeat(4, minmax(0,1fr)); 
-  gap:32px;
-  align-items:start;
-  text-align:center;
+#about-page .hero-text,
+#about-page .who-text {
+  flex: 1 1 520px;  
+  min-width: 280px;
 }
 
-#about-page .value-icon,
-#about-page .diff-icon{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-bottom:10px;
+#about-page .about-icon {
+  flex: 1 1 480px;  
+  min-width: 320px;
+  text-align: right;
 }
 
-#about-page .value-icon img,
-#about-page .diff-icon img{
-  width:56px;
-  height:56px;
-  display:block;
-}
-
-@media (max-width: 900px){
-  #about-page .values-grid{ grid-template-columns:1fr; }
-  #about-page .diff-grid{ grid-template-columns:1fr 1fr; }
-}
-
-.about-icon {
-  float: right;
-  width: 200px; 
-  margin-left: 20px;
-}
-.about-icon img {
+#about-page .about-icon img {
   width: 100%;
+  max-width: 520px;  
   height: auto;
+}
+
+@media (max-width: 991px) {
+  #about-page .hero-inner,
+  #about-page .who-layout {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+  #about-page .about-icon {
+    text-align: center;
+    min-width: 0;
+  }
+  #about-page .about-icon img {
+    max-width: 360px;
+  }
 }
