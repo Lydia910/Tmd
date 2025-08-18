@@ -994,3 +994,26 @@ body.about-page #about-page .value-desc,
 body.about-page #about-page .diff-sub {
   margin: 0;                /* remove unexpected offsets */
 }
+
+/* === Floating Chatbot Button (scoped) === */
+.chat-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  text-decoration: none;
+  background: transparent;        
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+  z-index: 999;
+}
+.chat-fab img {
+  width: 64px;
+  height: 64px;
+  display: block;
+}
+.chat-fab:hover { transform: translateY(-2px); }
+.chat-fab { transition: transform .2s ease; }
