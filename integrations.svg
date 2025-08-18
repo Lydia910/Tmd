@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" role="img" aria-label="Integrations">
+  <circle cx="14" cy="28" r="6" fill="#00C0E3"/>
+  <circle cx="42" cy="14" r="6" fill="#00C0E3"/>
+  <circle cx="42" cy="42" r="6" fill="#00C0E3"/>
+  <path d="M19 26l18-9M19 30l18 9" stroke="#0057B8" stroke-width="4" stroke-linecap="round"/>
+</svg>
