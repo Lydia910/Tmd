@@ -969,3 +969,28 @@ body.about-page #about-page .diff-icon img {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* --- Fix: center icon directly above titles for About page grids --- */
+body.about-page #about-page .value,
+body.about-page #about-page .diff-item {
+  display: grid;            /* vertical stack without flex baseline quirks */
+  justify-items: center;    /* center icon + texts horizontally */
+  text-align: center;       /* center the text */
+}
+
+body.about-page #about-page .value-icon,
+body.about-page #about-page .diff-icon {
+  display: block;
+  margin: 0 0 12px 0;       /* space under icon only */
+}
+
+body.about-page #about-page .value-title,
+body.about-page #about-page .diff-title {
+  margin: 6px 0 6px;        /* tighten title spacing */
+  line-height: 1.25;
+}
+
+body.about-page #about-page .value-desc,
+body.about-page #about-page .diff-sub {
+  margin: 0;                /* remove unexpected offsets */
+}
