@@ -909,3 +909,13 @@ footer {
   #about-page .values-grid{ grid-template-columns:1fr; }
   #about-page .diff-grid{ grid-template-columns:1fr 1fr; }
 }
+
+.about-icon {
+  float: right;
+  width: 200px; 
+  margin-left: 20px;
+}
+.about-icon img {
+  width: 100%;
+  height: auto;
+}
