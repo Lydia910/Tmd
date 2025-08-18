@@ -873,48 +873,74 @@ footer {
 }
 
 
-/* ===== About page: text left + image right ===== */
-#about-page .hero-inner,
-#about-page .who-layout {
+/* ===== About: image on the right, same scale as mockup ===== */
+
+/* Tunable knobs – change these two values if you want slightly bigger/smaller */
+:root {
+  --about-illus-max: 460px; /* desktop max width for the illustration */
+  --about-illus-basis: 42%; /* how much of the row the image takes on desktop */
+  --about-row-gap: 56px;    /* spacing between text and image */
+}
+
+/* Layout rows */
+#hero .hero-inner,
+#who-we-are .who-layout {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
-  max-width: 1200px;
+  gap: var(--about-row-gap);
+  max-width: 1100px;         /* keep content line-length similar to mock */
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 48px 20px;
 }
 
-#about-page .hero-text,
-#about-page .who-text {
-  flex: 1 1 520px;  
-  min-width: 280px;
-}
-
-#about-page .about-icon {
-  flex: 1 1 480px;  
+/* Text blocks (roughly 58%) */
+#hero .hero-text,
+#who-we-are .who-text {
+  flex: 1 1 calc(58% - var(--about-row-gap));
   min-width: 320px;
+  max-width: 640px;          /* prevents overly long lines */
+}
+
+/* Image blocks (roughly 42%) */
+#hero .about-icon,
+#who-we-are .about-icon {
+  flex: 0 0 var(--about-illus-basis);
+  max-width: var(--about-illus-max);
   text-align: right;
 }
 
-#about-page .about-icon img {
+/* Image sizing */
+#hero .about-icon img,
+#who-we-are .about-icon img {
   width: 100%;
-  max-width: 520px;  
   height: auto;
+  display: block;
 }
 
-@media (max-width: 991px) {
-  #about-page .hero-inner,
-  #about-page .who-layout {
+/* Tablet: slightly smaller images */
+@media (max-width: 1024px) {
+  :root {
+    --about-illus-max: 380px;
+    --about-illus-basis: 40%;
+    --about-row-gap: 40px;
+  }
+}
+
+/* Mobile: stack vertically and center, smaller image */
+@media (max-width: 768px) {
+  #hero .hero-inner,
+  #who-we-are .who-layout {
     flex-direction: column;
     text-align: center;
     gap: 24px;
   }
-  #about-page .about-icon {
-    text-align: center;
-    min-width: 0;
+  :root {
+    --about-illus-max: 320px;
+    --about-illus-basis: 100%;
   }
-  #about-page .about-icon img {
-    max-width: 360px;
+  #hero .about-icon,
+  #who-we-are .about-icon {
+    text-align: center;
   }
 }
