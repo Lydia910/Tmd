@@ -873,10 +873,11 @@ footer {
 }
 
 
-/* ========= About page (scoped) ========= */
-/* text-left + image-right layout for hero & who-we-are */
-#about-page .hero-inner,
-#about-page .who-layout {
+/* ========== ABOUT PAGE (SCOPED TO body.about-page) ========== */
+
+/* Text-left + image-right layout for Hero & Who We Are */
+body.about-page .hero-inner,
+body.about-page .who-layout {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -886,81 +887,85 @@ footer {
   padding: 48px 20px; /* comfortable spacing */
 }
 
-#about-page .hero-text,
-#about-page .who-text {
-  flex: 1 1 560px;   /* text column */
+/* Text columns */
+body.about-page .hero-text,
+body.about-page .who-text {
+  flex: 1 1 560px;   /* grows, but keeps nice min width */
   min-width: 280px;
 }
 
-/* right-side illustration column */
-#about-page .about-icon {
-  flex: 0 0 360px;   /* fix the visual width of the image column */
-  text-align: right;
+/* Right-side illustration columns (fixed visual width) */
+body.about-page .hero-image,
+body.about-page .who-image {
+  flex: 0 0 380px;   /* <- adjust this to tune image column width on desktop */
+  display: flex;
+  justify-content: flex-end;
 }
-#about-page .about-icon img {
+
+body.about-page .hero-image img,
+body.about-page .who-image img {
   width: 100%;
-  max-width: 360px;  /* final image size */
+  max-width: 380px;  /* <- final image size on desktop */
   height: auto;
 }
 
-/* 3-up & 4-up grids */
-#about-page .values-grid,
-#about-page .diff-grid {
+/* 3-up and 4-up grids (desktop) */
+body.about-page #about-page .values-grid,
+body.about-page #about-page .diff-grid {
   display: grid;
-  gap: 32px;
+  column-gap: 32px;
+  row-gap: 28px;
   align-items: start;
   text-align: center;
   max-width: 1100px;
   margin: 0 auto;
 }
 
-#about-page .values-grid {
+/* Keep 3 columns for Mission & Values on desktop */
+body.about-page #about-page .values-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-#about-page .diff-grid {
+
+/* Keep 4 columns for What Makes Us Different on desktop */
+body.about-page #about-page .diff-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-/* cards & icons inside the grids */
-#about-page .value,
-#about-page .diff-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#about-page .value-icon,
-#about-page .diff-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-#about-page .value-icon img,
-#about-page .diff-icon img {
+/* Icon sizing inside cards */
+body.about-page #about-page .value-icon img,
+body.about-page #about-page .diff-icon img {
   width: 56px;
   height: 56px;
   display: block;
 }
 
-/* responsive: stack on narrow screens */
+/* --------- Responsive (tablets / phones) --------- */
 @media (max-width: 991px) {
-  #about-page .hero-inner,
-  #about-page .who-layout {
+  /* Stack hero & who-we-are vertically and center align */
+  body.about-page .hero-inner,
+  body.about-page .who-layout {
     flex-direction: column;
     text-align: center;
     gap: 24px;
   }
-  #about-page .about-icon {
-    text-align: center;
+
+  /* Center images and reduce size on smaller screens */
+  body.about-page .hero-image,
+  body.about-page .who-image {
+    justify-content: center;
     flex: 0 1 auto;
   }
 
-  #about-page .values-grid {
-    grid-template-columns: 1fr;         /* 1 column */
+  body.about-page .hero-image img,
+  body.about-page .who-image img {
+    max-width: 320px; /* smaller image on mobile/tablet */
   }
-  #about-page .diff-grid {
-    grid-template-columns: 1fr 1fr;     /* 2 columns */
+
+  /* Grids: 1 column for 3-up; 2 columns for 4-up */
+  body.about-page #about-page .values-grid {
+    grid-template-columns: 1fr;
+  }
+  body.about-page #about-page .diff-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
