@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pricing | The Managed Desk</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- Shared Navbar -->
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Homepage - TMD</title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+
+ <body>
+  <!-- navbar -->
+  <header id="navbar-container">
+  </header>
+<body class="about-page">
+  <!-- Navbar mount -->
   <header id="navbar-container"></header>
 
   <section id="hero" style="padding: 40px 20px;">
     <div class="container">
       <h1>Modular, Predictable Pricing for Modern MSPs</h1>
       <p>Start small or go full stack. Add users and features as you grow. Fully hosted in Australia. Supported by real engineers.</p>
-      <div style="margin-top: 20px;">
-        <button class="primary-btn">Start Free Trial</button>
-        <button class="primary-btn">Book a Demo</button>
+      <div class="hero-actions">
+        <button>Start Free Trial</button>
+        <button>View Pricing</button>
       </div>
     </div>
   </section>
@@ -95,21 +100,11 @@
     </div>
   </section>
 
-  <section id="trial" style="padding: 40px 20px; text-align: center;">
-    <div class="container">
-      <h2>Start Free – No Credit Card Needed</h2>
-      <p>Try any module for 14 days. Setup is instant. Fully hosted in Australia.</p>
-      <div style="margin-top: 20px;">
-        <button class="primary-btn">Start Free Trial</button>
-        <button class="primary-btn">Book a Demo</button>
-      </div>
-    </div>
-  </section>
 
-  <footer style="text-align: center; padding: 20px; background-color: #0A192F; color: white;">
-    <p>&copy; 2025 The Managed Desk. All rights reserved.</p>
-  </footer>
+  <script src="navbar.js"></script>
 
-  <script src="navbar.js" defer></script>
+  <!-- Shared bottom section -->
+  <div id="site-bottom-mount"></div>
+  <script src="site-bottom.js"></script>
 </body>
 </html>

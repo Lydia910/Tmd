@@ -1,81 +1,41 @@
+<!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
   <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   Contact - TMD
-  </title>
-  <link href="style.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Poppins:wght@600&amp;display=swap" rel="stylesheet"/>
- </head>
- <body>
-  <header id="navbar-container">
-  </header>
-  <section class="container" id="hero">
-   <h1>
-    ITSM &amp; Asset Management for Aussie MSPs
-   </h1>
-   <p>
-    Simplify your IT operations with our all-in-one, locally hosted platform. Built by engineers. Priced for humans.
-   </p>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - TMD</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <!-- Navbar mount -->
+  <header id="navbar-container"></header>
+
+  <!-- Hero section -->
+  <section class="hero-section">
+   <div class="hero-content">
+    <div class="hero-text">
+     <h1>
+      Australia’s Most Trusted ITSM &amp; Asset Management Platform
+     </h1>
+     <p>
+      Secure. Compliant. 100% Hosted in Australia.
+     </p>
      <div class="cta-buttons">
-  <a href="#" class="hero-btn">Start Free Trial</a>
-  <a href="pricing.html" class="hero-btn">View Pricing</a>
-</div>
+      <a class="btn primary-btn" href="#">
+       Start Free Trial
+      </a>
+      <a class="btn primary-btn" href="#">
+        Book a Demo
+      </a>
+     </div>
+    </div>
+   </div>
   </section>
-  <section class="section">
-   <h2>
-    Contact Us
-   </h2>
-   <p>
-    This is the contact page content.
-   </p>
-  </section>
-  <script src="navbar.js">
-  </script>
-    <!-- Final CTA -->
-  <section class="section final-cta">
-   <h2>
-    Start your 14-day free trial today — no credit card needed.
-   </h2>
-   <div class="cta-buttons">
-  <a class="btn primary-btn" href="#">Start Trial</a>
-  <a class="btn secondary-btn" href="#">Book Demo</a>
-</div>
-  </section>
-  <footer class="container">
-   <p>
-    © 2025 The Managed Desk. Built in Australia. Hosted on AWS Sydney.
-   </p>
-   <ul>
-    <li>
-     <a href="about.html">
-      About
-     </a>
-    </li>
-    <li>
-     <a href="features.html">
-      Features
-     </a>
-    </li>
-    <li>
-     <a href="pricing.html">
-      Pricing
-     </a>
-    </li>
-    <li>
-     <a href="contact.html">
-      Contact
-     </a>
-    </li>
-    <li>
-     <a href="terms.html">
-      Terms &amp; Privacy
-     </a>
-    </li>
-   </ul>
-  </footer>
-  <script src="navbar.js">
-  </script>
- </body>
+
+  <!-- Load navbar, then shared bottom (CTA + login + footer) -->
+  <script src="navbar.js"></script>
+  <div id="site-bottom-mount"></div>
+  <script src="site-bottom.js"></script>
+</body>
 </html>
