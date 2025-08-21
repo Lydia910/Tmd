@@ -186,6 +186,10 @@ h1, h2, h3 {
 #demo-cta button:hover {
   background-color: #00C0E3;
 }
+.band-demo .band__text .primary-btn{
+  display: inline-block;
+  margin-top: 24px !important;
+}
 
 /* Ticket Section */
 .ticket-section {
