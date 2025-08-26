@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-label="Dashboard overview"><defs><style>
+.muted{fill:#E8F2F4}.card{fill:#ffffff}.nav{fill:#0C2F54}.teal{fill:#18B7B0}
+.stroke{stroke:#0C2F54;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+</style></defs>
+<rect width="760" height="420" rx="16" class="muted"/>
+<rect x="24" y="24" width="712" height="372" rx="12" class="card"/> <rect x="24" y="24" width="712" height="56" rx="12" class="nav"/> <circle cx="56" cy="52" r="6" class="teal"/><circle cx="76" cy="52" r="6" fill="#D7EDEE"/><circle cx="96" cy="52" r="6" fill="#D7EDEE"/> <rect x="48" y="104" width="280" height="140" rx="10" class="muted"/> <polyline points="64,220 112,172 172,190 226,144 278,168" class="stroke"/> <rect x="352" y="104" width="160" height="140" rx="10" class="muted"/> <rect x="528" y="104" width="184" height="140" rx="10" class="muted"/> <rect x="48" y="260" width="664" height="96" rx="10" class="muted"/> <rect x="368" y="128" width="56" height="24" rx="6" class="teal"/> <rect x="440" y="128" width="56" height="24" rx="6" fill="#0D8BAA"/> <rect x="512" y="128" width="56" height="24" rx="6" class="nav"/> </svg>

@@ -112,11 +112,58 @@ h1, h2, h3 {
   height: auto;
   display: block;
 }
+.hero-section { background:#F7F9FC; padding:80px 20px; }
+.hero-section .hero-content{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:40px; max-width:1200px; margin:0 auto;
+}
+.hero-section .hero-text{ flex:1; min-width:320px; text-align:left; }
+.hero-section .hero-image{ flex:1; min-width:320px; text-align:center; }
+.hero-section .hero-image img{ max-width:420px; width:100%; height:auto; display:block; }
+@media (max-width:900px){
+  .hero-section .hero-content{ flex-direction:column; text-align:center; }
+  .hero-section .hero-text{ text-align:center; }
+}
+
 
 @media (max-width: 900px) {
   #hero .hero-inner { flex-direction: column; text-align: center; }
   #hero .hero-text { text-align: center; }
 }
+
+.hero-section .hero-content{
+  display:flex; align-items:center; justify-content:space-between; gap:40px;
+}
+.hero-section .hero-text{ flex:1; min-width:320px; text-align:left; }
+.hero-section .hero-image{ flex:1; min-width:320px; text-align:center; }
+
+
+.hero-section .cta-buttons{ justify-content:flex-start; }
+
+
+@media (max-width:900px){
+  .hero-section .hero-content{ flex-direction:column; text-align:center; }
+  .hero-section .hero-text{ text-align:center; }
+  .hero-section .cta-buttons{ justify-content:center; }
+}
+
+.hero-image svg, .hero-image img { max-width:520px; width:100%; height:auto; object-fit:contain; }
+.hero-image { color:#0C2F54; }
+
+.contact-hero .hero-content{display:flex;align-items:center;gap:40px}
+.contact-hero .hero-text{flex:1;min-width:320px;text-align:left}
+.contact-hero .cta-buttons{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-start;margin-top:16px}
+.contact-hero .hero-image{flex:1;min-width:420px;display:flex;justify-content:center;align-items:center}
+.contact-hero .hero-image img,.contact-hero .hero-image svg{display:block;width:min(56vw,640px);max-width:640px;height:auto;margin:0 auto;object-fit:contain}
+@media (max-width:900px){
+  .contact-hero .hero-content{flex-direction:column;text-align:center}
+  .contact-hero .hero-text{text-align:center}
+  .contact-hero .cta-buttons{justify-content:center}
+  .contact-hero .hero-image{min-width:0}
+  .contact-hero .hero-image img,.contact-hero .hero-image svg{width:min(90vw,520px);max-width:520px}
+}
+
+
 /* Why TMD */
 #why-tmd {
   padding: 60px 20px;
@@ -190,6 +237,7 @@ h1, h2, h3 {
   display: inline-block;
   margin-top: 24px !important;
 }
+
 
 /* Ticket Section */
 .ticket-section {
@@ -1485,3 +1533,38 @@ body.about-page #about-page .diff-sub {
   border-radius:8px;
   box-shadow: 0 10px 24px rgba(2,15,35,.08);
 }
+
+/* === Contact page === */
+.contact-section{ padding:60px 20px; }
+.contact-grid{
+  display:grid; grid-template-columns: 1fr 0.85fr; gap:40px;
+  align-items:start; max-width:1200px; margin:0 auto;
+}
+@media (max-width:900px){ .contact-grid{ grid-template-columns:1fr; } }
+
+.contact-form .field{ margin-bottom:16px; }
+.contact-form label{ display:block; font-weight:600; margin-bottom:6px; }
+.contact-form input, .contact-form textarea{
+  width:100%; padding:12px; border:1px solid #B0B7C3; border-radius:6px;
+  font:16px/1.4 'Open Sans', sans-serif;
+}
+.contact-form input:focus, .contact-form textarea:focus{
+  outline:none; border-color:#00C0E3; box-shadow:0 0 0 3px rgba(0,192,227,.15);
+}
+.contact-form .hint{ margin:6px 0 0; color:#5C6B82; font-size:14px; }
+.contact-form .error{ margin:6px 0 0; color:#c43c3c; font-size:14px; min-height:18px; }
+.contact-form .checkbox label{ display:flex; gap:10px; align-items:flex-start; font-weight:400; }
+.contact-form .checkbox input{ margin-top:3px; width:auto; }
+
+.form-success{
+  margin-top:16px; padding:12px 14px; background:#E8F2F4; border:1px solid #cde6ea;
+  border-radius:8px; color:#0C2F54;
+}
+
+/* Right column card */
+.contact-aside{
+  background:#F7F9FC; border:1px solid #e6e9ef; border-radius:12px; padding:20px;
+}
+.contact-aside h3{ margin-top:0; font-family:'Poppins',sans-serif; }
+.contact-aside p{ margin:10px 0; }
+.contact-aside a{ color:#0057B8; }
