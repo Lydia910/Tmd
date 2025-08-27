@@ -3,35 +3,44 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Homepage - TMD</title>
+  <title>Pricing - TMD</title>
   <link href="style.css" rel="stylesheet"/>
  </head>
 
  <body>
-  <!-- navbar -->
-  <header id="navbar-container">
-  </header>
-<body class="about-page">
   <!-- Navbar mount -->
   <header id="navbar-container"></header>
 
-<!-- hero -->
+  <!-- hero -->
   <section class="container" id="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <h1>Modular, Predictable Pricing for Modern MSPs</h1>
-      <p>Start small or go full stack. Add users and features as you grow. Fully hosted in Australia. Supported by real engineers.</p>
-      <div class="hero-actions">
-        <button>Start Free Trial</button>
-        <button>View Pricing</button>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Modular, Predictable Pricing for Modern MSPs</h1>
+        <p>Start small or go full stack. Add users and features as you grow. Fully hosted in Australia. Supported by real engineers.</p>
+        <div class="hero-actions">
+          <button>Start Free Trial</button>
+          <button>View Pricing</button>
+        </div>
+      </div>
+
+      <div class="hero-image" aria-hidden="false">
+        <!-- inline SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" role="img" aria-label="Shield check illustration" class="svg-fit">
+          <defs>
+            <style>
+              .stroke { stroke-width:4; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+            </style>
+          </defs>
+          
+          <path d="M260 60l120 40v84c0 78-67 118-120 140-53-22-120-62-120-140V100l120-40z" class="light"/>
+          
+          <path d="M206 175l36 36 76-76" class="stroke stroke-color"/>
+          
+          <circle cx="380" cy="115" r="22" class="accent"/>
+        </svg>
       </div>
     </div>
-
-    <div class="hero-image">
-      <img src="icons/pricing-icon.svg" alt="pricing icon illustration">
-    </div>
-  </div>
-</section>
+  </section>
 
   <section id="pricing" style="padding: 40px 20px;">
     <div class="container">
@@ -106,7 +115,6 @@
       </table>
     </div>
   </section>
-
 
   <script src="navbar.js"></script>
 
