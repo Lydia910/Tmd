@@ -1568,3 +1568,21 @@ body.about-page #about-page .diff-sub {
 .contact-aside h3{ margin-top:0; font-family:'Poppins',sans-serif; }
 .contact-aside p{ margin:10px 0; }
 .contact-aside a{ color:#0057B8; }
+
+
+/* === Inline SVG theming === */
+
+.hero-image .svg-fit { width: 100%; height: auto; display: block; object-fit: contain; }
+
+.stroke-color { stroke: currentColor; }
+
+.hero-image svg .light,
+.hero-image svg .card,
+.hero-image svg .accent,
+.hero-image svg .base,
+.hero-image svg .muted,
+.hero-image svg .nav,
+.hero-image svg .aqua { fill: currentColor; }
+
+.hero-image svg .light { opacity: .12; }
+.hero-image svg .muted { opacity: .08; }
