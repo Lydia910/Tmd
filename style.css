@@ -51,6 +51,9 @@ h1, h2, h3 {
   }
 }
 .logo svg { height: 40px; width: auto; display: block; }
+.navbar .logo{display:flex;align-items:center}
+.navbar .logo-img{height:36px;width:auto;display:block}
+@media (max-width:900px){.navbar .logo-img{height:28px}}
 
 
 /* Hero Section */
@@ -161,6 +164,35 @@ h1, h2, h3 {
   .contact-hero .cta-buttons{justify-content:center}
   .contact-hero .hero-image{min-width:0}
   .contact-hero .hero-image img,.contact-hero .hero-image svg{width:min(90vw,520px);max-width:520px}
+}
+
+#hero{ text-align:left; }
+#hero .hero-text{ max-width:640px; }
+#hero p{ max-width:none; margin-left:0; margin-right:0; }
+#hero .hero-actions,
+.hero-section .hero-actions,
+#hero .cta-buttons,
+.hero-section .cta-buttons{ justify-content:flex-start; margin-left:0; }
+
+@media (max-width:900px){
+  #hero .hero-text{ max-width:none; text-align:center; }
+  #hero p{ max-width:600px; margin-left:auto; margin-right:auto; }
+  #hero .hero-actions,
+  .hero-section .hero-actions,
+  #hero .cta-buttons,
+  .hero-section .cta-buttons{ justify-content:center; }
+}
+
+
+/* Force index hero CTA left-aligned like Features */
+#hero .hero-actions {
+  justify-content: flex-start;
+}
+
+/* Force About + Features hero CTA to align left like Index */
+body.about-page .cta-buttons,
+.hero-section .cta-buttons {
+  justify-content: flex-start !important;
 }
 
 
@@ -1568,3 +1600,21 @@ body.about-page #about-page .diff-sub {
 .contact-aside h3{ margin-top:0; font-family:'Poppins',sans-serif; }
 .contact-aside p{ margin:10px 0; }
 .contact-aside a{ color:#0057B8; }
+
+
+/* === Inline SVG theming === */
+
+.hero-image .svg-fit { width: 100%; height: auto; display: block; object-fit: contain; }
+
+.stroke-color { stroke: currentColor; }
+
+.hero-image svg .light,
+.hero-image svg .card,
+.hero-image svg .accent,
+.hero-image svg .base,
+.hero-image svg .muted,
+.hero-image svg .nav,
+.hero-image svg .aqua { fill: currentColor; }
+
+.hero-image svg .light { opacity: .12; }
+.hero-image svg .muted { opacity: .08; }
