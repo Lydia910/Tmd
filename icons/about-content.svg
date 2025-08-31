@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-label="Developer at desk with code windows">
+  <defs>
+    <style>
+      .muted{fill:#E8F2F4}
+      .card{fill:#ffffff}
+      .nav{fill:#0C2F54}
+      .teal{fill:#18B7B0}
+      .blue{fill:#0D8BAA}
+      .stroke{stroke:#0C2F54;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;fill:none}
+      .thin{stroke:#0C2F54;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;fill:none}
+    </style>
+  </defs>
+
+  <rect x="60" y="48" width="280" height="220" rx="20" class="muted"/>
+  <rect x="420" y="48" width="280" height="220" rx="20" class="muted"/>
+  <ellipse cx="380" cy="330" rx="300" ry="16" class="muted"/>
+
+  <g>
+    <rect x="330" y="78" width="196" height="92" rx="12" class="card"/>
+    <rect x="330" y="78" width="196" height="92" rx="12" class="thin"/>
+    <rect x="330" y="78" width="196" height="16" rx="12" class="muted"/>
+    <rect x="350" y="112" width="60" height="8" rx="4" class="muted"/>
+    <rect x="350" y="128" width="120" height="8" rx="4" class="muted"/>
+
+    <rect x="300" y="150" width="260" height="110" rx="12" class="card"/>
+    <rect x="300" y="150" width="260" height="110" rx="12" class="thin"/>
+    <rect x="300" y="150" width="260" height="16" rx="12" class="muted"/>
+    <rect x="318" y="184" width="120" height="8" rx="4" class="muted"/>
+    <rect x="318" y="200" width="180" height="8" rx="4" class="muted"/>
+    <rect x="318" y="216" width="140" height="8" rx="4" class="muted"/>
+
+    <rect x="540" y="120" width="52" height="52" rx="10" class="card"/>
+    <rect x="540" y="120" width="52" height="52" rx="10" class="thin"/>
+    <path d="M552 136 l16 0 m-8 -8 v32" class="thin"/>
+    <rect x="600" y="120" width="52" height="52" rx="10" class="card"/>
+    <rect x="600" y="120" width="52" height="52" rx="10" class="thin"/>
+    <path d="M612 140 q14 -10 28 0 m-28 12 q14 10 28 0" class="thin"/>
+  </g>
+
+  <g transform="translate(140,118)">
+    <circle cx="96" cy="32" r="24" class="nav"/>
+    <circle cx="88" cy="28" r="3" fill="#ffffff"/>
+    <path d="M76 52 q20 12 40 0" class="thin"/>
+    <rect x="56" y="64" width="96" height="70" rx="22" class="teal"/>
+    <rect x="44" y="92" width="36" height="18" rx="9" class="teal"/>
+    <rect x="128" y="92" width="36" height="18" rx="9" class="teal"/>
+    <rect x="60" y="130" width="20" height="54" rx="10" class="nav"/>
+    <rect x="128" y="130" width="20" height="54" rx="10" class="nav"/>
+  </g>
+
+  <g>
+    <rect x="280" y="206" width="170" height="98" rx="12" class="card"/>
+    <rect x="280" y="206" width="170" height="98" rx="12" class="thin"/>
+    <rect x="290" y="220" width="150" height="58" rx="8" class="muted"/>
+    <rect x="260" y="300" width="210" height="12" rx="6" class="nav"/>
+  </g>
+
+  <g>
+    <rect x="510" y="228" width="92" height="66" rx="10" class="card"/>
+    <rect x="510" y="228" width="92" height="66" rx="10" class="thin"/>
+    <rect x="534" y="298" width="44" height="8" rx="4" class="nav"/>
+    <rect x="522" y="306" width="68" height="8" rx="4" class="nav"/>
+  </g>
+
+  <rect x="96" y="316" width="568" height="18" rx="9" class="blue"/>
+
+  <g opacity=".25">
+    <circle cx="640" cy="84" r="20" class="muted"/>
+    <path d="M640 64 v12 M640 92 v12 M620 84 h12 M648 84 h12" class="thin"/>
+  </g>
+
+  <circle cx="210" cy="186" r="12" class="teal"/>
+</svg>

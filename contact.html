@@ -1,81 +1,151 @@
+<!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
   <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   Contact - TMD
-  </title>
-  <link href="style.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Poppins:wght@600&amp;display=swap" rel="stylesheet"/>
- </head>
- <body>
-  <header id="navbar-container">
-  </header>
-  <section class="container" id="hero">
-   <h1>
-    ITSM &amp; Asset Management for Aussie MSPs
-   </h1>
-   <p>
-    Simplify your IT operations with our all-in-one, locally hosted platform. Built by engineers. Priced for humans.
-   </p>
-     <div class="cta-buttons">
-  <a href="#" class="hero-btn">Start Free Trial</a>
-  <a href="pricing.html" class="hero-btn">View Pricing</a>
-</div>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - TMD</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <!-- Navbar mount -->
+  <header id="navbar-container"></header>
+
+  <section class="hero-section contact-hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Contact TMD</h1>
+        <p>We respond within 1 business day.</p>
+        <div class="cta-buttons">
+          <a href="signup.html" class="btn btn-primary">Start Free Trial</a>
+          <a href="pricing.html" class="btn btn-outline">View Pricing</a>
+        </div>
+      </div>
+
+      <div class="hero-image" aria-hidden="false">
+        <!-- inline SVG: envelope + chat -->
+<div class="hero-image">
+      <img src="icons/contact-icon.svg" alt="Contact envelope illustration">
+    </div>
+    </div>
   </section>
-  <section class="section">
-   <h2>
-    Contact Us
-   </h2>
-   <p>
-    This is the contact page content.
-   </p>
+
+  <section class="contact-section">
+    <div class="container contact-grid">
+      <!-- Left: form -->
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="field">
+          <label for="name">Name <span>*</span></label>
+          <input id="name" name="name" type="text" required>
+          <p class="error" id="err-name"></p>
+        </div>
+
+        <div class="field">
+          <label for="email">Work email <span>*</span></label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required>
+          <p class="hint">Please use your company email.</p>
+          <p class="error" id="err-email"></p>
+        </div>
+
+        <div class="field">
+          <label for="company">Company <span>*</span></label>
+          <input id="company" name="company" type="text" required>
+          <p class="error" id="err-company"></p>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone (optional)</label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel">
+        </div>
+
+        <div class="field">
+          <label for="message">Message <span>*</span></label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+          <p class="hint">3–500 words.</p>
+          <p class="error" id="err-message"></p>
+        </div>
+
+        <div class="field checkbox">
+          <label>
+            <input id="agree" type="checkbox" required>
+            I agree to the <a href="privacy.html">Privacy Policy</a>.
+          </label>
+          <p class="error" id="err-agree"></p>
+        </div>
+
+        <button class="primary-btn" type="submit">Send message</button>
+
+        <p class="form-success" id="form-success" role="status" aria-live="polite" hidden>
+          Thanks—someone from TMD will get back within one business day.
+        </p>
+      </form>
+
+      <!-- Right: direct contact -->
+      <aside class="contact-aside">
+        <h3>Direct contact</h3>
+        <p><strong>Email:</strong> <a href="mailto:hello@themanageddesk.com">hello@themanageddesk.com</a></p>
+        <p><strong>Hours:</strong> Mon–Fri, 9:00–5:00 AEST</p>
+        <p><strong>Existing customers:</strong> For urgent issues, use <a href="support.html">Get Support</a> for 24/7 response.</p>
+      </aside>
+    </div>
   </section>
-  <script src="navbar.js">
+
+  <script>
+  (function(){
+    const form = document.getElementById('contact-form');
+    if(!form) return;
+
+    const email = document.getElementById('email');
+    const message = document.getElementById('message');
+    const agree = document.getElementById('agree');
+    const successEl = document.getElementById('form-success');
+
+    const freeDomains = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','aol.com','live.com','proton.me','protonmail.com','qq.com','163.com','yeah.net','mail.ru','gmx.com'];
+    const err = id => document.getElementById('err-'+id);
+
+    const wordCount = t => (t.trim().match(/\b[\w'-]+\b/g) || []).length;
+
+    form.addEventListener('submit', function(e){
+      let ok = true;
+      form.querySelectorAll('.error').forEach(el => el.textContent = '');
+      successEl.hidden = true;
+
+      // required fields
+      ['name','email','company','message'].forEach(id=>{
+        const el = document.getElementById(id);
+        if(!el.value.trim()){ err(id).textContent = 'This field is required.'; ok = false; }
+      });
+
+      // work email format + domain
+      if(email.value){
+        const validFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
+        const domain = email.value.split('@')[1]?.toLowerCase();
+        if(!validFormat){ err('email').textContent = 'Enter a valid email address.'; ok = false; }
+        else if(domain && freeDomains.includes(domain)){
+          err('email').textContent = 'Please use your work email (not a personal domain).'; ok = false;
+        }
+      }
+
+      // message words 3–500
+      const wc = wordCount(message.value);
+      if(wc < 3 || wc > 500){ err('message').textContent = 'Message must be between 3 and 500 words.'; ok = false; }
+
+      // privacy checkbox
+      if(!agree.checked){ err('agree').textContent = 'Please agree to the Privacy Policy.'; ok = false; }
+
+      if(!ok){ e.preventDefault(); return; }
+
+      // demo: block real submit, show success
+      e.preventDefault();
+      form.reset();
+      successEl.hidden = false;
+    });
+  })();
   </script>
-    <!-- Final CTA -->
-  <section class="section final-cta">
-   <h2>
-    Start your 14-day free trial today — no credit card needed.
-   </h2>
-   <div class="cta-buttons">
-  <a class="btn primary-btn" href="#">Start Trial</a>
-  <a class="btn secondary-btn" href="#">Book Demo</a>
-</div>
-  </section>
-  <footer class="container">
-   <p>
-    © 2025 The Managed Desk. Built in Australia. Hosted on AWS Sydney.
-   </p>
-   <ul>
-    <li>
-     <a href="about.html">
-      About
-     </a>
-    </li>
-    <li>
-     <a href="features.html">
-      Features
-     </a>
-    </li>
-    <li>
-     <a href="pricing.html">
-      Pricing
-     </a>
-    </li>
-    <li>
-     <a href="contact.html">
-      Contact
-     </a>
-    </li>
-    <li>
-     <a href="terms.html">
-      Terms &amp; Privacy
-     </a>
-    </li>
-   </ul>
-  </footer>
-  <script src="navbar.js">
-  </script>
- </body>
+
+  <!-- Load navbar, then shared bottom (CTA + login + footer) -->
+  <script src="navbar.js"></script>
+  <div id="site-bottom-mount"></div>
+  <script src="site-bottom.js"></script>
+</body>
 </html>
