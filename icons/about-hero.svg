@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-label="Team assembling puzzle">
+  <defs>
+    <style>
+      .muted{fill:#E8F2F4}
+      .card{fill:#ffffff}
+      .nav{fill:#0C2F54}
+      .teal{fill:#18B7B0}
+      .blue{fill:#0D8BAA}
+      .stroke{stroke:#0C2F54;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;fill:none}
+    </style>
+  </defs>
+
+  <rect x="40" y="32" width="680" height="336" rx="24" class="muted"/>
+  <ellipse cx="380" cy="360" rx="280" ry="16" class="muted"/>
+
+  <g transform="translate(70,60)">
+    <circle cx="90" cy="48" r="22" class="nav"/>
+    <rect x="64" y="72" width="52" height="64" rx="10" class="card"/>
+    <rect x="58" y="136" width="64" height="16" rx="8" class="nav"/>
+    <rect x="58" y="152" width="64" height="64" rx="10" class="teal"/>
+    <rect x="66" y="216" width="16" height="36" rx="8" class="nav"/>
+    <rect x="98" y="216" width="16" height="36" rx="8" class="nav"/>
+    <rect x="42" y="118" width="24" height="12" rx="6" class="nav"/>
+    <rect x="114" y="118" width="24" height="12" rx="6" class="nav"/>
+  </g>
+
+  <g transform="translate(300,40)">
+    <circle cx="90" cy="56" r="22" class="nav"/>
+    <rect x="64" y="80" width="52" height="60" rx="10" class="teal"/>
+    <rect x="58" y="140" width="64" height="16" rx="8" class="nav"/>
+    <rect x="58" y="156" width="64" height="72" rx="10" class="nav"/>
+    <rect x="66" y="228" width="16" height="34" rx="8" class="nav"/>
+    <rect x="98" y="228" width="16" height="34" rx="8" class="nav"/>
+    <rect x="40" y="128" width="26" height="12" rx="6" class="nav"/>
+    <rect x="114" y="128" width="26" height="12" rx="6" class="nav"/>
+  </g>
+
+  <g transform="translate(520,56)">
+    <circle cx="90" cy="48" r="22" class="nav"/>
+    <rect x="64" y="72" width="52" height="60" rx="10" class="card"/>
+    <rect x="58" y="132" width="64" height="16" rx="8" class="nav"/>
+    <rect x="58" y="148" width="64" height="70" rx="10" class="blue"/>
+    <rect x="66" y="218" width="16" height="34" rx="8" class="nav"/>
+    <rect x="98" y="218" width="16" height="34" rx="8" class="nav"/>
+    <rect x="40" y="118" width="24" height="12" rx="6" class="nav"/>
+    <rect x="114" y="118" width="24" height="12" rx="6" class="nav"/>
+  </g>
+
+  <g transform="translate(120,150)">
+    <rect x="0" y="0" width="180" height="120" rx="18" class="teal"/>
+    <circle cx="180" cy="60" r="18" class="teal"/>
+    <circle cx="24" cy="60" r="18" class="card"/>
+    <path d="M24 60h22" class="stroke"/>
+  </g>
+
+  <g transform="translate(300,164)">
+    <rect x="0" y="0" width="180" height="120" rx="18" class="blue"/>
+    <circle cx="0" cy="60" r="18" class="blue"/>
+    <circle cx="156" cy="60" r="18" class="card"/>
+    <path d="M134 60h22" class="stroke"/>
+  </g>
+
+  <g transform="translate(480,150)">
+    <rect x="0" y="0" width="180" height="120" rx="18" class="nav"/>
+    <circle cx="180" cy="60" r="18" class="nav"/>
+    <circle cx="24" cy="60" r="18" class="card"/>
+    <path d="M24 60h22" class="stroke"/>
+  </g>
+</svg>
