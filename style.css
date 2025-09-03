@@ -1618,3 +1618,17 @@ body.about-page #about-page .diff-sub {
 
 .hero-image svg .light { opacity: .12; }
 .hero-image svg .muted { opacity: .08; }
+
+/* --- Minimal adjustments for consistent navbar size & login modal (2025-09-03) --- */
+.navbar { min-height: 64px; display:flex; align-items:center; }
+.navbar .logo-img { max-height: 40px; }
+#navbar-root .container, .navbar .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+
+/* Modal */
+.modal { position: fixed; inset: 0; z-index: 1000; }
+.modal[aria-hidden="true"] { display: none; }
+.modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.4); }
+.modal-content { position: relative; background: #fff; width: 100%; max-width: 420px; margin: 10vh auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.2); padding: 24px; }
+.modal-close { position: absolute; top: 8px; right: 12px; background: transparent; border: 0; font-size: 28px; cursor: pointer; }
+.modal-loading { text-align: center; padding: 24px; }
+
