@@ -10,9 +10,7 @@
   --tmd-shadow: 0 16px 40px rgba(10, 25, 47, 0.18);
 }
 
-#tmd-chatbot-root {
-  /* no layout impact until opened */
-}
+
 
 #tmd-chatbot-button {
   position: fixed;
@@ -32,6 +30,9 @@
   z-index: 9999;
   transition: transform .15s ease, background .15s ease;
 }
+
+
+
 #tmd-chatbot-button:hover { background: var(--tmd-blue-dark); transform: translateY(-1px); }
 #tmd-chatbot-button:active { transform: translateY(0); }
 

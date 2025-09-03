@@ -5,6 +5,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Homepage - TMD</title>
   <link href="style.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="tmd-chatbot.css" />
+
  </head>
 
  <body>
@@ -142,18 +144,19 @@
    </form>
   </section>
 
-  
+ <!-- Floating Chatbot Root -->
+<div id="tmd-chatbot-root"></div>
+ 
 
-  <!-- Floating Chatbot Icon -->
-  <a href="chat.html" class="chat-fab" aria-label="Chat">
-    <img src="icons/tmd-chatbot-icon-robot.svg" alt="Chatbot" />
-  </a>
+
 
   <script src="navbar.js"></script>
 
   <!-- Shared bottom section -->
   <div id="site-bottom-mount"></div>
   <script src="site-bottom.js"></script>
+  <script src="tmd-chatbot.js" defer></script>
+
 </body>
 </html>
 

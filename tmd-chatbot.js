@@ -7,27 +7,24 @@
   if (!root) return;
 
   // Build the panel markup once (keeps HTML changes minimal)
+
   root.insertAdjacentHTML('beforeend', `
-    <button id="tmd-chatbot-button" aria-label="Open chat">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M20 2H4a2 2 0 0 0-2 2v14l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z" fill="currentColor"/>
-        <circle cx="8" cy="10" r="1.6" fill="#fff"/>
-        <circle cx="12" cy="10" r="1.6" fill="#fff"/>
-        <circle cx="16" cy="10" r="1.6" fill="#fff"/>
-      </svg>
-    </button>
-    <section id="tmd-chatbot-panel" role="dialog" aria-labelledby="tmd-chatbot-title" aria-modal="true" aria-hidden="true">
-      <header class="tmd-chatbot-header">
-        <div class="tmd-title" id="tmd-chatbot-title">TMD Assistant</div>
-        <button class="tmd-close" id="tmd-chatbot-close" aria-label="Close">×</button>
-      </header>
-      <div class="tmd-messages" id="tmd-chatbot-messages" tabindex="0"></div>
-      <form class="tmd-input-row" id="tmd-chatbot-form">
-        <input id="tmd-chatbot-input" type="text" autocomplete="off" placeholder="Type your message…" aria-label="Message" />
-        <button id="tmd-chatbot-send" type="submit">Send</button>
-      </form>
-    </section>
-  `);
+  <button id="tmd-chatbot-button" aria-label="Open chat">
+    <img src="icons/tmd-chatbot-icon-robot.svg" alt="Chatbot" />
+  </button>
+  <section id="tmd-chatbot-panel" role="dialog" aria-labelledby="tmd-chatbot-title" aria-modal="true" aria-hidden="true">
+    <header class="tmd-chatbot-header">
+      <div class="tmd-title" id="tmd-chatbot-title">TMD Assistant</div>
+      <button class="tmd-close" id="tmd-chatbot-close" aria-label="Close">×</button>
+    </header>
+    <div class="tmd-messages" id="tmd-chatbot-messages" tabindex="0"></div>
+    <form class="tmd-input-row" id="tmd-chatbot-form">
+      <input id="tmd-chatbot-input" type="text" autocomplete="off" placeholder="Type your message…" aria-label="Message" />
+      <button id="tmd-chatbot-send" type="submit">Send</button>
+    </form>
+  </section>
+`);
+
 
   const panel = document.getElementById('tmd-chatbot-panel');
   const btn = document.getElementById('tmd-chatbot-button');
