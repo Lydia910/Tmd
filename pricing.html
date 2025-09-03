@@ -9,8 +9,8 @@
  </head>
 
  <body>
-  <!-- Navbar mount -->
-  <header id="navbar-container"></header>
+  <!-- Shared navbar mount -->
+  <div id="navbar-root"></div>
 
   <!-- hero -->
   <section class="container" id="hero">
@@ -32,11 +32,9 @@
               .stroke { stroke-width:4; fill:none; stroke-linecap:round; stroke-linejoin:round; }
             </style>
           </defs>
-          
+
           <path d="M260 60l120 40v84c0 78-67 118-120 140-53-22-120-62-120-140V100l120-40z" class="light"/>
-          
           <path d="M206 175l36 36 76-76" class="stroke stroke-color"/>
-          
           <circle cx="380" cy="115" r="22" class="accent"/>
         </svg>
       </div>
@@ -117,13 +115,14 @@
     </div>
   </section>
 
+  <!-- scripts -->
   <script src="navbar.js"></script>
-
-  <!-- Shared bottom section -->
   <div id="site-bottom-mount"></div>
   <script src="site-bottom.js"></script>
   <div id="tmd-chatbot-root"></div>
-<script src="tmd-chatbot.js" defer></script>
+  <script src="tmd-chatbot.js" defer></script>
+ </body>
+</html>
 
 </body>
 </html>
