@@ -1,23 +1,37 @@
 <!-- navbar.html -->
 <!-- This file contains only the shared navigation bar HTML. -->
 <!-- Modify this file to update the navbar for all pages. -->
-<div class="container">
-<nav class="navbar">
-<a class="logo" href="index.html" aria-label="TMD Home">
-<a class="logo" href="index.html" aria-label="TMD Home">
-  <img src="icons/navbar-logo.svg" alt="TMD logo" class="logo-img">
-</a>
 
-  
-</a>
-  <div class="nav-toggle" id="nav-toggle">☰</div>
-  <div class="nav-center" id="nav-menu">
-    <a href="features.html">Features</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="login.html">Login</a>
+<div class="container">
+  <nav class="navbar">
+    <a class="logo" href="index.html" aria-label="TMD Home">
+      <img src="icons/navbar-logo.svg" alt="TMD logo" class="logo-img">
+    </a>
+
+    <div class="nav-toggle" id="nav-toggle">☰</div>
+
+    <div class="nav-center" id="nav-menu">
+      <a href="features.html">Features</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="pricing.html">Pricing</a>
+      <!-- Login link changed to trigger modal -->
+      <a href="#login" class="nav-login" data-login-open>Login</a>
+    </div>
+
+    <!-- Keep CTA separate so it's not affected by nav-center styles -->
+    <a class="nav-cta" href="#">Start Free Trial</a>
+  </nav>
+</div>
+
+<!-- Login Modal -->
+<div id="login-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" style="display:none;">
+  <div class="modal-backdrop" data-login-close></div>
+  <div class="modal-content" role="document">
+    <button class="modal-close" aria-label="Close" data-login-close>&times;</button>
+    <div id="login-modal-body">
+      <!-- login form content will be injected from login.html -->
+      <div class="modal-loading">Loading…</div>
+    </div>
   </div>
-  <!-- Keep CTA separate so it's not affected by nav-center styles -->
-  <a class="nav-cta" href="#">Start Free Trial</a>
-</nav>
+</div>
