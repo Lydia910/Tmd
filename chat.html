@@ -68,6 +68,8 @@
         return goToPluginLogin("/chat.html");    
       }
 
+      if (!PLUGIN_CHAT) return goToPluginLogin("/chat.html");
+
       document.getElementById("pluginChat").src = PLUGIN_CHAT;
       document.getElementById("authGuard").style.display = "none";
       document.getElementById("chatMount").style.display = "block";
