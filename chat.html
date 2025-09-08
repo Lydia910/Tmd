@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>TMD Chat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="tmd-chatbot.css" rel="stylesheet" />
-</head>
-<body>
+  <title>Chat – TMD</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
-    /* Scoped styles so it doesn't affect other pages */
+
     .chat-shell { min-height: calc(100vh - 120px); display:grid; place-items:center; padding:40px 16px;}
     .chat-placeholder{
       max-width:720px; width:100%; border:1px solid #E6ECF3; border-radius:12px; padding:32px;
@@ -16,58 +14,61 @@
     }
     .chat-placeholder h1{ margin:0 0 8px; font-size:24px; color:#0A192F;}
     .chat-placeholder p{ margin:0; color:#4A5A70;}
+
+
+    .chat-card { max-width:720px; width:100%; border:1px solid #E6ECF3; border-radius:12px; background:#F7F9FC; }
+    .chat-frame { width:100%; height:70vh; border:0; border-radius:12px; display:block; }
+    .guard { text-align:center; color:#4A5A70; }
+    .guard small { display:block; margin-top:12px; opacity:.8; }
   </style>
 </head>
 <body>
   <header id="navbar-container"></header>
+
   <main class="chat-shell">
-    <div class="chat-placeholder">
+
+    <div id="authGuard" class="chat-placeholder guard">
       <img src="icons/tmd-chatbot-icon-robot.svg" alt="Chatbot" width="56" height="56" style="vertical-align:middle; margin-bottom:12px;" />
-      <h1>Chat coming soon</h1>
-      <p>This page is reserved for the chatbot. Your AI plugin team can mount their widget here.</p>
+      <h1>Checking your session…</h1>
+      <p>Please wait while we verify your login.</p>
+      <small>If you are not redirected automatically, you may need to sign in again.</small>
+    </div>
+
+
+    <div id="chatMount" class="chat-card" style="display:none;">
+      <iframe
+        id="pluginChat"
+        title="TMD Chat"
+        class="chat-frame"
+        src=""
+        allow="clipboard-read; clipboard-write">
+      </iframe>
+      <noscript>
+        <div class="chat-placeholder" style="border:none; background:transparent;">
+          <p>Please enable JavaScript to use the chatbot.</p>
+        </div>
+      </noscript>
     </div>
   </main>
+
   <footer class="container site-footer">
     <p>© 2025 The Managed Desk. Built in Australia. Hosted on AWS Sydney.</p>
   </footer>
+
   <script src="navbar.js"></script>
-</body>
-</html>
-  <main class="container" style="min-height:70vh; padding: 16px;">
-    <div id="chatMount" style="display:none;">
-      <iframe id="pluginChat"
-              title="TMD Chat"
-              style="width:100%; height:70vh; border:0; border-radius:12px;"
-              src=""
-              allow="clipboard-read; clipboard-write">
-      </iframe>
-    </div>
-    <div id="authGuard" style="text-align:center; padding:40px;">
-      Checking your session...
-    </div>
-  </main>
 
   <script type="module">
-    import { PLUGIN_CHAT, goToPluginLogin, isPluginAuthed } from "/js/auth-plugin.js";
+    import { PLUGIN_CHAT, goToPluginLogin, isPluginAuthed } from "./js/auth-plugin.js";
 
     async function init() {
-      // 若 plugin 提供 /me，先檢查；沒有就直接導去登入頁
-      if (typeof isPluginAuthed === "function") {
-        try {
-          const ok = await isPluginAuthed();
-          if (!ok) return goToPluginLogin("/chat.html");
-        } catch (_) {
-          return goToPluginLogin("/chat.html");
-        }
-      } else {
-        // 沒有 /me 的情況：直接導去登入頁
-        return goToPluginLogin("/chat.html");
+      try {
+        const ok = await isPluginAuthed();       
+        if (!ok) return goToPluginLogin("/chat.html");
+      } catch {
+        return goToPluginLogin("/chat.html");    
       }
 
-      // 已登入 → 內嵌他們的 111.html
-      const frame = document.getElementById("pluginChat");
-      frame.src = PLUGIN_CHAT;
-
+      document.getElementById("pluginChat").src = PLUGIN_CHAT;
       document.getElementById("authGuard").style.display = "none";
       document.getElementById("chatMount").style.display = "block";
     }
@@ -76,4 +77,5 @@
   </script>
 </body>
 </html>
+
 
