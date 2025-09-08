@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Mock Login</title></head>
+<body style="font-family:sans-serif;padding:20px">
+  <h2>Mock Login</h2>
+  <p>This is a fake login page for this machine. Clicking the button will “pretend to log in” and redirect to the next.</p>
+  <button id="btn">Sign in</button>
+  <script>
+    document.getElementById('btn').onclick = () => {
+      document.cookie = "mock_session=1; path=/; SameSite=Lax";
+      const params = new URLSearchParams(location.search);
+      const next = params.get('next') || '/chat.html';
+      location.href = next;
+    };
+  </script>
+</body>
+</html>
