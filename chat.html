@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <title>TMD Chat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chat – TMD</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="tmd-chatbot.css" rel="stylesheet" />
+</head>
+<body>
   <style>
     /* Scoped styles so it doesn't affect other pages */
     .chat-shell { min-height: calc(100vh - 120px); display:grid; place-items:center; padding:40px 16px;}
@@ -31,3 +33,47 @@
   <script src="navbar.js"></script>
 </body>
 </html>
+  <main class="container" style="min-height:70vh; padding: 16px;">
+    <div id="chatMount" style="display:none;">
+      <iframe id="pluginChat"
+              title="TMD Chat"
+              style="width:100%; height:70vh; border:0; border-radius:12px;"
+              src=""
+              allow="clipboard-read; clipboard-write">
+      </iframe>
+    </div>
+    <div id="authGuard" style="text-align:center; padding:40px;">
+      Checking your session...
+    </div>
+  </main>
+
+  <script type="module">
+    import { PLUGIN_CHAT, goToPluginLogin, isPluginAuthed } from "/js/auth-plugin.js";
+
+    async function init() {
+      // 若 plugin 提供 /me，先檢查；沒有就直接導去登入頁
+      if (typeof isPluginAuthed === "function") {
+        try {
+          const ok = await isPluginAuthed();
+          if (!ok) return goToPluginLogin("/chat.html");
+        } catch (_) {
+          return goToPluginLogin("/chat.html");
+        }
+      } else {
+        // 沒有 /me 的情況：直接導去登入頁
+        return goToPluginLogin("/chat.html");
+      }
+
+      // 已登入 → 內嵌他們的 111.html
+      const frame = document.getElementById("pluginChat");
+      frame.src = PLUGIN_CHAT;
+
+      document.getElementById("authGuard").style.display = "none";
+      document.getElementById("chatMount").style.display = "block";
+    }
+
+    init();
+  </script>
+</body>
+</html>
+
