@@ -158,10 +158,10 @@
   <script src="tmd-chatbot.js" defer></script>
 
   <script type="module">
-  import { goToPluginLogin } from "/js/auth-plugin.js";
+  import { goToPluginLogin } from "./auth-plugin.js";  
 
-  const chatBtn = document.getElementById("chatFloatingBtn"); 
-  chatBtn?.addEventListener("click", async () => {
+  const chatBtn = document.getElementById("chatFloatingBtn");
+  chatBtn?.addEventListener("click", () => {
     goToPluginLogin("/chat.html");
   });
 </script>
