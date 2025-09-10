@@ -58,22 +58,27 @@
   <script src="navbar.js"></script>
 
   <script type="module">
-    import { PLUGIN_CHAT, goToPluginLogin, isPluginAuthed } from "./auth-plugin.js";
+  import { PLUGIN_CHAT, goToPluginLogin, isPluginAuthed } from "./auth-plugin.js";
 
-    async function init() {
-      try {
-        const ok = await isPluginAuthed();       
-        if (!ok) return goToPluginLogin("/chat.html");
-      } catch {
-        return goToPluginLogin("/chat.html");    
-      }
+  async function init() {
+    let ok = null;
+    try {
+      ok = await isPluginAuthed();  
+    } catch { ok = null; }
 
-      if (!PLUGIN_CHAT) return goToPluginLogin("/chat.html");
-
-      document.getElementById("pluginChat").src = PLUGIN_CHAT;
-      document.getElementById("authGuard").style.display = "none";
-      document.getElementById("chatMount").style.display = "block";
+    if (ok === false) {
+      return goToPluginLogin("/chat.html");
     }
+    if (!PLUGIN_CHAT) {
+      return goToPluginLogin("/chat.html");
+    }
+    document.getElementById("pluginChat").src = PLUGIN_CHAT;
+    document.getElementById("authGuard").style.display = "none";
+    document.getElementById("chatMount").style.display = "block";
+  }
+
+  init();
+</script>
 
     init();
   </script>
