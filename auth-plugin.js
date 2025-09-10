@@ -1,4 +1,3 @@
-
 const DEFAULT_PLUGIN_BASE = "https://617654bb26fa.ngrok-free.app/plugin";
 
 function resolvePluginBase() {
@@ -11,7 +10,7 @@ function resolvePluginBase() {
   const fromStorage = localStorage.getItem("tmd_plugin_base");
   if (fromStorage) return fromStorage;
   if (window.TMD_PLUGIN_BASE) return window.TMD_PLUGIN_BASE;
-  return DEFAULT_PLUGIN_BASE; 
+  return DEFAULT_PLUGIN_BASE;
 }
 
 export const PLUGIN_BASE  = resolvePluginBase();
@@ -19,22 +18,24 @@ export const PLUGIN_LOGIN = PLUGIN_BASE ? `${PLUGIN_BASE}/login.html` : null;
 export const PLUGIN_CHAT  = PLUGIN_BASE ? `${PLUGIN_BASE}/111.html`   : null;
 
 async function pingMe() {
-  if (!PLUGIN_BASE) return false;
+  if (!PLUGIN_BASE) return null;
   const candidates = [`${PLUGIN_BASE}/me`, `${PLUGIN_BASE}/me.json`];
   for (const url of candidates) {
     try {
       const resp = await fetch(url, { credentials: "include" });
-      if (resp.ok) return true;
-    } catch { /* ignore and try next */ }
+      if (resp.ok) return true;                // 2xx
+      if (resp.status === 401 || resp.status === 403) return false;
+    } catch {
+    }
   }
-  return false;
+  return null;
 }
 
 export async function isPluginAuthed() {
   try {
-    return await pingMe();
+    return await pingMe();  
   } catch {
-    return false;
+    return null;
   }
 }
 
@@ -52,5 +53,6 @@ export function clearPluginBase() {
   localStorage.removeItem("tmd_plugin_base");
   location.reload();
 }
+
 
 
