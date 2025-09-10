@@ -23,20 +23,15 @@ async function pingMe() {
   for (const url of candidates) {
     try {
       const resp = await fetch(url, { credentials: "include" });
-      if (resp.ok) return true;                // 2xx
+      if (resp.ok) return true;                          // 2xx
       if (resp.status === 401 || resp.status === 403) return false;
-    } catch {
-    }
+    } catch { /* ignore and try next */ }
   }
-  return null;
+  return null; // 無此端點/不可用 → 視為未知
 }
 
 export async function isPluginAuthed() {
-  try {
-    return await pingMe();  
-  } catch {
-    return null;
-  }
+  try { return await pingMe(); } catch { return null; }
 }
 
 export function goToPluginLogin(next = "/chat.html") {
