@@ -1,4 +1,4 @@
-// 🔧 Default plugin base (ngrok)
+
 const DEFAULT_PLUGIN_BASE = "https://617654bb26fa.ngrok-free.app/plugin";
 
 function resolvePluginBase() {
