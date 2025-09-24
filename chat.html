@@ -141,6 +141,33 @@
 }
 loadChatPreferences();
 </script>
+  const PLUGIN_BASE =
+  localStorage.getItem("tmd_plugin_base") ||
+  "https://617654bb26fa.ngrok-free.app/plugin";
+
+fetch(`${PLUGIN_BASE}/faq/faq.php`)
+  .then(r => r.json())
+  .then(d => {
+    console.log("Topics:", d.topics);
+    const faqList = document.getElementById("faq-topics");
+    if (faqList) {
+      d.topics.forEach(topic => {
+        const btn = document.createElement("button");
+        btn.textContent = topic;
+        btn.addEventListener("click", () => loadQuestions(topic));
+        faqList.appendChild(btn);
+      });
+    }
+  });
+
+function loadQuestions(topic) {
+  fetch(`${PLUGIN_BASE}/faq/faq.php?topic=${encodeURIComponent(topic)}`)
+    .then(r => r.json())
+    .then(d => {
+      console.log("Questions for", topic, d.questions);
+    });
+}
+</script>
 </body>
 </html>
 
