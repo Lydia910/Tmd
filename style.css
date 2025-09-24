@@ -1632,3 +1632,20 @@ body.about-page #about-page .diff-sub {
 .modal-close { position: absolute; top: 8px; right: 12px; background: transparent; border: 0; font-size: 28px; cursor: pointer; }
 .modal-loading { text-align: center; padding: 24px; }
 
+.button, .btn, .nav-cta, .faq-topics button, .faq-questions button {
+  transition: transform .18s ease, box-shadow .18s ease;
+  will-change: transform;
+}
+.button:hover, .btn:hover, .nav-cta:hover, .faq-topics button:hover, .faq-questions button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button, .btn, .nav-cta, .faq-topics button, .faq-questions button {
+    transition: none;
+  }
+  .button:hover, .btn:hover, .nav-cta:hover, .faq-topics button:hover, .faq-questions button:hover {
+    transform: none; box-shadow:none;
+  }
+}
