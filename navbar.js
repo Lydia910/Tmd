@@ -43,37 +43,13 @@ function setupNavbarInteractions(scopeEl) {
     }
   });
 
-  // --- Login redirect with fallback ---
+  // --- Login redirect ---
   var loginOpeners = scopeEl.querySelectorAll("[data-login-open]");
   if (loginOpeners.length) {
-    var PLUGIN_BASE =
-      localStorage.getItem("tmd_plugin_base") ||
-      "https://617654bb26fa.ngrok-free.app/plugin";
-    var next = encodeURIComponent(location.pathname + location.search);
-
     Array.prototype.forEach.call(loginOpeners, function (btn) {
-      btn.addEventListener("click", async function (ev) {
+      btn.addEventListener("click", function (ev) {
         ev.preventDefault();
-
-        try {
-          // test plugin login.html is reachable
-          const resp = await fetch(PLUGIN_BASE + "/login.html", { method: "HEAD" });
-          if (resp.ok) {
-            window.location.href = PLUGIN_BASE + "/login.html?next=" + next;
-            return;
-          }
-        } catch (e) {
-          console.warn("Plugin login not available, using local fallback");
-        }
-
-        // === fallback: open local login.html inside modal ===
-        var modal = document.getElementById("login-modal");
-        var body  = document.getElementById("login-modal-body");
-        if (body) {
-          body.innerHTML =
-            '<iframe src="login.html" style="width:100%;height:70vh;border:0;"></iframe>';
-        }
-        openModal(modal);
+        openLoginFallback();
       });
     });
   }
@@ -128,6 +104,44 @@ function setupNavbarInteractions(scopeEl) {
         if (logoutBtn) logoutBtn.style.display = 'none';
       });
   })();
+}
+
+// --- Handle login fallback gracefully ---
+async function openLoginFallback() {
+  var PLUGIN_BASE =
+    localStorage.getItem("tmd_plugin_base") ||
+    "https://617654bb26fa.ngrok-free.app/plugin";
+  var STATUS_URL = PLUGIN_BASE + "/auth/status.php";
+  var LOGIN_URL  = PLUGIN_BASE + "/login.html";
+
+  const next = encodeURIComponent(location.pathname + location.search);
+
+  try {
+    const ctrl = new AbortController();
+    const to = setTimeout(() => ctrl.abort(), 5000);
+    const resp = await fetch(STATUS_URL, { signal: ctrl.signal });
+    clearTimeout(to);
+
+    if (resp.ok) {
+      // plugin server is online → go to plugin login
+      window.location.href = LOGIN_URL + "?next=" + next;
+      return;
+    }
+  } catch (e) {
+    console.warn("Plugin status check failed, falling back to local login.", e);
+  }
+
+  // fallback → use local lightweight login form (no navbar/footer inside iframe)
+  var modal = document.getElementById("login-modal");
+  var body  = document.getElementById("login-modal-body");
+  if (body) {
+    body.innerHTML =
+      '<iframe src="login-embed.html" style="width:100%;height:420px;border:0;"></iframe>';
+    openModal(modal);
+  } else {
+    // as backup, redirect to standalone login page
+    window.location.href = "login.html";
+  }
 }
 
 function openModal(modal) {
