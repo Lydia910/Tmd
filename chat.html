@@ -58,28 +58,65 @@
   <script src="navbar.js"></script>
 
   <script type="module">
-  import { PLUGIN_CHAT, goToPluginLogin, isPluginAuthed } from "./auth-plugin.js";
+  const PLUGIN_BASE =
+    localStorage.getItem("tmd_plugin_base") ||
+    "https://617654bb26fa.ngrok-free.app/plugin";
 
-  async function init() {
-    let ok = null;
+  const STATUS_URL = `${PLUGIN_BASE}/auth/status.php`;
+  const LOGIN_URL  = `${PLUGIN_BASE}/login.html`;   
+  const CHAT_URL   = `${PLUGIN_BASE}/111.html`;     
+  async function checkLogin() {
+
+    const ctrl = new AbortController();
+    const to = setTimeout(() => ctrl.abort(), 6000);
+
     try {
-      ok = await isPluginAuthed();  
-    } catch { ok = null; }
+      const r = await fetch(STATUS_URL, {
+        credentials: "include",
+        signal: ctrl.signal,
+        headers: { "Accept": "application/json" }
+      });
+      clearTimeout(to);
+      if (!r.ok) return false;
 
-    if (ok === false) {
-      return goToPluginLogin("/chat.html");
+      const j = await r.json().catch(() => ({}));
+      return !!j.logged_in;
+    } catch (e) {
+
+      return false;
     }
-    if (!PLUGIN_CHAT) {
-      return goToPluginLogin("/chat.html");
-    }
-    document.getElementById("pluginChat").src = PLUGIN_CHAT;
-    document.getElementById("authGuard").style.display = "none";
-    document.getElementById("chatMount").style.display = "block";
   }
 
+  function show(frameUrl) {
+    const guard = document.getElementById("authGuard");
+    const mount = document.getElementById("chatMount");
+    const frame = document.getElementById("pluginChat");
+    frame.src = frameUrl;
+    guard.style.display = "none";
+    mount.style.display = "block";
+  }
 
-    init();
-  </script>
+  async function initChat() {
+
+    if (!PLUGIN_BASE || !/^https?:\/\//.test(PLUGIN_BASE)) {
+      const next = encodeURIComponent("/chat.html");
+      window.location.href = `${LOGIN_URL}?next=${next}`;
+      return;
+    }
+
+    const authed = await checkLogin();
+    if (!authed) {
+
+      const next = encodeURIComponent("/chat.html");
+      window.location.href = `${LOGIN_URL}?next=${next}`;
+      return;
+    }
+    
+    show(CHAT_URL);
+  }
+
+  initChat();
+</script>
 </body>
 </html>
 
