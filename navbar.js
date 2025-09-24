@@ -1,6 +1,6 @@
 // navbar.js
 // Loads shared navbar.html into the page (supports #navbar-root and legacy #navbar-container)
-// Also wires up: hamburger toggle, active link highlight, and Login modal (popup)
+// Also wires up: hamburger toggle, active link highlight, and Login (redirect to Plugin login)
 
 (function () {
   var root =
@@ -12,9 +12,7 @@
   if (root.dataset.navLoaded) return;
 
   fetch("navbar.html")
-    .then(function (r) {
-      return r.text();
-    })
+    .then(function (r) { return r.text(); })
     .then(function (html) {
       root.innerHTML = html;
       root.dataset.navLoaded = "1";
@@ -44,64 +42,39 @@ function setupNavbarInteractions(scopeEl) {
     }
   });
 
-  // --- Login modal logic ---
+  // --- Login (redirect to Plugin login) ---
+  // NOTE:
+  // We no longer load local login.html into a modal (MFA/CORS/session cookies are fragile in iframes).
+  // Instead, redirect to the Plugin's /login.html with ?next=<current path+query>.
   var openers = document.querySelectorAll("[data-login-open]");
-  var modal = document.getElementById("login-modal");
-  if (openers.length && modal) {
-    var body = document.getElementById("login-modal-body");
+  if (openers.length) {
+    var PLUGIN_BASE =
+      localStorage.getItem("tmd_plugin_base") ||
+      "https://617654bb26fa.ngrok-free.app/plugin";
+
+    // Build the next URL (path + query), keep it relative so the plugin can bounce back correctly.
+    var next = encodeURIComponent(location.pathname + location.search);
 
     Array.prototype.forEach.call(openers, function (btn) {
       btn.addEventListener("click", function (ev) {
         ev.preventDefault();
 
-        // Lazy-load login.html main content (once)
-        if (body && !body.dataset.loaded) {
-          fetch("login.html")
-            .then(function (r) {
-              return r.text();
-            })
-            .then(function (html) {
-              var tmp = document.createElement("div");
-              tmp.innerHTML = html;
-              // Prefer <main>, fallback to <form> or whole <body>
-              var inner =
-                tmp.querySelector("main") ||
-                tmp.querySelector("form") ||
-                tmp.querySelector("body");
-              body.innerHTML = inner ? inner.innerHTML : html;
-              body.dataset.loaded = "1";
-            })
-            .catch(function () {
-              body.innerHTML = "<p>Failed to load. Please try again.</p>";
-            });
-        }
+        // Hard redirect is the most reliable for auth (cookies, 2FA, etc.)
+        window.location.href = PLUGIN_BASE + "/login.html?next=" + next;
 
-        openModal(modal);
       });
-    });
-
-    // Close buttons / backdrop / ESC
-    modal.addEventListener("click", function (e) {
-      if (e.target.matches("[data-login-close]") || e.target === modal) {
-        closeModal(modal);
-      }
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") {
-        closeModal(modal);
-      }
     });
   }
 }
 
+// Modal helpers (kept for compatibility; unused in redirect flow)
 function openModal(modal) {
+  if (!modal) return;
   modal.style.display = "block";
   modal.setAttribute("aria-hidden", "false");
 }
-
 function closeModal(modal) {
+  if (!modal) return;
   modal.style.display = "none";
   modal.setAttribute("aria-hidden", "true");
 }
-
-
