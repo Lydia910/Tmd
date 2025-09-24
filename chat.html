@@ -36,7 +36,6 @@
   <header id="navbar-container"></header>
 
   <main class="chat-shell">
-
     <!-- Login Verification Prompt -->
     <div id="authGuard" class="chat-placeholder guard">
       <img src="icons/tmd-chatbot-icon-robot.svg" alt="Chatbot" width="56" height="56" style="vertical-align:middle; margin-bottom:12px;" />
@@ -60,7 +59,7 @@
         </div>
       </noscript>
 
-      <!-- FAQ (Optional): Dynamically loaded -->
+      <!-- FAQ (Optional, non-blocking) -->
       <section class="faq-wrap">
         <div><strong>Quick Help</strong> — common topics & questions</div>
         <div id="faq-topics" class="faq-topics" aria-label="FAQ topics"></div>
@@ -74,7 +73,7 @@
     <p>© 2025 The Managed Desk. Built in Australia. Hosted on AWS Sydney.</p>
   </footer>
 
-  <!-- First load config.js, then load navbar.js -->
+  <!-- Load config and navbar -->
   <script src="config.js"></script>
   <script src="navbar.js"></script>
 
@@ -140,14 +139,9 @@
     initChat();
   </script>
 
-  <!-- A) Preference Settings (kept, but fully defensive) -->
+  <!-- Preference Settings (defensive) -->
   <script>
   (function () {
-    const FLAGS = {
-      pref: localStorage.getItem('tmd_enable_pref') !== '0'
-    };
-    if (!FLAGS.pref) return;
-
     const base = localStorage.getItem("tmd_plugin_base") || "https://617654bb26fa.ngrok-free.app/plugin";
     const url  = base + "/preferences.json";
 
@@ -159,35 +153,26 @@
       });
     }
 
-    function applyPrefs(pref) {
-      if (!pref) return;
-      if (pref.brandColor) document.documentElement.style.setProperty("--brand", pref.brandColor);
-      if (pref.welcomeMessage) console.log("Welcome:", pref.welcomeMessage);
-    }
-
-    (async () => {
+    async function loadPrefs() {
       try {
         const r = await withTimeout(fetch(url, { credentials: "include" }), 3000);
-        if (r.ok) {
-          const pref = await r.json().catch(() => null);
-          applyPrefs(pref);
-          return;
-        }
-      } catch (_) { /* silence */ }
+        if (!r.ok) return;
+        const pref = await r.json().catch(() => null);
+        if (!pref) return;
 
-      if (window.TMD_PREFS) applyPrefs(window.TMD_PREFS);
-    })();
+        if (pref.brandColor) document.documentElement.style.setProperty("--brand", pref.brandColor);
+        if (pref.welcomeMessage) console.log("Welcome:", pref.welcomeMessage);
+      } catch (_) {
+        // Silent failure
+      }
+    }
+    loadPrefs();
   })();
   </script>
 
-  <!-- B) FAQ (kept, non-blocking & auto-hide) -->
+  <!-- FAQ (defensive, auto-hide when offline) -->
   <script>
   (function () {
-    const FLAGS = {
-      faq: localStorage.getItem('tmd_enable_faq') !== '0'
-    };
-    if (!FLAGS.faq) return;
-
     const base = localStorage.getItem("tmd_plugin_base") || "https://617654bb26fa.ngrok-free.app/plugin";
     const elWrap      = document.querySelector(".faq-wrap");
     const elTopics    = document.getElementById("faq-topics");
@@ -230,7 +215,7 @@
       withTimeout(fetch(`${FAQ_URL}?topic=${encodeURIComponent(topic)}`, { credentials: "include" }), 3000)
         .then(r => r.ok ? r.json() : null)
         .then(d => {
-          if (!d || !Array.isArray(d.questions) || d.questions.length === 0) return;
+          if (!d || !Array.isArray(d.questions)) return;
           d.questions.forEach(q => {
             const btn = document.createElement("button");
             btn.type = "button";
