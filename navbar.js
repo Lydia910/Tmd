@@ -1,6 +1,6 @@
 // navbar.js
 // Loads shared navbar.html into the page (supports #navbar-root and legacy #navbar-container)
-// Also wires up: hamburger toggle, active link highlight, and Login (redirect to Plugin login)
+// Wires up: hamburger toggle, active link highlight, Login redirect, Logout click, and login-state toggle.
 
 (function () {
   var root =
@@ -37,37 +37,84 @@ function setupNavbarInteractions(scopeEl) {
   var path = location.pathname.split("/").pop() || "index.html";
   var links = scopeEl.querySelectorAll("a[href]");
   Array.prototype.forEach.call(links, function (link) {
-    if (link.getAttribute("href") === path) {
+    var href = (link.getAttribute("href") || "").split("/").pop();
+    if (href && href === path) {
       link.classList.add("active");
     }
   });
 
-  // --- Login (redirect to Plugin login) ---
-  // NOTE:
-  // We no longer load local login.html into a modal (MFA/CORS/session cookies are fragile in iframes).
-  // Instead, redirect to the Plugin's /login.html with ?next=<current path+query>.
-  var openers = document.querySelectorAll("[data-login-open]");
-  if (openers.length) {
+  // --- Login redirect ---
+  var loginOpeners = scopeEl.querySelectorAll("[data-login-open]");
+  if (loginOpeners.length) {
     var PLUGIN_BASE =
       localStorage.getItem("tmd_plugin_base") ||
       "https://617654bb26fa.ngrok-free.app/plugin";
-
-    // Build the next URL (path + query), keep it relative so the plugin can bounce back correctly.
     var next = encodeURIComponent(location.pathname + location.search);
 
-    Array.prototype.forEach.call(openers, function (btn) {
+    Array.prototype.forEach.call(loginOpeners, function (btn) {
       btn.addEventListener("click", function (ev) {
         ev.preventDefault();
-
-        // Hard redirect is the most reliable for auth (cookies, 2FA, etc.)
         window.location.href = PLUGIN_BASE + "/login.html?next=" + next;
 
+        // var modal = document.getElementById("login-modal");
+        // var body  = document.getElementById("login-modal-body");
+        // body.innerHTML = '<iframe src="' + PLUGIN_BASE + '/login.html?next=' + next + '" style="width:100%;height:70vh;border:0;"></iframe>', openModal(modal);
       });
     });
   }
+
+  // --- Logout click ---
+  (function () {
+    var btn = scopeEl.querySelector('#logoutBtn');
+    if (!btn) return;
+
+    var PLUGIN_BASE =
+      localStorage.getItem('tmd_plugin_base') ||
+      'https://617654bb26fa.ngrok-free.app/plugin';
+
+    btn.addEventListener('click', function () {
+      window.location.href = PLUGIN_BASE + '/auth/logout.php';
+    });
+  })();
+
+  // --- Toggle Login/Logout by auth status ---
+  (function () {
+    var PLUGIN_BASE =
+      localStorage.getItem('tmd_plugin_base') ||
+      'https://617654bb26fa.ngrok-free.app/plugin';
+    var STATUS_URL = PLUGIN_BASE + '/auth/status.php';
+
+    var loginLink  = scopeEl.querySelector('[data-login-open]');
+    var logoutBtn  = scopeEl.querySelector('#logoutBtn');
+
+    if (!loginLink && !logoutBtn) return;
+
+    var ctrl = new AbortController();
+    var to = setTimeout(function(){ ctrl.abort(); }, 6000);
+
+    fetch(STATUS_URL, {
+      credentials: "include",
+      signal: ctrl.signal,
+      headers: { "Accept": "application/json" }
+    })
+      .then(function (r) {
+        clearTimeout(to);
+        if (!r.ok) throw new Error('status not ok');
+        return r.json();
+      })
+      .then(function (j) {
+        var authed = !!(j && j.logged_in);
+
+        if (loginLink) loginLink.style.display = authed ? 'none' : '';
+        if (logoutBtn) logoutBtn.style.display = authed ? '' : 'none';
+      })
+      .catch(function () {
+        if (loginLink) loginLink.style.display = '';
+        if (logoutBtn) logoutBtn.style.display = 'none';
+      });
+  })();
 }
 
-// Modal helpers (kept for compatibility; unused in redirect flow)
 function openModal(modal) {
   if (!modal) return;
   modal.style.display = "block";
