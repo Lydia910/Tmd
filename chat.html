@@ -6,7 +6,6 @@
   <title>Chat – TMD</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-
     .chat-shell { min-height: calc(100vh - 120px); display:grid; place-items:center; padding:40px 16px;}
     .chat-placeholder{
       max-width:720px; width:100%; border:1px solid #E6ECF3; border-radius:12px; padding:32px;
@@ -15,11 +14,23 @@
     .chat-placeholder h1{ margin:0 0 8px; font-size:24px; color:#0A192F;}
     .chat-placeholder p{ margin:0; color:#4A5A70;}
 
-
-    .chat-card { max-width:720px; width:100%; border:1px solid #E6ECF3; border-radius:12px; background:#F7F9FC; }
+    .chat-card { max-width:960px; width:100%; border:1px solid #E6ECF3; border-radius:12px; background:#F7F9FC; padding:16px; }
     .chat-frame { width:100%; height:70vh; border:0; border-radius:12px; display:block; }
+
+
+    @supports (height: 100dvh) {
+      .chat-frame { height: calc(100dvh - 180px); }
+    }
+
     .guard { text-align:center; color:#4A5A70; }
     .guard small { display:block; margin-top:12px; opacity:.8; }
+
+    .faq-wrap { margin-top:16px; display:grid; gap:12px; }
+    .faq-topics, .faq-questions { display:flex; flex-wrap:wrap; gap:8px; }
+    .faq-topics button, .faq-questions button {
+      border:1px solid #E6ECF3; background:#fff; border-radius:999px; padding:6px 12px; cursor:pointer;
+    }
+    .faq-answer { background:#fff; border:1px solid #E6ECF3; border-radius:12px; padding:12px; white-space:pre-wrap; }
   </style>
 </head>
 <body>
@@ -27,6 +38,7 @@
 
   <main class="chat-shell">
 
+    <!-- Login Verification Prompt -->
     <div id="authGuard" class="chat-placeholder guard">
       <img src="icons/tmd-chatbot-icon-robot.svg" alt="Chatbot" width="56" height="56" style="vertical-align:middle; margin-bottom:12px;" />
       <h1>Checking your session…</h1>
@@ -34,7 +46,7 @@
       <small>If you are not redirected automatically, you may need to sign in again.</small>
     </div>
 
-
+    <!-- Chat and FAQ Container -->
     <div id="chatMount" class="chat-card" style="display:none;">
       <iframe
         id="pluginChat"
@@ -48,6 +60,14 @@
           <p>Please enable JavaScript to use the chatbot.</p>
         </div>
       </noscript>
+
+      <!-- FAQ (Optional): Dynamically loaded from the plugin's faq.php file -->
+      <section class="faq-wrap">
+        <div><strong>Quick Help</strong> — common topics & questions</div>
+        <div id="faq-topics" class="faq-topics" aria-label="FAQ topics"></div>
+        <div id="faq-questions" class="faq-questions" aria-label="FAQ questions"></div>
+        <div id="faq-answer" class="faq-answer" aria-live="polite" style="display:none;"></div>
+      </section>
     </div>
   </main>
 
@@ -55,120 +75,152 @@
     <p>© 2025 The Managed Desk. Built in Australia. Hosted on AWS Sydney.</p>
   </footer>
 
+  <!-- First load config.js, then load navbar.js (make sure tmd_plugin_base is set up first). -->
+  <script src="config.js"></script>
   <script src="navbar.js"></script>
 
+  <!-- Login verification and iframe loading -->
   <script type="module">
-  const PLUGIN_BASE =
-    localStorage.getItem("tmd_plugin_base") ||
-    "https://617654bb26fa.ngrok-free.app/plugin";
+    const PLUGIN_BASE =
+      localStorage.getItem("tmd_plugin_base") ||
+      "https://617654bb26fa.ngrok-free.app/plugin";
 
-  const STATUS_URL = `${PLUGIN_BASE}/auth/status.php`;
-  const LOGIN_URL  = `${PLUGIN_BASE}/login.html`;   
-  const CHAT_URL   = `${PLUGIN_BASE}/111.html`;     
-  async function checkLogin() {
+    const STATUS_URL = `${PLUGIN_BASE}/auth/status.php`;
+    const LOGIN_URL  = `${PLUGIN_BASE}/login.html`;
+    const CHAT_URL   = `${PLUGIN_BASE}/111.html`;
 
-    const ctrl = new AbortController();
-    const to = setTimeout(() => ctrl.abort(), 6000);
-
-    try {
-      const r = await fetch(STATUS_URL, {
-        credentials: "include",
-        signal: ctrl.signal,
-        headers: { "Accept": "application/json" }
-      });
-      clearTimeout(to);
-      if (!r.ok) return false;
-
-      const j = await r.json().catch(() => ({}));
-      return !!j.logged_in;
-    } catch (e) {
-
-      return false;
-    }
-  }
-
-  function show(frameUrl) {
-    const guard = document.getElementById("authGuard");
-    const mount = document.getElementById("chatMount");
-    const frame = document.getElementById("pluginChat");
-    frame.src = frameUrl;
-    guard.style.display = "none";
-    mount.style.display = "block";
-  }
-
-  async function initChat() {
-
-    if (!PLUGIN_BASE || !/^https?:\/\//.test(PLUGIN_BASE)) {
-      const next = encodeURIComponent("/chat.html");
-      window.location.href = `${LOGIN_URL}?next=${next}`;
-      return;
+    async function checkLogin() {
+      const ctrl = new AbortController();
+      const to = setTimeout(() => ctrl.abort(), 6000);
+      try {
+        const r = await fetch(STATUS_URL, {
+          credentials: "include",
+          signal: ctrl.signal,
+          headers: { "Accept": "application/json" }
+        });
+        clearTimeout(to);
+        if (!r.ok) return false;
+        const j = await r.json().catch(() => ({}));
+        return !!j.logged_in;
+      } catch {
+        return false;
+      }
     }
 
-    const authed = await checkLogin();
-    if (!authed) {
-
-      const next = encodeURIComponent("/chat.html");
-      window.location.href = `${LOGIN_URL}?next=${next}`;
-      return;
+    function show(frameUrl) {
+      const guard = document.getElementById("authGuard");
+      const mount = document.getElementById("chatMount");
+      const frame = document.getElementById("pluginChat");
+      frame.src = frameUrl;
+      guard.style.display = "none";
+      mount.style.display = "block";
     }
-    
-    show(CHAT_URL);
-  }
 
-  initChat();
-</script>
-  async function loadChatPreferences() {
-  const base =
-    localStorage.getItem("tmd_plugin_base") ||
-    "https://617654bb26fa.ngrok-free.app/plugin";
-  const url = base + "/preferences.json"; 
-
-  try {
-    const r = await fetch(url, { credentials: "include" });
-    if (!r.ok) return;
-    const pref = await r.json();
-
-
-    if (pref.brandColor) {
-      document.documentElement.style.setProperty("--brand", pref.brandColor);
+    async function initChat() {
+      if (!PLUGIN_BASE || !/^https?:\/\//.test(PLUGIN_BASE)) {
+        const next = encodeURIComponent("/chat.html");
+        window.location.href = `${LOGIN_URL}?next=${next}`;
+        return;
+      }
+      const authed = await checkLogin();
+      if (!authed) {
+        const next = encodeURIComponent("/chat.html");
+        window.location.href = `${LOGIN_URL}?next=${next}`;
+        return;
+      }
+      show(CHAT_URL);
     }
-    if (pref.welcomeMessage) {
-      console.log("Welcome:", pref.welcomeMessage);
-    }
-  } catch (e) {
-    console.warn("Preference settings failed to load.", e);
-  }
-}
-loadChatPreferences();
-</script>
-  const PLUGIN_BASE =
-  localStorage.getItem("tmd_plugin_base") ||
-  "https://617654bb26fa.ngrok-free.app/plugin";
 
-fetch(`${PLUGIN_BASE}/faq/faq.php`)
-  .then(r => r.json())
-  .then(d => {
-    console.log("Topics:", d.topics);
-    const faqList = document.getElementById("faq-topics");
-    if (faqList) {
-      d.topics.forEach(topic => {
-        const btn = document.createElement("button");
-        btn.textContent = topic;
-        btn.addEventListener("click", () => loadQuestions(topic));
-        faqList.appendChild(btn);
-      });
-    }
-  });
+    initChat();
+  </script>
 
-function loadQuestions(topic) {
-  fetch(`${PLUGIN_BASE}/faq/faq.php?topic=${encodeURIComponent(topic)}`)
-    .then(r => r.json())
-    .then(d => {
-      console.log("Questions for", topic, d.questions);
-    });
-}
-</script>
+  <!-- Preference Settings Hook (Effective when AI team provides preferences.json or API) -->
+  <script>
+    async function loadChatPreferences() {
+      const base =
+        localStorage.getItem("tmd_plugin_base") ||
+        "https://617654bb26fa.ngrok-free.app/plugin";
+      const url = base + "/preferences.json";
+      try {
+        const r = await fetch(url, { credentials: "include" });
+        if (!r.ok) return;
+        const pref = await r.json();
+
+        if (pref.brandColor) {
+          document.documentElement.style.setProperty("--brand", pref.brandColor);
+        }
+        if (pref.welcomeMessage) {
+          console.log("Welcome:", pref.welcomeMessage);
+        }
+      } catch (e) {
+        console.warn("Preference settings failed to load.", e);
+      }
+    }
+    loadChatPreferences();
+  </script>
+
+  <!-- FAQ: Dynamically load topics/questions/answers from the plugin's faq.php  -->
+  <script>
+    (function () {
+      const PLUGIN_BASE =
+        localStorage.getItem("tmd_plugin_base") ||
+        "https://617654bb26fa.ngrok-free.app/plugin";
+
+      const elTopics   = document.getElementById("faq-topics");
+      const elQuestions= document.getElementById("faq-questions");
+      const elAnswer   = document.getElementById("faq-answer");
+
+      if (!elTopics || !elQuestions || !elAnswer) return;
+
+      fetch(`${PLUGIN_BASE}/faq/faq.php`, { credentials: "include" })
+        .then(r => r.json())
+        .then(d => {
+          if (!d || !Array.isArray(d.topics)) return;
+          elTopics.innerHTML = "";
+          d.topics.forEach(topic => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.textContent = topic;
+            btn.addEventListener("click", () => loadQuestions(topic));
+            elTopics.appendChild(btn);
+          });
+        })
+        .catch(() => { /* Silent failure is acceptable; it does not affect the chat. */ });
+
+      function loadQuestions(topic) {
+        elQuestions.innerHTML = "";
+        elAnswer.style.display = "none";
+        elAnswer.textContent = "";
+
+        fetch(`${PLUGIN_BASE}/faq/faq.php?topic=${encodeURIComponent(topic)}`, { credentials: "include" })
+          .then(r => r.json())
+          .then(d => {
+            if (!d || !Array.isArray(d.questions)) return;
+            d.questions.forEach(q => {
+              const btn = document.createElement("button");
+              btn.type = "button";
+              btn.textContent = q;
+              btn.addEventListener("click", () => loadAnswer(topic, q));
+              elQuestions.appendChild(btn);
+            });
+          })
+          .catch(() => {});
+      }
+
+      function loadAnswer(topic, question) {
+        elAnswer.style.display = "block";
+        elAnswer.textContent = "Loading…";
+        fetch(`${PLUGIN_BASE}/faq/faq.php?topic=${encodeURIComponent(topic)}&question=${encodeURIComponent(question)}`, { credentials: "include" })
+          .then(r => r.json())
+          .then(d => {
+            const ans = d && (d.answer || d.response || "");
+            elAnswer.textContent = ans || "No answer available.";
+          })
+          .catch(() => {
+            elAnswer.textContent = "Failed to load answer.";
+          });
+      }
+    })();
+  </script>
 </body>
 </html>
-
-
