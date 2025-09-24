@@ -17,7 +17,6 @@
     .chat-card { max-width:960px; width:100%; border:1px solid #E6ECF3; border-radius:12px; background:#F7F9FC; padding:16px; }
     .chat-frame { width:100%; height:70vh; border:0; border-radius:12px; display:block; }
 
-
     @supports (height: 100dvh) {
       .chat-frame { height: calc(100dvh - 180px); }
     }
@@ -61,7 +60,7 @@
         </div>
       </noscript>
 
-      <!-- FAQ (Optional): Dynamically loaded from the plugin's faq.php file -->
+      <!-- FAQ (Optional): Dynamically loaded -->
       <section class="faq-wrap">
         <div><strong>Quick Help</strong> — common topics & questions</div>
         <div id="faq-topics" class="faq-topics" aria-label="FAQ topics"></div>
@@ -75,7 +74,7 @@
     <p>© 2025 The Managed Desk. Built in Australia. Hosted on AWS Sydney.</p>
   </footer>
 
-  <!-- First load config.js, then load navbar.js (make sure tmd_plugin_base is set up first). -->
+  <!-- First load config.js, then load navbar.js -->
   <script src="config.js"></script>
   <script src="navbar.js"></script>
 
@@ -141,93 +140,120 @@
     initChat();
   </script>
 
-  <!-- Preference Settings Hook (Effective when AI team provides preferences.json or API) -->
+  <!-- A) Preference Settings (kept, but fully defensive) -->
   <script>
-    async function loadChatPreferences() {
-      const base =
-        localStorage.getItem("tmd_plugin_base") ||
-        "https://617654bb26fa.ngrok-free.app/plugin";
-      const url = base + "/preferences.json";
-      try {
-        const r = await fetch(url, { credentials: "include" });
-        if (!r.ok) return;
-        const pref = await r.json();
+  (function () {
+    const FLAGS = {
+      pref: localStorage.getItem('tmd_enable_pref') !== '0'
+    };
+    if (!FLAGS.pref) return;
 
-        if (pref.brandColor) {
-          document.documentElement.style.setProperty("--brand", pref.brandColor);
-        }
-        if (pref.welcomeMessage) {
-          console.log("Welcome:", pref.welcomeMessage);
-        }
-      } catch (e) {
-        console.warn("Preference settings failed to load.", e);
-      }
+    const base = localStorage.getItem("tmd_plugin_base") || "https://617654bb26fa.ngrok-free.app/plugin";
+    const url  = base + "/preferences.json";
+
+    function withTimeout(promise, ms = 3000) {
+      return new Promise((resolve, reject) => {
+        const t = setTimeout(() => reject(new Error('pref-timeout')), ms);
+        promise.then(v => { clearTimeout(t); resolve(v); })
+               .catch(e => { clearTimeout(t); reject(e); });
+      });
     }
-    loadChatPreferences();
+
+    function applyPrefs(pref) {
+      if (!pref) return;
+      if (pref.brandColor) document.documentElement.style.setProperty("--brand", pref.brandColor);
+      if (pref.welcomeMessage) console.log("Welcome:", pref.welcomeMessage);
+    }
+
+    (async () => {
+      try {
+        const r = await withTimeout(fetch(url, { credentials: "include" }), 3000);
+        if (r.ok) {
+          const pref = await r.json().catch(() => null);
+          applyPrefs(pref);
+          return;
+        }
+      } catch (_) { /* silence */ }
+
+      if (window.TMD_PREFS) applyPrefs(window.TMD_PREFS);
+    })();
+  })();
   </script>
 
-  <!-- FAQ: Dynamically load topics/questions/answers from the plugin's faq.php  -->
+  <!-- B) FAQ (kept, non-blocking & auto-hide) -->
   <script>
-    (function () {
-      const PLUGIN_BASE =
-        localStorage.getItem("tmd_plugin_base") ||
-        "https://617654bb26fa.ngrok-free.app/plugin";
+  (function () {
+    const FLAGS = {
+      faq: localStorage.getItem('tmd_enable_faq') !== '0'
+    };
+    if (!FLAGS.faq) return;
 
-      const elTopics   = document.getElementById("faq-topics");
-      const elQuestions= document.getElementById("faq-questions");
-      const elAnswer   = document.getElementById("faq-answer");
+    const base = localStorage.getItem("tmd_plugin_base") || "https://617654bb26fa.ngrok-free.app/plugin";
+    const elWrap      = document.querySelector(".faq-wrap");
+    const elTopics    = document.getElementById("faq-topics");
+    const elQuestions = document.getElementById("faq-questions");
+    const elAnswer    = document.getElementById("faq-answer");
+    if (!elWrap || !elTopics || !elQuestions || !elAnswer) return;
 
-      if (!elTopics || !elQuestions || !elAnswer) return;
+    const FAQ_URL = `${base}/faq/faq.php`;
 
-      fetch(`${PLUGIN_BASE}/faq/faq.php`, { credentials: "include" })
-        .then(r => r.json())
+    function withTimeout(promise, ms = 3000) {
+      return new Promise((resolve, reject) => {
+        const t = setTimeout(() => reject(new Error('faq-timeout')), ms);
+        promise.then(v => { clearTimeout(t); resolve(v); })
+               .catch(e => { clearTimeout(t); reject(e); });
+      });
+    }
+
+    function hideWrap() { elWrap.style.display = "none"; }
+
+    withTimeout(fetch(FAQ_URL, { credentials: "include" }), 3000)
+      .then(r => r.ok ? r.json() : null)
+      .then(d => {
+        if (!d || !Array.isArray(d.topics) || d.topics.length === 0) { hideWrap(); return; }
+        elTopics.innerHTML = "";
+        d.topics.forEach(topic => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.textContent = topic;
+          btn.addEventListener("click", () => loadQuestions(topic));
+          elTopics.appendChild(btn);
+        });
+      })
+      .catch(() => hideWrap());
+
+    function loadQuestions(topic) {
+      elQuestions.innerHTML = "";
+      elAnswer.style.display = "none";
+      elAnswer.textContent = "";
+
+      withTimeout(fetch(`${FAQ_URL}?topic=${encodeURIComponent(topic)}`, { credentials: "include" }), 3000)
+        .then(r => r.ok ? r.json() : null)
         .then(d => {
-          if (!d || !Array.isArray(d.topics)) return;
-          elTopics.innerHTML = "";
-          d.topics.forEach(topic => {
+          if (!d || !Array.isArray(d.questions) || d.questions.length === 0) return;
+          d.questions.forEach(q => {
             const btn = document.createElement("button");
             btn.type = "button";
-            btn.textContent = topic;
-            btn.addEventListener("click", () => loadQuestions(topic));
-            elTopics.appendChild(btn);
+            btn.textContent = q;
+            btn.addEventListener("click", () => loadAnswer(topic, q));
+            elQuestions.appendChild(btn);
           });
         })
-        .catch(() => { /* Silent failure is acceptable; it does not affect the chat. */ });
+        .catch(() => {});
+    }
 
-      function loadQuestions(topic) {
-        elQuestions.innerHTML = "";
-        elAnswer.style.display = "none";
-        elAnswer.textContent = "";
-
-        fetch(`${PLUGIN_BASE}/faq/faq.php?topic=${encodeURIComponent(topic)}`, { credentials: "include" })
-          .then(r => r.json())
-          .then(d => {
-            if (!d || !Array.isArray(d.questions)) return;
-            d.questions.forEach(q => {
-              const btn = document.createElement("button");
-              btn.type = "button";
-              btn.textContent = q;
-              btn.addEventListener("click", () => loadAnswer(topic, q));
-              elQuestions.appendChild(btn);
-            });
-          })
-          .catch(() => {});
-      }
-
-      function loadAnswer(topic, question) {
-        elAnswer.style.display = "block";
-        elAnswer.textContent = "Loading…";
-        fetch(`${PLUGIN_BASE}/faq/faq.php?topic=${encodeURIComponent(topic)}&question=${encodeURIComponent(question)}`, { credentials: "include" })
-          .then(r => r.json())
-          .then(d => {
-            const ans = d && (d.answer || d.response || "");
-            elAnswer.textContent = ans || "No answer available.";
-          })
-          .catch(() => {
-            elAnswer.textContent = "Failed to load answer.";
-          });
-      }
-    })();
+    function loadAnswer(topic, question) {
+      elAnswer.style.display = "block";
+      elAnswer.textContent = "Loading…";
+      withTimeout(fetch(`${FAQ_URL}?topic=${encodeURIComponent(topic)}&question=${encodeURIComponent(question)}`, { credentials: "include" }), 3000)
+        .then(r => r.ok ? r.json() : null)
+        .then(d => {
+          const ans = d && (d.answer || d.response || "");
+          elAnswer.textContent = ans || "No answer available.";
+        })
+        .catch(() => { elAnswer.textContent = "Failed to load answer."; });
+    }
+  })();
   </script>
 </body>
 </html>
