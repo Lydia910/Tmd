@@ -117,6 +117,30 @@
 
   initChat();
 </script>
+  async function loadChatPreferences() {
+  const base =
+    localStorage.getItem("tmd_plugin_base") ||
+    "https://617654bb26fa.ngrok-free.app/plugin";
+  const url = base + "/preferences.json"; 
+
+  try {
+    const r = await fetch(url, { credentials: "include" });
+    if (!r.ok) return;
+    const pref = await r.json();
+
+
+    if (pref.brandColor) {
+      document.documentElement.style.setProperty("--brand", pref.brandColor);
+    }
+    if (pref.welcomeMessage) {
+      console.log("Welcome:", pref.welcomeMessage);
+    }
+  } catch (e) {
+    console.warn("Preference settings failed to load.", e);
+  }
+}
+loadChatPreferences();
+</script>
 </body>
 </html>
 
