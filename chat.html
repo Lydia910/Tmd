@@ -103,7 +103,7 @@
         const j = await r.json().catch(() => ({}));
         return !!j.logged_in;
       } catch {
-        return false;
+        return 'network-error';
       }
     }
 
@@ -123,6 +123,13 @@
         return;
       }
       const authed = await checkLogin();
+      if (authed === 'network-error') {
+        const guard = document.getElementById("authGuard");
+        guard.querySelector('h1').textContent = "Chat service is temporarily offline";
+        guard.querySelector('p').textContent  = "We can’t reach the plugin server right now. Please try again later.";
+        guard.querySelector('small').textContent = "Once the plugin domain is online, reload this page.";
+        return;
+      }
       if (!authed) {
         const next = encodeURIComponent("/chat.html");
         window.location.href = `${LOGIN_URL}?next=${next}`;
