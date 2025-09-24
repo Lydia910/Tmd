@@ -43,7 +43,7 @@ function setupNavbarInteractions(scopeEl) {
     }
   });
 
-  // --- Login redirect ---
+  // --- Login redirect with fallback ---
   var loginOpeners = scopeEl.querySelectorAll("[data-login-open]");
   if (loginOpeners.length) {
     var PLUGIN_BASE =
@@ -52,13 +52,28 @@ function setupNavbarInteractions(scopeEl) {
     var next = encodeURIComponent(location.pathname + location.search);
 
     Array.prototype.forEach.call(loginOpeners, function (btn) {
-      btn.addEventListener("click", function (ev) {
+      btn.addEventListener("click", async function (ev) {
         ev.preventDefault();
-        window.location.href = PLUGIN_BASE + "/login.html?next=" + next;
 
-        // var modal = document.getElementById("login-modal");
-        // var body  = document.getElementById("login-modal-body");
-        // body.innerHTML = '<iframe src="' + PLUGIN_BASE + '/login.html?next=' + next + '" style="width:100%;height:70vh;border:0;"></iframe>', openModal(modal);
+        try {
+          // test plugin login.html is reachable
+          const resp = await fetch(PLUGIN_BASE + "/login.html", { method: "HEAD" });
+          if (resp.ok) {
+            window.location.href = PLUGIN_BASE + "/login.html?next=" + next;
+            return;
+          }
+        } catch (e) {
+          console.warn("Plugin login not available, using local fallback");
+        }
+
+        // === fallback: open local login.html inside modal ===
+        var modal = document.getElementById("login-modal");
+        var body  = document.getElementById("login-modal-body");
+        if (body) {
+          body.innerHTML =
+            '<iframe src="login.html" style="width:100%;height:70vh;border:0;"></iframe>';
+        }
+        openModal(modal);
       });
     });
   }
