@@ -11,7 +11,7 @@
   <div id="navbar-root"></div>
 
   <main>
-    <section class="container section login-popup" id="login-popup">
+    <section class="container section login-popup" id="login-popup" style="position:relative;">
       <!-- close button -->
       <span id="login-close" class="close">&times;</span>
 
@@ -47,9 +47,7 @@
         closeBtn.addEventListener('click', function (e) {
           e.preventDefault();
 
-
           try { window.parent.postMessage({ type: 'tmd-login-close' }, '*'); } catch {}
-
 
           if (window.opener && !window.opener.closed) {
             window.close();
