@@ -67,7 +67,7 @@
       { url: "mock-preference.json", label: "mock" }
     ];
 
-    for (const url of endpoints) {
+    for (const ep of endpoints) {
       try {
         const resp = await fetch(url, { credentials: "include" });
         if (!resp.ok) throw new Error("Failed " + url);
