@@ -63,7 +63,7 @@
   // --- New: load preferences from plugin backend ---
   async function loadPreferences() {
     try {
-      const resp = await fetch("https://617654bb26fa.ngrok-free.app/plugin/loadChatPreferences.php", {
+      const resp = await fetch("https://617654bb26fa.ngrok-free.app/plugin/getPreference.php", {
         credentials: "include"
       });
       if (!resp.ok) throw new Error("Failed to load preferences");
