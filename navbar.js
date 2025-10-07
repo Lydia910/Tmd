@@ -188,3 +188,31 @@ function closeModal(modal) {
     });
   }
 })();
+
+document.addEventListener("DOMContentLoaded", function () {
+  var modal = document.getElementById("login-modal");
+
+
+  document.body.addEventListener("click", function (ev) {
+    if (ev.target.matches("[data-login-close]")) {
+      ev.preventDefault();
+      console.log("Global close clicked:", ev.target);
+      if (modal) {
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+      }
+    }
+  });
+
+
+  window.addEventListener("message", function (ev) {
+    if (ev && ev.data && ev.data.type === "tmd-login-close") {
+      console.log("Global postMessage close received");
+      if (modal) {
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+      }
+    }
+  });
+});
+
