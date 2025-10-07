@@ -94,6 +94,15 @@
     if (prefs.theme) {
       document.body.dataset.chatTheme = prefs.theme;
     }
+    if (prefs.primaryColor) {
+      document.documentElement.style.setProperty('--chat-primary', prefs.primaryColor);
+    }
+    if (prefs.botName) {
+      document.getElementById("tmd-chatbot-title").textContent = prefs.botName;
+    }
+    if (prefs.avatar_img) {
+      console.log("Bot avatar URL:", prefs.avatar_img);
+    }
   }
 
   // Simple local echo until the AI plugin is connected
