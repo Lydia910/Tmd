@@ -9,10 +9,7 @@
 </head>
 <body>
   <main>
-    <section class="container section login-popup" id="login-popup" style="position:relative;">
-      <!-- close button -->
-      <span id="login-close" class="close">&times;</span>
-
+    <section class="container section login-popup" id="login-popup">
       <h2>Login</h2>
       <form action="#" method="post" class="login-form">
         <label>
@@ -27,22 +24,5 @@
       </form>
     </section>
   </main>
-
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var closeBtn = document.getElementById('login-close');
-    if (!closeBtn) return;
-
-    closeBtn.style.cursor = 'pointer';
-    closeBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      try {
-      window.parent.postMessage({ type: 'tmd-login-close' }, '*');
-    } catch (err) {
-      console.error("postMessage failed", err);
-    }
-    });
-  });
-  </script>
 </body>
 </html>
