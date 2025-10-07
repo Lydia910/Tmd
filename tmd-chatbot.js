@@ -63,8 +63,8 @@
   // --- Load preferences with fallback (plugin first, then mock) ---
   async function loadPreferences() {
     const endpoints = [
-      "https://617654bb26fa.ngrok-free.app/plugin/getPreference.php",
-      "mock-preference.json" // fallback for local testing
+      { url: "https://617654bb26fa.ngrok-free.app/plugin/getPreference.php", label: "plugin" },
+      { url: "mock-preference.json", label: "mock" }
     ];
 
     for (const url of endpoints) {
@@ -72,10 +72,10 @@
         const resp = await fetch(url, { credentials: "include" });
         if (!resp.ok) throw new Error("Failed " + url);
         const prefs = await resp.json();
-        console.log("Loaded chat preferences from", url, prefs);
+        console.log(`✅ Loaded preferences from ${ep.label}:`, prefs);
         return prefs;
       } catch (err) {
-        console.warn("Error loading preferences from", url, err);
+        console.warn(`❌ Error loading ${ep.label}`, err);
       }
     }
     return {};
