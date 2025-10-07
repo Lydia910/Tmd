@@ -154,3 +154,36 @@ function closeModal(modal) {
   modal.style.display = "none";
   modal.setAttribute("aria-hidden", "true");
 }
+
+// ---- Ensure login modal open/close + postMessage close ----
+(function () {
+  var modal = document.getElementById('login-modal');
+  var body  = document.getElementById('login-modal-body');
+  if (!modal) return;                 
+
+  if (!modal.dataset.wired) {        
+    modal.dataset.wired = '1';
+
+
+    document.addEventListener('click', function (ev) {
+      var t = ev.target;
+      if (t && t.matches('[data-login-open]')) {
+        ev.preventDefault();
+        if (body) {
+          body.innerHTML = '<iframe src="login-embed.html" style="width:100%;height:420px;border:0;"></iframe>';
+        }
+        openModal(modal);
+      }
+      if (t && t.matches('[data-login-close]')) {
+        ev.preventDefault();
+        closeModal(modal);
+      }
+    });
+
+    window.addEventListener('message', function (ev) {
+      if (ev && ev.data && ev.data.type === 'tmd-login-close') {
+        closeModal(modal);
+      }
+    });
+  }
+})();
