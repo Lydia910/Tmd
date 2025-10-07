@@ -36,7 +36,11 @@
     closeBtn.style.cursor = 'pointer';
     closeBtn.addEventListener('click', function (e) {
       e.preventDefault();
-      try { window.parent.postMessage({ type: 'tmd-login-close' }, '*'); } catch {}
+      try {
+      window.parent.postMessage({ type: 'tmd-login-close' }, '*');
+    } catch (err) {
+      console.error("postMessage failed", err);
+    }
     });
   });
   </script>
