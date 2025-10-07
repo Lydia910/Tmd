@@ -1629,6 +1629,7 @@ body.about-page #about-page .diff-sub {
 .modal-close { position: absolute; top: 8px; right: 12px; background: transparent; border: 0; font-size: 28px; cursor: pointer; }
 .modal-loading { text-align: center; padding: 24px; }
 
+
 .button, .btn, .primary-btn, .secondary-btn, .nav-cta, 
 .cta-buttons .btn, .site-bottom__btn, 
 #hero button, #demo-cta button, 
@@ -1639,6 +1640,7 @@ body.about-page #about-page .diff-sub {
   filter: brightness(1);
 }
 
+
 .button:hover, .btn:hover, .primary-btn:hover, .secondary-btn:hover, .nav-cta:hover, 
 .cta-buttons .btn:hover, .site-bottom__btn:hover, 
 #hero button:hover, #demo-cta button:hover, 
@@ -1647,6 +1649,15 @@ body.about-page #about-page .diff-sub {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,.06);
   filter: brightness(1.10);
+}
+
+
+#hero .hero-actions button {
+  transition: filter .2s ease, transform .05s ease, box-shadow .18s ease;
+}
+#hero .hero-actions button:hover {
+  filter: brightness(1.18);               
+  box-shadow: 0 8px 20px rgba(0,0,0,.10); 
 }
 
 /* login popup close button */
