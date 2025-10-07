@@ -1,27 +1,32 @@
-<script>
-document.addEventListener('DOMContentLoaded', function () {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Login - TMD</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div id="navbar-root"></div>
 
-  const closeBtn = document.querySelector('#login-close, .login-close, .close');
-  if (!closeBtn) return;
+  <main>
+    <section class="container section login-popup" id="login-popup">
+      <!-- close button -->
+      <span id="login-close" class="close">&times;</span>
 
-  closeBtn.style.cursor = 'pointer';
-  closeBtn.addEventListener('click', function (e) {
-    e.preventDefault();
+      <h2>Login</h2>
+      <p>This is the login page content.</p>
 
-    try { window.parent.postMessage({ type: 'tmd-login-close' }, '*'); } catch {}
-
-    if (window.opener && !window.opener.closed) { window.close(); return; }
-
-    if (history.length > 1) history.back();
-    else window.location.href = '/';
-  });
-
-  document.addEventListener('keydown', function (ev) {
-    if (ev.key === 'Escape') closeBtn.click();
-  });
-});
-</script>
-
+      <form action="#" method="post" class="login-form">
+        <label>
+          Email
+          <input type="email" name="email" required>
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" required>
+        </label>
         <button type="submit" class="btn">Sign in</button>
       </form>
     </section>
@@ -32,11 +37,32 @@ document.addEventListener('DOMContentLoaded', function () {
   </footer>
 
   <script src="navbar.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const closeBtn = document.getElementById('login-close');
+      const loginPopup = document.getElementById('login-popup');
+
+      if (closeBtn && loginPopup) {
+        closeBtn.style.cursor = 'pointer';
+        closeBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+
+
+          try { window.parent.postMessage({ type: 'tmd-login-close' }, '*'); } catch {}
+
+
+          if (window.opener && !window.opener.closed) {
+            window.close();
+            return;
+          }
+
+          loginPopup.style.display = 'none';
+          if (history.length > 1) history.back();
+          else window.location.href = '/';
+        });
+      }
+    });
+  </script>
 </body>
 </html>
 
-  </footer>
-  <script src="navbar.js">
-  </script>
- </body>
-</html>
