@@ -69,7 +69,7 @@
 
     for (const ep of endpoints) {
       try {
-        const resp = await fetch(url, { credentials: "include" });
+        const resp = await fetch(ep.url, { credentials: "include" });
         if (!resp.ok) throw new Error("Failed " + url);
         const prefs = await resp.json();
         console.log(`✅ Loaded preferences from ${ep.label}:`, prefs);
