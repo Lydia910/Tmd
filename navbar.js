@@ -182,6 +182,7 @@ function closeModal(modal) {
 
     window.addEventListener('message', function (ev) {
       if (ev && ev.data && ev.data.type === 'tmd-login-close') {
+        console.log("navbar.js: got close message", ev.data);
         closeModal(modal);
       }
     });
