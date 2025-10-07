@@ -72,12 +72,13 @@
         const resp = await fetch(ep.url, { credentials: "include" });
         if (!resp.ok) throw new Error("Failed " + ep.url);
         const prefs = await resp.json();
-        console.log(`✅ Loaded preferences from ${ep.label}:`, prefs);
+        console.log(`✅ Using ${ep.label} preferences:`, prefs);
         return prefs;
       } catch (err) {
-        console.warn(`❌ Error loading ${ep.label}`, err);
+        console.warn(`❌ Failed to load ${ep.label} preferences from ${ep.url}`, err);
       }
     }
+    console.warn("⚠️ No preferences loaded, using empty defaults.");
     return {};
   }
 
