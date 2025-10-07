@@ -38,29 +38,34 @@
 
   <script src="navbar.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const closeBtn = document.getElementById('login-close');
-      const loginPopup = document.getElementById('login-popup');
+  document.addEventListener('DOMContentLoaded', function () {
+    var closeBtn   = document.getElementById('login-close');
 
-      if (closeBtn && loginPopup) {
-        closeBtn.style.cursor = 'pointer';
-        closeBtn.addEventListener('click', function (e) {
-          e.preventDefault();
+    if (!closeBtn) return;
 
-          try { window.parent.postMessage({ type: 'tmd-login-close' }, '*'); } catch {}
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.addEventListener('click', function (e) {
+      e.preventDefault();
 
-          if (window.opener && !window.opener.closed) {
-            window.close();
-            return;
-          }
+  
+      try {
+        if (window.top !== window && window.parent) {
+          window.parent.postMessage({ type: 'tmd-login-close' }, '*');
+          return; 
+        }
+      } catch {}
 
-          loginPopup.style.display = 'none';
-          if (history.length > 1) history.back();
-          else window.location.href = '/';
-        });
+    
+      if (document.referrer && document.referrer !== location.href) {
+        window.location.replace(document.referrer);
+      } else {
+        window.location.replace('index.html');
       }
     });
+  });
   </script>
+  
+
 </body>
 </html>
 
