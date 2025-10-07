@@ -7,7 +7,6 @@
   if (!root) return;
 
   // Build the panel markup once (keeps HTML changes minimal)
-
   root.insertAdjacentHTML('beforeend', `
   <button id="tmd-chatbot-button" aria-label="Open chat">
     <img src="icons/tmd-chatbot-icon-robot.svg" alt="Chatbot" />
@@ -24,7 +23,6 @@
     </form>
   </section>
 `);
-
 
   const panel = document.getElementById('tmd-chatbot-panel');
   const btn = document.getElementById('tmd-chatbot-button');
@@ -62,6 +60,37 @@
     messages.scrollTop = messages.scrollHeight;
   }
 
+  // --- New: load preferences from plugin backend ---
+  async function loadPreferences() {
+    try {
+      const resp = await fetch("https://617654bb26fa.ngrok-free.app/plugin/loadChatPreferences.php", {
+        credentials: "include"
+      });
+      if (!resp.ok) throw new Error("Failed to load preferences");
+      const prefs = await resp.json();
+      console.log("Loaded chat preferences:", prefs);
+      return prefs;
+    } catch (err) {
+      console.error("Error loading preferences:", err);
+      return {};
+    }
+  }
+
+  // --- New: initialize chatbot with prefs ---
+  async function initWithPreferences() {
+    const prefs = await loadPreferences();
+
+    if (prefs.title) {
+      document.getElementById("tmd-chatbot-title").textContent = prefs.title;
+    }
+    if (prefs.welcomeMessage) {
+      addMessage("bot", prefs.welcomeMessage);
+    }
+    if (prefs.theme) {
+      document.body.dataset.chatTheme = prefs.theme;
+    }
+  }
+
   // Simple local echo until the AI plugin is connected
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -88,19 +117,9 @@
     open,
     close,
     addMessage,
-    /**
-     * userText: Text entered by the user
-     * addMessage(role, text): Call this to add a message to the UI (role = “user” | “bot”)
-     * Integrate your API/plugin here, then send the reply back using addMessage(“bot”, “...”)
-     * Set a handler that receives (text, addMessage).
-     * The handler should call addMessage('bot', reply) when it has a result.
-     * Example:
-     *   window.tmdChatbot.handleUserMessage = async (text, add) => {
-     *     const reply = await fetch('/your/api', {method:'POST', body: JSON.stringify({text})})
-     *                         .then(r => r.json()).then(d => d.answer);
-     *     add('bot', reply);
-     *   };
-     */
     handleUserMessage: window.tmdChatbot?.handleUserMessage
   });
+
+  // --- Run init on DOM load ---
+  document.addEventListener("DOMContentLoaded", initWithPreferences);
 })();
