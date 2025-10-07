@@ -60,23 +60,28 @@
     messages.scrollTop = messages.scrollHeight;
   }
 
-  // --- New: load preferences from plugin backend ---
+  // --- Load preferences with fallback (plugin first, then mock) ---
   async function loadPreferences() {
-    try {
-      const resp = await fetch("https://617654bb26fa.ngrok-free.app/plugin/getPreference.php", {
-        credentials: "include"
-      });
-      if (!resp.ok) throw new Error("Failed to load preferences");
-      const prefs = await resp.json();
-      console.log("Loaded chat preferences:", prefs);
-      return prefs;
-    } catch (err) {
-      console.error("Error loading preferences:", err);
-      return {};
+    const endpoints = [
+      "https://617654bb26fa.ngrok-free.app/plugin/getPreference.php",
+      "mock-preference.json" // fallback for local testing
+    ];
+
+    for (const url of endpoints) {
+      try {
+        const resp = await fetch(url, { credentials: "include" });
+        if (!resp.ok) throw new Error("Failed " + url);
+        const prefs = await resp.json();
+        console.log("Loaded chat preferences from", url, prefs);
+        return prefs;
+      } catch (err) {
+        console.warn("Error loading preferences from", url, err);
+      }
     }
+    return {};
   }
 
-  // --- New: initialize chatbot with prefs ---
+  // --- Initialize chatbot with prefs ---
   async function initWithPreferences() {
     const prefs = await loadPreferences();
 
@@ -123,25 +128,3 @@
   // --- Run init on DOM load ---
   document.addEventListener("DOMContentLoaded", initWithPreferences);
 })();
-
-// --- New: load preferences from plugin backend ---
-async function loadPreferences() {
-  const endpoints = [
-    "https://617654bb26fa.ngrok-free.app/plugin/getPreference.php", 
-    "mock-preference.json"
-  ];
-
-  for (const url of endpoints) {
-    try {
-      const resp = await fetch(url, { credentials: "include" });
-      if (!resp.ok) throw new Error("Failed " + url);
-      const prefs = await resp.json();
-      console.log("Loaded chat preferences from", url, prefs);
-      return prefs;
-    } catch (err) {
-      console.warn("Error loading preferences from", url, err);
-    }
-  }
-
-  return {};
-}
