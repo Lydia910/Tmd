@@ -1649,6 +1649,21 @@ body.about-page #about-page .diff-sub {
   filter: brightness(1.10);
 }
 
+/* login popup close button */
+.close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  z-index: 1100;
+}
+.close:hover {
+  color: #00C0E3; 
+}
+
 @media (prefers-reduced-motion: reduce) {
   .button, .btn, .nav-cta, .faq-topics button, .faq-questions button {
     transition: none;
