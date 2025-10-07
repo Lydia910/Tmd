@@ -1464,7 +1464,6 @@ body.about-page #about-page .diff-sub {
 
 /* === Unify Features page to Homepage look (no content change) === */
 
-/* 1) Hero：套用首頁的版頭樣式 */
 .hero-section{
   background:#F7F9FC;
   padding:80px 20px;
@@ -1486,7 +1485,6 @@ body.about-page #about-page .diff-sub {
   .hero-section .hero-text{ text-align:center; }
 }
 
-/* 2) CTA 按鈕：沿用首頁統一膠囊風格（已用變數） */
 .hero-section .cta-buttons{
   display:flex;
   gap:16px;
@@ -1513,7 +1511,6 @@ body.about-page #about-page .diff-sub {
 .hero-section .cta-buttons .btn:hover{ filter: brightness(1.05); }
 .hero-section .cta-buttons .btn:active{ transform: translateY(1px); }
 
-/* 3) 功能卡片：改成跟首頁 service cards 一樣的卡片樣式 */
 .features-grid{
   display:grid;
   grid-template-columns: repeat(3,1fr);
@@ -1536,7 +1533,7 @@ body.about-page #about-page .diff-sub {
 
 .feature-card .icon{
   color: var(--brand);
-  font-size:36px;  /* emoji 也會放大 */
+  font-size:36px;  
   line-height:1;
   margin-bottom:12px;
 }
@@ -1547,7 +1544,7 @@ body.about-page #about-page .diff-sub {
   .features-grid{ grid-template-columns:1fr; }
 }
 
-/* 4) 區塊標題與間距：與首頁一致 */
+
 .section{ padding:60px 20px; text-align:center; }
 .section h2{
   font-size:32px;
@@ -1556,7 +1553,7 @@ body.about-page #about-page .diff-sub {
   font-family:'Poppins',sans-serif;
 }
 
-/* 5) Dashboard 圖片：外觀與首頁 intro-video 對齊 */
+
 .intro-dashboard{ text-align:center; padding:40px 0; }
 .intro-dashboard img{
   max-width:900px;
@@ -1637,8 +1634,9 @@ body.about-page #about-page .diff-sub {
 #hero button, #demo-cta button, 
 .ticket-form .primary-btn, 
 .faq-topics button, .faq-questions button {
-  transition: transform .18s ease, box-shadow .18s ease;
+  transition: transform .18s ease, box-shadow .18s ease, filter .12s ease;
   will-change: transform;
+  filter: brightness(1);
 }
 
 .button:hover, .btn:hover, .primary-btn:hover, .nav-cta:hover, 
@@ -1648,6 +1646,7 @@ body.about-page #about-page .diff-sub {
 .faq-topics button:hover, .faq-questions button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,.06);
+  filter: brightness(1.10);
 }
 
 @media (prefers-reduced-motion: reduce) {
