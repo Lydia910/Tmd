@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot Ticket Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    td {
+      padding: 10px;
+      vertical-align: top;
+    }
+    textarea, input, select {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #04AA6D;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Chatbot Ticket Form</h2>
+  <form action="/admin/update_ticket_log.php" method="post">
+    <table>
+      <!-- Title -->
+      <tr>
+        <td><label for="title">Title</label></td>
+        <td><input type="text" id="title" name="title" required></td>
+      </tr>
+
+      <!-- Description -->
+      <tr>
+        <td><label for="content">Description</label></td>
+        <td>
+          <textarea id="content" name="content" rows="6" required></textarea>
+        </td>
+      </tr>
+
+      <!-- Status dropdown -->
+      <tr>
+        <td><label for="status">Status</label></td>
+        <td>
+          <select id="status" name="status">
+            <option value="new">New</option>
+            <option value="open">Open</option>
+            <option value="waiting for review">Waiting for Review</option>
+            <option value="closed">Closed</option>
+            <option value="reopened">Reopened</option>
+          </select>
+        </td>
+      </tr>
+
+      <!-- Assigned to -->
+      <tr>
+        <td><label for="assigned_to">Assigned to</label></td>
+        <td>
+          <select id="assigned_to" name="users_id_assign">
+            <option value="0">-- Select User --</option>
+            <option value="1">Alice</option>
+            <option value="2">Bob</option>
+            <option value="3">Charlie</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Form buttons -->
+    <button type="submit">Save Ticket</button>
+    <button type="reset" style="background:#f44336;">Cancel</button>
+  </form>
+
+</body>
+</html>

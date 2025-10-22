@@ -1,0 +1,332 @@
+[
+  {
+    "Category":"Account & Login Issues",
+    "Question":"How do I reset my password?",
+    "RegexPattern":"\\b(how|do|i|reset|my|password)\\b",
+    "Synonyms_Typos":"pwd, passwrod, pass, mot de passe, கடவுச்சொல், पासवर्ड",
+    "ExampleResponse_EN":"This is how you can handle: How do I reset my password?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I reset my password?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I reset my password?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I reset my password?"
+  },
+  {
+    "Category":"Account & Login Issues",
+    "Question":"I forgot my username — how can I retrieve it?",
+    "RegexPattern":"\\b(i|forgot|my|username|—|how|can|i|retrieve|it)\\b",
+    "Synonyms_Typos":"user name, login name, uname, identifiant, பயனர் பெயர், उपयोगकर्ता नाम",
+    "ExampleResponse_EN":"This is how you can handle: I forgot my username — how can I retrieve it?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: I forgot my username — how can I retrieve it?",
+    "ExampleResponse_FR":"Voici comment procéder : I forgot my username — how can I retrieve it?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: I forgot my username — how can I retrieve it?"
+  },
+  {
+    "Category":"Account & Login Issues",
+    "Question":"How do I create a new account?",
+    "RegexPattern":"\\b(how|do|i|create|a|new|account)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: How do I create a new account?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I create a new account?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I create a new account?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I create a new account?"
+  },
+  {
+    "Category":"Access & Permissions",
+    "Question":"How do I request access to a system\/application?",
+    "RegexPattern":"\\b(how|do|i|request|access|to|a|system\\\/application)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: How do I request access to a system\/application?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I request access to a system\/application?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I request access to a system\/application?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I request access to a system\/application?"
+  },
+  {
+    "Category":"Access & Permissions",
+    "Question":"How can I contact admin?",
+    "RegexPattern":"\\b(how|can|i|contact|admin)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: How can I contact admin?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How can I contact admin?",
+    "ExampleResponse_FR":"Voici comment procéder : How can I contact admin?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How can I contact admin?"
+  },
+  {
+    "Category":"Access & Permissions",
+    "Question":"How do I remove access for a user?",
+    "RegexPattern":"\\b(how|do|i|remove|access|for|a|user)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: How do I remove access for a user?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I remove access for a user?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I remove access for a user?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I remove access for a user?"
+  },
+  {
+    "Category":"Network & Connectivity",
+    "Question":"I can’t connect to the VPN. What should I do?",
+    "RegexPattern":"\\b(i|can’t|connect|to|the|vpn.|what|should|i|do)\\b",
+    "Synonyms_Typos":"virtual private network, वीपीएन, மெய்நிகர் தனிப்பட்ட பிணையம்",
+    "ExampleResponse_EN":"This is how you can handle: I can’t connect to the VPN. What should I do?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: I can’t connect to the VPN. What should I do?",
+    "ExampleResponse_FR":"Voici comment procéder : I can’t connect to the VPN. What should I do?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: I can’t connect to the VPN. What should I do?"
+  },
+  {
+    "Category":"Network & Connectivity",
+    "Question":"How do I connect to the Wi-Fi network?",
+    "RegexPattern":"\\b(how|do|i|connect|to|the|wi-fi|network)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: How do I connect to the Wi-Fi network?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I connect to the Wi-Fi network?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I connect to the Wi-Fi network?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I connect to the Wi-Fi network?"
+  },
+  {
+    "Category":"Network & Connectivity",
+    "Question":"What should I check if the internet is slow or unstable?",
+    "RegexPattern":"\\b(what|should|i|check|if|the|internet|is|slow|or|unstable)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: What should I check if the internet is slow or unstable?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: What should I check if the internet is slow or unstable?",
+    "ExampleResponse_FR":"Voici comment procéder : What should I check if the internet is slow or unstable?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: What should I check if the internet is slow or unstable?"
+  },
+  {
+    "Category":"Email & Communication Tools",
+    "Question":"How do I set up my work email on my phone\/laptop?",
+    "RegexPattern":"\\b(how|do|i|set|up|my|work|email|on|my|phone\\\/laptop)\\b",
+    "Synonyms_Typos":"mail, e-mail, courriel, மின்னஞ்சல், ईमेल",
+    "ExampleResponse_EN":"This is how you can handle: How do I set up my work email on my phone\/laptop?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I set up my work email on my phone\/laptop?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I set up my work email on my phone\/laptop?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I set up my work email on my phone\/laptop?"
+  },
+  {
+    "Category":"Email & Communication Tools",
+    "Question":"My emails are not sending\/receiving.",
+    "RegexPattern":"\\b(my|emails|are|not|sending\\\/receiving.)\\b",
+    "Synonyms_Typos":"mail, e-mail, courriel, மின்னஞ்சல், ईमेल",
+    "ExampleResponse_EN":"This is how you can handle: My emails are not sending\/receiving.",
+    "ExampleResponse_HI":"यहाँ बताया गया है: My emails are not sending\/receiving.",
+    "ExampleResponse_FR":"Voici comment procéder : My emails are not sending\/receiving.",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: My emails are not sending\/receiving."
+  },
+  {
+    "Category":"Email & Communication Tools",
+    "Question":"How do I recover deleted emails?",
+    "RegexPattern":"\\b(how|do|i|recover|deleted|emails)\\b",
+    "Synonyms_Typos":"mail, e-mail, courriel, மின்னஞ்சல், ईमेल",
+    "ExampleResponse_EN":"This is how you can handle: How do I recover deleted emails?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I recover deleted emails?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I recover deleted emails?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I recover deleted emails?"
+  },
+  {
+    "Category":"Email & Communication Tools",
+    "Question":"How do I configure Outlook\/Gmail for my company email?",
+    "RegexPattern":"\\b(how|do|i|configure|outlook\\\/gmail|for|my|company|email)\\b",
+    "Synonyms_Typos":"mail, e-mail, courriel, மின்னஞ்சல், ईमेल",
+    "ExampleResponse_EN":"This is how you can handle: How do I configure Outlook\/Gmail for my company email?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I configure Outlook\/Gmail for my company email?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I configure Outlook\/Gmail for my company email?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I configure Outlook\/Gmail for my company email?"
+  },
+  {
+    "Category":"Hardware Issues",
+    "Question":"My computer won’t turn on — what should I try?",
+    "RegexPattern":"\\b(my|computer|won’t|turn|on|—|what|should|i|try)\\b",
+    "Synonyms_Typos":"pc, laptop, workstation, ordinateur, கணினி",
+    "ExampleResponse_EN":"This is how you can handle: My computer won’t turn on — what should I try?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: My computer won’t turn on — what should I try?",
+    "ExampleResponse_FR":"Voici comment procéder : My computer won’t turn on — what should I try?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: My computer won’t turn on — what should I try?"
+  },
+  {
+    "Category":"Hardware Issues",
+    "Question":"My printer is not working — how do I fix it?",
+    "RegexPattern":"\\b(my|printer|is|not|working|—|how|do|i|fix|it)\\b",
+    "Synonyms_Typos":"印刷机, imprimante, பிரின்டர், मुद्रक",
+    "ExampleResponse_EN":"This is how you can handle: My printer is not working — how do I fix it?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: My printer is not working — how do I fix it?",
+    "ExampleResponse_FR":"Voici comment procéder : My printer is not working — how do I fix it?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: My printer is not working — how do I fix it?"
+  },
+  {
+    "Category":"Hardware Issues",
+    "Question":"How do I report damaged or lost company equipment?",
+    "RegexPattern":"\\b(how|do|i|report|damaged|or|lost|company|equipment)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: How do I report damaged or lost company equipment?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I report damaged or lost company equipment?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I report damaged or lost company equipment?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I report damaged or lost company equipment?"
+  },
+  {
+    "Category":"Software & Applications",
+    "Question":"How do I install approved software?",
+    "RegexPattern":"\\b(how|do|i|install|approved|software)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: How do I install approved software?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I install approved software?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I install approved software?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I install approved software?"
+  },
+  {
+    "Category":"Software & Applications",
+    "Question":"The application is freezing or crashing — what should I do?",
+    "RegexPattern":"\\b(the|application|is|freezing|or|crashing|—|what|should|i|do)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: The application is freezing or crashing — what should I do?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: The application is freezing or crashing — what should I do?",
+    "ExampleResponse_FR":"Voici comment procéder : The application is freezing or crashing — what should I do?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: The application is freezing or crashing — what should I do?"
+  },
+  {
+    "Category":"Software & Applications",
+    "Question":"How do I update my applications?",
+    "RegexPattern":"\\b(how|do|i|update|my|applications)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: How do I update my applications?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I update my applications?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I update my applications?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I update my applications?"
+  },
+  {
+    "Category":"Security & Privacy",
+    "Question":"How do I report a phishing email?",
+    "RegexPattern":"\\b(how|do|i|report|a|phishing|email)\\b",
+    "Synonyms_Typos":"mail, e-mail, courriel, மின்னஞ்சல், ईमेल",
+    "ExampleResponse_EN":"This is how you can handle: How do I report a phishing email?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I report a phishing email?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I report a phishing email?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I report a phishing email?"
+  },
+  {
+    "Category":"Security & Privacy",
+    "Question":"What should I do if I clicked a suspicious link?",
+    "RegexPattern":"\\b(what|should|i|do|if|i|clicked|a|suspicious|link)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: What should I do if I clicked a suspicious link?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: What should I do if I clicked a suspicious link?",
+    "ExampleResponse_FR":"Voici comment procéder : What should I do if I clicked a suspicious link?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: What should I do if I clicked a suspicious link?"
+  },
+  {
+    "Category":"Security & Privacy",
+    "Question":"How do I enable two-factor authentication (2FA)?",
+    "RegexPattern":"\\b(how|do|i|enable|two-factor|authentication|(2fa))\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: How do I enable two-factor authentication (2FA)?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I enable two-factor authentication (2FA)?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I enable two-factor authentication (2FA)?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I enable two-factor authentication (2FA)?"
+  },
+  {
+    "Category":"Security & Privacy",
+    "Question":"How do I encrypt a file or email?",
+    "RegexPattern":"\\b(how|do|i|encrypt|a|file|or|email)\\b",
+    "Synonyms_Typos":"mail, e-mail, courriel, மின்னஞ்சல், ईमेल",
+    "ExampleResponse_EN":"This is how you can handle: How do I encrypt a file or email?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I encrypt a file or email?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I encrypt a file or email?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I encrypt a file or email?"
+  },
+  {
+    "Category":"Service Requests & Ticketing",
+    "Question":"How do I create a support ticket?",
+    "RegexPattern":"\\b(how|do|i|create|a|support|ticket)\\b",
+    "Synonyms_Typos":"case, incident, support request, SR, टिकट, அஞ்சல் சீட்டு",
+    "ExampleResponse_EN":"This is how you can handle: How do I create a support ticket?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I create a support ticket?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I create a support ticket?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I create a support ticket?"
+  },
+  {
+    "Category":"Service Requests & Ticketing",
+    "Question":"How do I check the status of my ticket?",
+    "RegexPattern":"\\b(how|do|i|check|the|status|of|my|ticket)\\b",
+    "Synonyms_Typos":"case, incident, support request, SR, टिकट, அஞ்சல் சீட்டு",
+    "ExampleResponse_EN":"This is how you can handle: How do I check the status of my ticket?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I check the status of my ticket?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I check the status of my ticket?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I check the status of my ticket?"
+  },
+  {
+    "Category":"Service Requests & Ticketing",
+    "Question":"How long does it take to resolve an issue?",
+    "RegexPattern":"\\b(how|long|does|it|take|to|resolve|an|issue)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: How long does it take to resolve an issue?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How long does it take to resolve an issue?",
+    "ExampleResponse_FR":"Voici comment procéder : How long does it take to resolve an issue?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How long does it take to resolve an issue?"
+  },
+  {
+    "Category":"Service Requests & Ticketing",
+    "Question":"What details should I provide when submitting a ticket?",
+    "RegexPattern":"\\b(what|details|should|i|provide|when|submitting|a|ticket)\\b",
+    "Synonyms_Typos":"case, incident, support request, SR, टिकट, அஞ்சல் சீட்டு",
+    "ExampleResponse_EN":"This is how you can handle: What details should I provide when submitting a ticket?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: What details should I provide when submitting a ticket?",
+    "ExampleResponse_FR":"Voici comment procéder : What details should I provide when submitting a ticket?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: What details should I provide when submitting a ticket?"
+  },
+  {
+    "Category":"Company Policies & Guides",
+    "Question":"What is the IT support service hours?",
+    "RegexPattern":"\\b(what|is|the|it|support|service|hours)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: What is the IT support service hours?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: What is the IT support service hours?",
+    "ExampleResponse_FR":"Voici comment procéder : What is the IT support service hours?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: What is the IT support service hours?"
+  },
+  {
+    "Category":"Company Policies & Guides",
+    "Question":"What’s the acceptable use policy for company devices?",
+    "RegexPattern":"\\b(what’s|the|acceptable|use|policy|for|company|devices)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: What’s the acceptable use policy for company devices?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: What’s the acceptable use policy for company devices?",
+    "ExampleResponse_FR":"Voici comment procéder : What’s the acceptable use policy for company devices?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: What’s the acceptable use policy for company devices?"
+  },
+  {
+    "Category":"Company Policies & Guides",
+    "Question":"How do I return IT equipment when leaving the company?",
+    "RegexPattern":"\\b(how|do|i|return|it|equipment|when|leaving|the|company)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: How do I return IT equipment when leaving the company?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I return IT equipment when leaving the company?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I return IT equipment when leaving the company?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I return IT equipment when leaving the company?"
+  },
+  {
+    "Category":"Miscellaneous",
+    "Question":"Who do I contact for urgent IT issues?",
+    "RegexPattern":"\\b(who|do|i|contact|for|urgent|it|issues)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: Who do I contact for urgent IT issues?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: Who do I contact for urgent IT issues?",
+    "ExampleResponse_FR":"Voici comment procéder : Who do I contact for urgent IT issues?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: Who do I contact for urgent IT issues?"
+  },
+  {
+    "Category":"Miscellaneous",
+    "Question":"How do I join a video conference?",
+    "RegexPattern":"\\b(how|do|i|join|a|video|conference)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: How do I join a video conference?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I join a video conference?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I join a video conference?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I join a video conference?"
+  },
+  {
+    "Category":"Miscellaneous",
+    "Question":"How do I access shared drives or cloud storage?",
+    "RegexPattern":"\\b(how|do|i|access|shared|drives|or|cloud|storage)\\b",
+    "Synonyms_Typos":"",
+    "ExampleResponse_EN":"This is how you can handle: How do I access shared drives or cloud storage?",
+    "ExampleResponse_HI":"यहाँ बताया गया है: How do I access shared drives or cloud storage?",
+    "ExampleResponse_FR":"Voici comment procéder : How do I access shared drives or cloud storage?",
+    "ExampleResponse_TA":"இதை எப்படி செய்யலாம்: How do I access shared drives or cloud storage?"
+  }
+]

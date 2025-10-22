@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" role="img" aria-label="T M D logo">
+  <rect width="320" height="80" fill="none"/>
+
+  <!-- T with left droop and centered stem -->
+  <path d="M80 20H32Q20 20 20 32H44V60H56V32H80Z" fill="#111"/>
+
+  <!-- M -->
+  <path d="M100 20h60a20 20 0 0 1 20 20v20h-12V40a8 8 0 0 0-8-8h-28v28h-12V20Z" fill="#111"/>
+  <rect x="144" y="32" width="12" height="28" fill="#111"/>
+
+  <!-- D -->
+  <g transform="translate(200,10)">
+    <path d="M50 0A30 30 0 0 1 80 30A30 30 0 0 1 50 60L50 0Z" fill="#18B7B0"/>
+    <path d="M50 6A24 24 0 0 1 70 16L70 44A24 24 0 0 1 50 54Z" fill="#22C7C0" opacity=".35"/>
+    <path d="M50 0A30 30 0 0 0 20 30A30 30 0 0 0 50 60L50 0Z" fill="#E7E7E7"/>
+    <circle cx="50" cy="30" r="16" fill="none" stroke="#ffffff" stroke-width="10"/>
+    <rect x="49" y="0" width="2" height="60" fill="#ffffff"/>
+  </g>
+</svg>

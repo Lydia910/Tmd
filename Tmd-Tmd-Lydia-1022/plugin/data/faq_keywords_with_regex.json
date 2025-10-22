@@ -1,0 +1,1004 @@
+[
+  {
+    "keyword": "reset",
+    "category": "Account & Login Issues",
+    "faq_question": "How do I reset my password?",
+    "regex_pattern": "\\b(reset)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Account & Login Issues",
+    "faq_question": "How do I reset my password?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "password",
+    "category": "Account & Login Issues",
+    "faq_question": "How do I reset my password?",
+    "regex_pattern": "\\b(password|passwrod|pwd|passcode)\\b"
+  },
+  {
+    "keyword": "retrieve",
+    "category": "Account & Login Issues",
+    "faq_question": "I forgot my username — how can I retrieve it?",
+    "regex_pattern": "\\b(retrieve)\\b"
+  },
+  {
+    "keyword": "forgot",
+    "category": "Account & Login Issues",
+    "faq_question": "I forgot my username — how can I retrieve it?",
+    "regex_pattern": "\\b(forgot)\\b"
+  },
+  {
+    "keyword": "username",
+    "category": "Account & Login Issues",
+    "faq_question": "I forgot my username — how can I retrieve it?",
+    "regex_pattern": "\\b(username|user\\ name|login\\ name|uname)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Account & Login Issues",
+    "faq_question": "I forgot my username — how can I retrieve it?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "can",
+    "category": "Account & Login Issues",
+    "faq_question": "I forgot my username — how can I retrieve it?",
+    "regex_pattern": "\\b(can)\\b"
+  },
+  {
+    "keyword": "account",
+    "category": "Account & Login Issues",
+    "faq_question": "How do I create a new account?",
+    "regex_pattern": "\\b(account|acount|profile|user\\ account)\\b"
+  },
+  {
+    "keyword": "create",
+    "category": "Account & Login Issues",
+    "faq_question": "How do I create a new account?",
+    "regex_pattern": "\\b(create)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Account & Login Issues",
+    "faq_question": "How do I create a new account?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "new",
+    "category": "Account & Login Issues",
+    "faq_question": "How do I create a new account?",
+    "regex_pattern": "\\b(new)\\b"
+  },
+  {
+    "keyword": "request",
+    "category": "Access & Permissions",
+    "faq_question": "How do I request access to a system/application?",
+    "regex_pattern": "\\b(request)\\b"
+  },
+  {
+    "keyword": "system/application",
+    "category": "Access & Permissions",
+    "faq_question": "How do I request access to a system/application?",
+    "regex_pattern": "\\b(system/application)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Access & Permissions",
+    "faq_question": "How do I request access to a system/application?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "access",
+    "category": "Access & Permissions",
+    "faq_question": "How do I request access to a system/application?",
+    "regex_pattern": "\\b(access)\\b"
+  },
+  {
+    "keyword": "contact",
+    "category": "Access & Permissions",
+    "faq_question": "How can I contact admin?",
+    "regex_pattern": "\\b(contact)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Access & Permissions",
+    "faq_question": "How can I contact admin?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "can",
+    "category": "Access & Permissions",
+    "faq_question": "How can I contact admin?",
+    "regex_pattern": "\\b(can)\\b"
+  },
+  {
+    "keyword": "admin",
+    "category": "Access & Permissions",
+    "faq_question": "How can I contact admin?",
+    "regex_pattern": "\\b(admin)\\b"
+  },
+  {
+    "keyword": "for",
+    "category": "Access & Permissions",
+    "faq_question": "How do I remove access for a user?",
+    "regex_pattern": "\\b(for)\\b"
+  },
+  {
+    "keyword": "remove",
+    "category": "Access & Permissions",
+    "faq_question": "How do I remove access for a user?",
+    "regex_pattern": "\\b(remove)\\b"
+  },
+  {
+    "keyword": "user",
+    "category": "Access & Permissions",
+    "faq_question": "How do I remove access for a user?",
+    "regex_pattern": "\\b(user)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Access & Permissions",
+    "faq_question": "How do I remove access for a user?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "access",
+    "category": "Access & Permissions",
+    "faq_question": "How do I remove access for a user?",
+    "regex_pattern": "\\b(access)\\b"
+  },
+  {
+    "keyword": "should",
+    "category": "Network & Connectivity",
+    "faq_question": "I can’t connect to the VPN. What should I do?",
+    "regex_pattern": "\\b(should)\\b"
+  },
+  {
+    "keyword": "can’t",
+    "category": "Network & Connectivity",
+    "faq_question": "I can’t connect to the VPN. What should I do?",
+    "regex_pattern": "\\b(can’t)\\b"
+  },
+  {
+    "keyword": "what",
+    "category": "Network & Connectivity",
+    "faq_question": "I can’t connect to the VPN. What should I do?",
+    "regex_pattern": "\\b(what)\\b"
+  },
+  {
+    "keyword": "the",
+    "category": "Network & Connectivity",
+    "faq_question": "I can’t connect to the VPN. What should I do?",
+    "regex_pattern": "\\b(the)\\b"
+  },
+  {
+    "keyword": "connect",
+    "category": "Network & Connectivity",
+    "faq_question": "I can’t connect to the VPN. What should I do?",
+    "regex_pattern": "\\b(connect)\\b"
+  },
+  {
+    "keyword": "vpn",
+    "category": "Network & Connectivity",
+    "faq_question": "I can’t connect to the VPN. What should I do?",
+    "regex_pattern": "\\b(vpn|vpnn|virtual\\ private\\ network)\\b"
+  },
+  {
+    "keyword": "wi-fi",
+    "category": "Network & Connectivity",
+    "faq_question": "How do I connect to the Wi-Fi network?",
+    "regex_pattern": "\\b(wi\\-fi)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Network & Connectivity",
+    "faq_question": "How do I connect to the Wi-Fi network?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "network",
+    "category": "Network & Connectivity",
+    "faq_question": "How do I connect to the Wi-Fi network?",
+    "regex_pattern": "\\b(network)\\b"
+  },
+  {
+    "keyword": "the",
+    "category": "Network & Connectivity",
+    "faq_question": "How do I connect to the Wi-Fi network?",
+    "regex_pattern": "\\b(the)\\b"
+  },
+  {
+    "keyword": "connect",
+    "category": "Network & Connectivity",
+    "faq_question": "How do I connect to the Wi-Fi network?",
+    "regex_pattern": "\\b(connect)\\b"
+  },
+  {
+    "keyword": "slow",
+    "category": "Network & Connectivity",
+    "faq_question": "What should I check if the internet is slow or unstable?",
+    "regex_pattern": "\\b(slow)\\b"
+  },
+  {
+    "keyword": "should",
+    "category": "Network & Connectivity",
+    "faq_question": "What should I check if the internet is slow or unstable?",
+    "regex_pattern": "\\b(should)\\b"
+  },
+  {
+    "keyword": "check",
+    "category": "Network & Connectivity",
+    "faq_question": "What should I check if the internet is slow or unstable?",
+    "regex_pattern": "\\b(check)\\b"
+  },
+  {
+    "keyword": "internet",
+    "category": "Network & Connectivity",
+    "faq_question": "What should I check if the internet is slow or unstable?",
+    "regex_pattern": "\\b(internet)\\b"
+  },
+  {
+    "keyword": "what",
+    "category": "Network & Connectivity",
+    "faq_question": "What should I check if the internet is slow or unstable?",
+    "regex_pattern": "\\b(what)\\b"
+  },
+  {
+    "keyword": "unstable",
+    "category": "Network & Connectivity",
+    "faq_question": "What should I check if the internet is slow or unstable?",
+    "regex_pattern": "\\b(unstable)\\b"
+  },
+  {
+    "keyword": "the",
+    "category": "Network & Connectivity",
+    "faq_question": "What should I check if the internet is slow or unstable?",
+    "regex_pattern": "\\b(the)\\b"
+  },
+  {
+    "keyword": "set",
+    "category": "Email & Communication Tools",
+    "faq_question": "How do I set up my work email on my phone/laptop?",
+    "regex_pattern": "\\b(set)\\b"
+  },
+  {
+    "keyword": "email",
+    "category": "Email & Communication Tools",
+    "faq_question": "How do I set up my work email on my phone/laptop?",
+    "regex_pattern": "\\b(email|mail|e\\-mail|outlook|gmail)\\b"
+  },
+  {
+    "keyword": "phone/laptop",
+    "category": "Email & Communication Tools",
+    "faq_question": "How do I set up my work email on my phone/laptop?",
+    "regex_pattern": "\\b(phone/laptop)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Email & Communication Tools",
+    "faq_question": "How do I set up my work email on my phone/laptop?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "work",
+    "category": "Email & Communication Tools",
+    "faq_question": "How do I set up my work email on my phone/laptop?",
+    "regex_pattern": "\\b(work)\\b"
+  },
+  {
+    "keyword": "are",
+    "category": "Email & Communication Tools",
+    "faq_question": "My emails are not sending/receiving.",
+    "regex_pattern": "\\b(are)\\b"
+  },
+  {
+    "keyword": "sending/receiving",
+    "category": "Email & Communication Tools",
+    "faq_question": "My emails are not sending/receiving.",
+    "regex_pattern": "\\b(sending/receiving)\\b"
+  },
+  {
+    "keyword": "not",
+    "category": "Email & Communication Tools",
+    "faq_question": "My emails are not sending/receiving.",
+    "regex_pattern": "\\b(not)\\b"
+  },
+  {
+    "keyword": "emails",
+    "category": "Email & Communication Tools",
+    "faq_question": "My emails are not sending/receiving.",
+    "regex_pattern": "\\b(emails)\\b"
+  },
+  {
+    "keyword": "emails",
+    "category": "Email & Communication Tools",
+    "faq_question": "How do I recover deleted emails?",
+    "regex_pattern": "\\b(emails)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Email & Communication Tools",
+    "faq_question": "How do I recover deleted emails?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "recover",
+    "category": "Email & Communication Tools",
+    "faq_question": "How do I recover deleted emails?",
+    "regex_pattern": "\\b(recover)\\b"
+  },
+  {
+    "keyword": "deleted",
+    "category": "Email & Communication Tools",
+    "faq_question": "How do I recover deleted emails?",
+    "regex_pattern": "\\b(deleted)\\b"
+  },
+  {
+    "keyword": "for",
+    "category": "Email & Communication Tools",
+    "faq_question": "How do I configure Outlook/Gmail for my company email?",
+    "regex_pattern": "\\b(for)\\b"
+  },
+  {
+    "keyword": "email",
+    "category": "Email & Communication Tools",
+    "faq_question": "How do I configure Outlook/Gmail for my company email?",
+    "regex_pattern": "\\b(email|mail|e\\-mail|outlook|gmail)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Email & Communication Tools",
+    "faq_question": "How do I configure Outlook/Gmail for my company email?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "company",
+    "category": "Email & Communication Tools",
+    "faq_question": "How do I configure Outlook/Gmail for my company email?",
+    "regex_pattern": "\\b(company)\\b"
+  },
+  {
+    "keyword": "configure",
+    "category": "Email & Communication Tools",
+    "faq_question": "How do I configure Outlook/Gmail for my company email?",
+    "regex_pattern": "\\b(configure)\\b"
+  },
+  {
+    "keyword": "outlook/gmail",
+    "category": "Email & Communication Tools",
+    "faq_question": "How do I configure Outlook/Gmail for my company email?",
+    "regex_pattern": "\\b(outlook/gmail)\\b"
+  },
+  {
+    "keyword": "should",
+    "category": "Hardware Issues",
+    "faq_question": "My computer won’t turn on — what should I try?",
+    "regex_pattern": "\\b(should)\\b"
+  },
+  {
+    "keyword": "what",
+    "category": "Hardware Issues",
+    "faq_question": "My computer won’t turn on — what should I try?",
+    "regex_pattern": "\\b(what)\\b"
+  },
+  {
+    "keyword": "computer",
+    "category": "Hardware Issues",
+    "faq_question": "My computer won’t turn on — what should I try?",
+    "regex_pattern": "\\b(computer)\\b"
+  },
+  {
+    "keyword": "try",
+    "category": "Hardware Issues",
+    "faq_question": "My computer won’t turn on — what should I try?",
+    "regex_pattern": "\\b(try)\\b"
+  },
+  {
+    "keyword": "won’t",
+    "category": "Hardware Issues",
+    "faq_question": "My computer won’t turn on — what should I try?",
+    "regex_pattern": "\\b(won’t)\\b"
+  },
+  {
+    "keyword": "turn",
+    "category": "Hardware Issues",
+    "faq_question": "My computer won’t turn on — what should I try?",
+    "regex_pattern": "\\b(turn)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Hardware Issues",
+    "faq_question": "My printer is not working — how do I fix it?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "printer",
+    "category": "Hardware Issues",
+    "faq_question": "My printer is not working — how do I fix it?",
+    "regex_pattern": "\\b(printer|print|printing\\ device)\\b"
+  },
+  {
+    "keyword": "not",
+    "category": "Hardware Issues",
+    "faq_question": "My printer is not working — how do I fix it?",
+    "regex_pattern": "\\b(not)\\b"
+  },
+  {
+    "keyword": "working",
+    "category": "Hardware Issues",
+    "faq_question": "My printer is not working — how do I fix it?",
+    "regex_pattern": "\\b(working)\\b"
+  },
+  {
+    "keyword": "fix",
+    "category": "Hardware Issues",
+    "faq_question": "My printer is not working — how do I fix it?",
+    "regex_pattern": "\\b(fix)\\b"
+  },
+  {
+    "keyword": "report",
+    "category": "Hardware Issues",
+    "faq_question": "How do I report damaged or lost company equipment?",
+    "regex_pattern": "\\b(report)\\b"
+  },
+  {
+    "keyword": "lost",
+    "category": "Hardware Issues",
+    "faq_question": "How do I report damaged or lost company equipment?",
+    "regex_pattern": "\\b(lost)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Hardware Issues",
+    "faq_question": "How do I report damaged or lost company equipment?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "company",
+    "category": "Hardware Issues",
+    "faq_question": "How do I report damaged or lost company equipment?",
+    "regex_pattern": "\\b(company)\\b"
+  },
+  {
+    "keyword": "damaged",
+    "category": "Hardware Issues",
+    "faq_question": "How do I report damaged or lost company equipment?",
+    "regex_pattern": "\\b(damaged)\\b"
+  },
+  {
+    "keyword": "equipment",
+    "category": "Hardware Issues",
+    "faq_question": "How do I report damaged or lost company equipment?",
+    "regex_pattern": "\\b(equipment)\\b"
+  },
+  {
+    "keyword": "approved",
+    "category": "Software & Applications",
+    "faq_question": "How do I install approved software?",
+    "regex_pattern": "\\b(approved)\\b"
+  },
+  {
+    "keyword": "software",
+    "category": "Software & Applications",
+    "faq_question": "How do I install approved software?",
+    "regex_pattern": "\\b(software|application|program|app)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Software & Applications",
+    "faq_question": "How do I install approved software?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "install",
+    "category": "Software & Applications",
+    "faq_question": "How do I install approved software?",
+    "regex_pattern": "\\b(install)\\b"
+  },
+  {
+    "keyword": "should",
+    "category": "Software & Applications",
+    "faq_question": "The application is freezing or crashing — what should I do?",
+    "regex_pattern": "\\b(should)\\b"
+  },
+  {
+    "keyword": "crashing",
+    "category": "Software & Applications",
+    "faq_question": "The application is freezing or crashing — what should I do?",
+    "regex_pattern": "\\b(crashing)\\b"
+  },
+  {
+    "keyword": "what",
+    "category": "Software & Applications",
+    "faq_question": "The application is freezing or crashing — what should I do?",
+    "regex_pattern": "\\b(what)\\b"
+  },
+  {
+    "keyword": "application",
+    "category": "Software & Applications",
+    "faq_question": "The application is freezing or crashing — what should I do?",
+    "regex_pattern": "\\b(application)\\b"
+  },
+  {
+    "keyword": "freezing",
+    "category": "Software & Applications",
+    "faq_question": "The application is freezing or crashing — what should I do?",
+    "regex_pattern": "\\b(freezing)\\b"
+  },
+  {
+    "keyword": "the",
+    "category": "Software & Applications",
+    "faq_question": "The application is freezing or crashing — what should I do?",
+    "regex_pattern": "\\b(the)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Software & Applications",
+    "faq_question": "How do I update my applications?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "update",
+    "category": "Software & Applications",
+    "faq_question": "How do I update my applications?",
+    "regex_pattern": "\\b(update)\\b"
+  },
+  {
+    "keyword": "applications",
+    "category": "Software & Applications",
+    "faq_question": "How do I update my applications?",
+    "regex_pattern": "\\b(applications)\\b"
+  },
+  {
+    "keyword": "report",
+    "category": "Security & Privacy",
+    "faq_question": "How do I report a phishing email?",
+    "regex_pattern": "\\b(report)\\b"
+  },
+  {
+    "keyword": "email",
+    "category": "Security & Privacy",
+    "faq_question": "How do I report a phishing email?",
+    "regex_pattern": "\\b(email|mail|e\\-mail|outlook|gmail)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Security & Privacy",
+    "faq_question": "How do I report a phishing email?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "phishing",
+    "category": "Security & Privacy",
+    "faq_question": "How do I report a phishing email?",
+    "regex_pattern": "\\b(phishing|scam\\ email|fraud\\ email)\\b"
+  },
+  {
+    "keyword": "link",
+    "category": "Security & Privacy",
+    "faq_question": "What should I do if I clicked a suspicious link?",
+    "regex_pattern": "\\b(link)\\b"
+  },
+  {
+    "keyword": "should",
+    "category": "Security & Privacy",
+    "faq_question": "What should I do if I clicked a suspicious link?",
+    "regex_pattern": "\\b(should)\\b"
+  },
+  {
+    "keyword": "what",
+    "category": "Security & Privacy",
+    "faq_question": "What should I do if I clicked a suspicious link?",
+    "regex_pattern": "\\b(what)\\b"
+  },
+  {
+    "keyword": "suspicious",
+    "category": "Security & Privacy",
+    "faq_question": "What should I do if I clicked a suspicious link?",
+    "regex_pattern": "\\b(suspicious)\\b"
+  },
+  {
+    "keyword": "clicked",
+    "category": "Security & Privacy",
+    "faq_question": "What should I do if I clicked a suspicious link?",
+    "regex_pattern": "\\b(clicked)\\b"
+  },
+  {
+    "keyword": "two-factor",
+    "category": "Security & Privacy",
+    "faq_question": "How do I enable two-factor authentication (2FA)?",
+    "regex_pattern": "\\b(two\\-factor)\\b"
+  },
+  {
+    "keyword": "authentication",
+    "category": "Security & Privacy",
+    "faq_question": "How do I enable two-factor authentication (2FA)?",
+    "regex_pattern": "\\b(authentication)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Security & Privacy",
+    "faq_question": "How do I enable two-factor authentication (2FA)?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "(2fa)",
+    "category": "Security & Privacy",
+    "faq_question": "How do I enable two-factor authentication (2FA)?",
+    "regex_pattern": "\\b(\\(2fa\\))\\b"
+  },
+  {
+    "keyword": "enable",
+    "category": "Security & Privacy",
+    "faq_question": "How do I enable two-factor authentication (2FA)?",
+    "regex_pattern": "\\b(enable)\\b"
+  },
+  {
+    "keyword": "file",
+    "category": "Security & Privacy",
+    "faq_question": "How do I encrypt a file or email?",
+    "regex_pattern": "\\b(file)\\b"
+  },
+  {
+    "keyword": "email",
+    "category": "Security & Privacy",
+    "faq_question": "How do I encrypt a file or email?",
+    "regex_pattern": "\\b(email|mail|e\\-mail|outlook|gmail)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Security & Privacy",
+    "faq_question": "How do I encrypt a file or email?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "encrypt",
+    "category": "Security & Privacy",
+    "faq_question": "How do I encrypt a file or email?",
+    "regex_pattern": "\\b(encrypt)\\b"
+  },
+  {
+    "keyword": "create",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "How do I create a support ticket?",
+    "regex_pattern": "\\b(create)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "How do I create a support ticket?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "ticket",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "How do I create a support ticket?",
+    "regex_pattern": "\\b(ticket|request|case|incident)\\b"
+  },
+  {
+    "keyword": "support",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "How do I create a support ticket?",
+    "regex_pattern": "\\b(support)\\b"
+  },
+  {
+    "keyword": "check",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "How do I check the status of my ticket?",
+    "regex_pattern": "\\b(check)\\b"
+  },
+  {
+    "keyword": "status",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "How do I check the status of my ticket?",
+    "regex_pattern": "\\b(status)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "How do I check the status of my ticket?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "ticket",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "How do I check the status of my ticket?",
+    "regex_pattern": "\\b(ticket|request|case|incident)\\b"
+  },
+  {
+    "keyword": "the",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "How do I check the status of my ticket?",
+    "regex_pattern": "\\b(the)\\b"
+  },
+  {
+    "keyword": "does",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "How long does it take to resolve an issue?",
+    "regex_pattern": "\\b(does)\\b"
+  },
+  {
+    "keyword": "take",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "How long does it take to resolve an issue?",
+    "regex_pattern": "\\b(take)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "How long does it take to resolve an issue?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "resolve",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "How long does it take to resolve an issue?",
+    "regex_pattern": "\\b(resolve)\\b"
+  },
+  {
+    "keyword": "long",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "How long does it take to resolve an issue?",
+    "regex_pattern": "\\b(long)\\b"
+  },
+  {
+    "keyword": "issue",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "How long does it take to resolve an issue?",
+    "regex_pattern": "\\b(issue)\\b"
+  },
+  {
+    "keyword": "details",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "What details should I provide when submitting a ticket?",
+    "regex_pattern": "\\b(details)\\b"
+  },
+  {
+    "keyword": "should",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "What details should I provide when submitting a ticket?",
+    "regex_pattern": "\\b(should)\\b"
+  },
+  {
+    "keyword": "when",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "What details should I provide when submitting a ticket?",
+    "regex_pattern": "\\b(when)\\b"
+  },
+  {
+    "keyword": "what",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "What details should I provide when submitting a ticket?",
+    "regex_pattern": "\\b(what)\\b"
+  },
+  {
+    "keyword": "ticket",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "What details should I provide when submitting a ticket?",
+    "regex_pattern": "\\b(ticket|request|case|incident)\\b"
+  },
+  {
+    "keyword": "submitting",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "What details should I provide when submitting a ticket?",
+    "regex_pattern": "\\b(submitting)\\b"
+  },
+  {
+    "keyword": "provide",
+    "category": "Service Requests & Ticketing",
+    "faq_question": "What details should I provide when submitting a ticket?",
+    "regex_pattern": "\\b(provide)\\b"
+  },
+  {
+    "keyword": "service",
+    "category": "Company Policies & Guides",
+    "faq_question": "What is the IT support service hours?",
+    "regex_pattern": "\\b(service)\\b"
+  },
+  {
+    "keyword": "hours",
+    "category": "Company Policies & Guides",
+    "faq_question": "What is the IT support service hours?",
+    "regex_pattern": "\\b(hours)\\b"
+  },
+  {
+    "keyword": "what",
+    "category": "Company Policies & Guides",
+    "faq_question": "What is the IT support service hours?",
+    "regex_pattern": "\\b(what)\\b"
+  },
+  {
+    "keyword": "support",
+    "category": "Company Policies & Guides",
+    "faq_question": "What is the IT support service hours?",
+    "regex_pattern": "\\b(support)\\b"
+  },
+  {
+    "keyword": "the",
+    "category": "Company Policies & Guides",
+    "faq_question": "What is the IT support service hours?",
+    "regex_pattern": "\\b(the)\\b"
+  },
+  {
+    "keyword": "acceptable",
+    "category": "Company Policies & Guides",
+    "faq_question": "What’s the acceptable use policy for company devices?",
+    "regex_pattern": "\\b(acceptable)\\b"
+  },
+  {
+    "keyword": "what’s",
+    "category": "Company Policies & Guides",
+    "faq_question": "What’s the acceptable use policy for company devices?",
+    "regex_pattern": "\\b(what’s)\\b"
+  },
+  {
+    "keyword": "policy",
+    "category": "Company Policies & Guides",
+    "faq_question": "What’s the acceptable use policy for company devices?",
+    "regex_pattern": "\\b(policy)\\b"
+  },
+  {
+    "keyword": "for",
+    "category": "Company Policies & Guides",
+    "faq_question": "What’s the acceptable use policy for company devices?",
+    "regex_pattern": "\\b(for)\\b"
+  },
+  {
+    "keyword": "devices",
+    "category": "Company Policies & Guides",
+    "faq_question": "What’s the acceptable use policy for company devices?",
+    "regex_pattern": "\\b(devices)\\b"
+  },
+  {
+    "keyword": "company",
+    "category": "Company Policies & Guides",
+    "faq_question": "What’s the acceptable use policy for company devices?",
+    "regex_pattern": "\\b(company)\\b"
+  },
+  {
+    "keyword": "use",
+    "category": "Company Policies & Guides",
+    "faq_question": "What’s the acceptable use policy for company devices?",
+    "regex_pattern": "\\b(use)\\b"
+  },
+  {
+    "keyword": "the",
+    "category": "Company Policies & Guides",
+    "faq_question": "What’s the acceptable use policy for company devices?",
+    "regex_pattern": "\\b(the)\\b"
+  },
+  {
+    "keyword": "when",
+    "category": "Company Policies & Guides",
+    "faq_question": "How do I return IT equipment when leaving the company?",
+    "regex_pattern": "\\b(when)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Company Policies & Guides",
+    "faq_question": "How do I return IT equipment when leaving the company?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "company",
+    "category": "Company Policies & Guides",
+    "faq_question": "How do I return IT equipment when leaving the company?",
+    "regex_pattern": "\\b(company)\\b"
+  },
+  {
+    "keyword": "leaving",
+    "category": "Company Policies & Guides",
+    "faq_question": "How do I return IT equipment when leaving the company?",
+    "regex_pattern": "\\b(leaving)\\b"
+  },
+  {
+    "keyword": "return",
+    "category": "Company Policies & Guides",
+    "faq_question": "How do I return IT equipment when leaving the company?",
+    "regex_pattern": "\\b(return)\\b"
+  },
+  {
+    "keyword": "the",
+    "category": "Company Policies & Guides",
+    "faq_question": "How do I return IT equipment when leaving the company?",
+    "regex_pattern": "\\b(the)\\b"
+  },
+  {
+    "keyword": "equipment",
+    "category": "Company Policies & Guides",
+    "faq_question": "How do I return IT equipment when leaving the company?",
+    "regex_pattern": "\\b(equipment)\\b"
+  },
+  {
+    "keyword": "for",
+    "category": "Miscellaneous",
+    "faq_question": "Who do I contact for urgent IT issues?",
+    "regex_pattern": "\\b(for)\\b"
+  },
+  {
+    "keyword": "contact",
+    "category": "Miscellaneous",
+    "faq_question": "Who do I contact for urgent IT issues?",
+    "regex_pattern": "\\b(contact)\\b"
+  },
+  {
+    "keyword": "issues",
+    "category": "Miscellaneous",
+    "faq_question": "Who do I contact for urgent IT issues?",
+    "regex_pattern": "\\b(issues)\\b"
+  },
+  {
+    "keyword": "who",
+    "category": "Miscellaneous",
+    "faq_question": "Who do I contact for urgent IT issues?",
+    "regex_pattern": "\\b(who)\\b"
+  },
+  {
+    "keyword": "urgent",
+    "category": "Miscellaneous",
+    "faq_question": "Who do I contact for urgent IT issues?",
+    "regex_pattern": "\\b(urgent)\\b"
+  },
+  {
+    "keyword": "join",
+    "category": "Miscellaneous",
+    "faq_question": "How do I join a video conference?",
+    "regex_pattern": "\\b(join)\\b"
+  },
+  {
+    "keyword": "video",
+    "category": "Miscellaneous",
+    "faq_question": "How do I join a video conference?",
+    "regex_pattern": "\\b(video)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Miscellaneous",
+    "faq_question": "How do I join a video conference?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "conference",
+    "category": "Miscellaneous",
+    "faq_question": "How do I join a video conference?",
+    "regex_pattern": "\\b(conference)\\b"
+  },
+  {
+    "keyword": "shared",
+    "category": "Miscellaneous",
+    "faq_question": "How do I access shared drives or cloud storage?",
+    "regex_pattern": "\\b(shared)\\b"
+  },
+  {
+    "keyword": "cloud",
+    "category": "Miscellaneous",
+    "faq_question": "How do I access shared drives or cloud storage?",
+    "regex_pattern": "\\b(cloud)\\b"
+  },
+  {
+    "keyword": "storage",
+    "category": "Miscellaneous",
+    "faq_question": "How do I access shared drives or cloud storage?",
+    "regex_pattern": "\\b(storage)\\b"
+  },
+  {
+    "keyword": "how",
+    "category": "Miscellaneous",
+    "faq_question": "How do I access shared drives or cloud storage?",
+    "regex_pattern": "\\b(how)\\b"
+  },
+  {
+    "keyword": "access",
+    "category": "Miscellaneous",
+    "faq_question": "How do I access shared drives or cloud storage?",
+    "regex_pattern": "\\b(access)\\b"
+  },
+  {
+    "keyword": "drives",
+    "category": "Miscellaneous",
+    "faq_question": "How do I access shared drives or cloud storage?",
+    "regex_pattern": "\\b(drives)\\b"
+  }
+]

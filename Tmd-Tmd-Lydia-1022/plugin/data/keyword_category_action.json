@@ -1,0 +1,52 @@
+{
+  "IT Service": {
+    "action": "Allowed",
+    "keywords": [
+      "printer",
+      "network",
+      "VPN",
+      "Outlook",
+      "email",
+      "account lock",
+      "password",
+      "Windows update",
+      "ticket",
+      "incident",
+      "Wi-Fi",
+      "firewall"
+    ]
+  },
+  "Off-topic": {
+    "action": "Block",
+    "keywords": [
+      "recipe",
+      "bake",
+      "ingredient",
+      "kitchen",
+      "chef",
+      "guitar",
+      "playlist",
+      "album",
+      "song",
+      "concert",
+      "football",
+      "basketball",
+      "match",
+      "team"
+    ]
+  },
+  "Sensitive": {
+    "action": "Flag HITL",
+    "keywords": [
+      "credit card",
+      "SSN",
+      "passport",
+      "bank account",
+      "key",
+      "token",
+      "kill",
+      "attack",
+      "hate"
+    ]
+  }
+}

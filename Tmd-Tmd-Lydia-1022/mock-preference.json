@@ -1,0 +1,8 @@
+{
+  "title": "Local Test Assistant",
+  "welcomeMessage": "Hello! This is mock data from local file.",
+  "theme": "dark",
+  "botName": "TMD Bot",
+  "primaryColor": "#00C0E3",
+  "avatar_img": "https://via.placeholder.com/40"
+}

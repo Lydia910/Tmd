@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot GPT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 30px auto;
+            background: #f7f7f7;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        #chat {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: white;
+            margin-bottom: 10px;
+        }
+        .FAQ{
+            background:#c6ecae;
+            width: 300px;
+            border-radius: 8px;
+            padding: 20px 10px;
+        }
+        .bot{
+            background:#c6ecae;
+            width: 300px;
+            border-radius: 8px;
+            padding: 20px 10px;
+
+        }
+        .faq-msg{
+            background:#c6ecae;
+            width: 300px;
+            border-radius: 8px;
+            padding: 20px 10px;
+            padding-top: 30px;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        .faq-botton{
+          width: 280px;
+          padding-top: 20px;
+          display: flex;
+          flex-direction: column; /* stack vertically */
+          gap: 10px; /* space between buttons */
+          
+        }
+        .msg {
+            margin: 10px 0;
+        }
+        .user {
+            font-weight: bold;
+            color: #0066cc;
+
+        }
+        .bot {
+            color: #444;
+        }
+        #input {
+            width: 100%;
+            padding: 10px;
+        }
+        .faq-btn {
+            flex-direction: column;
+            background-color: #fe5f55; /* Green */
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            
+        }
+        .faq-btn:hover {
+            background-color: #885053;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>GLPI Chatbot (GPT-3.5)</h2>
+    <button id="logoutBtn">Logout</button>
+    <div id="chat">
+        <div class="faq-msg">Hi, this is chatbot. What can I do for you today?</div>
+        <div class="FAQ">
+            <div>You can also choose common FAQ below:</div>
+                <div class="faq-botton" id="faq-botton"></div>
+                
+            </div>
+        </div>
+    </div>
+
+    <input type="text" id="input" placeholder="Ask me anything..." 
+           onkeydown="if(event.key === 'Enter') sendMessage()" />
+
+    <script>
+        let inChat = false;
+        let login = false;
+        async function loadTopics() {
+          const res = await fetch("faq/faq.php");
+          const data = await res.json();
+          if (!inChat) { //first time
+            const faqSection = document.getElementById("faq-botton");
+            
+            data.topics.forEach(topic => {
+              const btn = document.createElement("button");
+              btn.className = "faq-btn";
+              btn.innerText = topic;
+              btn.onclick = () => loadQuestions(topic);
+              faqSection.appendChild(btn);
+            });
+
+          }else{//other times called in chat
+
+              const chat = document.getElementById("chat");
+              const msg = document.createElement("div");
+
+              msg.classList.add("FAQ", "msg", "bot");
+              msg.innerHTML = `<span class="bot">Bot:</span> Here are some topics you might find useful:`;
+
+              const btnDiv = document.createElement("div");
+              btnDiv.classList.add("faq-botton");
+
+              data.topics.forEach(topic => {
+                const btn = document.createElement("button");
+                btn.className = "faq-btn";
+                btn.innerText = topic;
+                btn.onclick = () => loadQuestions(topic);
+                btnDiv.appendChild(btn);
+              });
+
+              msg.appendChild(btnDiv);
+              chat.appendChild(msg);
+              chat.scrollTop = chat.scrollHeight;
+
+          }
+
+        }
+
+        async function loadQuestions(topic) {
+          const res = await fetch("faq/faq.php?topic=" + encodeURIComponent(topic));
+          const data = await res.json();
+          
+          const chat = document.getElementById("chat");
+          const msg = document.createElement("div");
+          msg.classList.add("FAQ");
+          const btnDiv = document.createElement("div");
+          btnDiv.classList.add("faq-botton");
+          
+          let greeting = "Here are some frequent-asked questions";
+          msg.innerHTML = `<span class="bot">Bot:</span> ${greeting}`;
+          
+          data.questions.forEach(q => {
+
+            const btn = document.createElement("button");
+            btn.className = "faq-btn";
+            btn.innerText = q;
+            btn.onclick = () => loadAnswer(topic, q);
+            btnDiv.appendChild(btn);
+            
+
+            
+
+          });
+          msg.classList.add("msg", "bot");
+            msg.appendChild(btnDiv);
+            chat.appendChild(msg);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        async function loadAnswer(topic, question) {
+            addMessage("user", question);
+
+            const res = await fetch(`faq/faq.php?topic=${encodeURIComponent(topic)}&question=${encodeURIComponent(question)}`);
+            const data = await res.json();
+
+            addMessage("bot", data.answer);
+        }
+
+        function addMessage(sender, text) {
+            const chat = document.getElementById("chat");
+            const msg = document.createElement("div");
+            msg.classList.add("msg", sender);
+            msg.innerHTML = `<span class="${sender}">${sender === 'user' ? 'You' : 'Bot'}:</span> ${text}`;
+            chat.appendChild(msg);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const isLoggedIn = await checkLogin();
+            const input = document.getElementById("input");
+            const message = input.value.trim();
+            if (!message) return;
+            addMessage("user", message);
+            input.value = "";
+            if (!isLoggedIn){
+              
+              addMessage("bot","need to login");
+            }
+            else{
+              
+              
+              const res = await fetch('../plugin/keyword/keyword_scope.php', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ message })
+                  });
+              const data = await res.json();
+                  
+              addMessage("bot", data.response || "No response.");
+              if (data.faq_topics && data.faq_topics.length > 0) {
+                  inChat = true;
+                  loadTopics(); 
+              }
+            }
+        }
+
+
+        async function checkLogin() {
+          const res = await fetch('/plugin/auth/status.php');
+          const data = await res.json();
+          if (data.logged_in) {
+            return true;
+          }
+          else{ return false;}
+        }
+        
+        
+        // Load FAQ topics on page load
+        loadTopics();
+        
+        document.getElementById("logoutBtn").addEventListener("click",async () => {
+            window.location.href = "/plugin/auth/logout.php";
+          });
+        
+    </script>
+
+</body>
+</html>

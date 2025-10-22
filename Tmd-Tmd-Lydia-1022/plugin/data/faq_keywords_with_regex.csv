@@ -1,0 +1,168 @@
+keyword,category,faq_question,regex_pattern
+reset,Account & Login Issues,How do I reset my password?,\b(reset)\b
+how,Account & Login Issues,How do I reset my password?,\b(how)\b
+password,Account & Login Issues,How do I reset my password?,\b(password|passwrod|pwd|passcode)\b
+retrieve,Account & Login Issues,I forgot my username — how can I retrieve it?,\b(retrieve)\b
+forgot,Account & Login Issues,I forgot my username — how can I retrieve it?,\b(forgot)\b
+username,Account & Login Issues,I forgot my username — how can I retrieve it?,\b(username|user\ name|login\ name|uname)\b
+how,Account & Login Issues,I forgot my username — how can I retrieve it?,\b(how)\b
+can,Account & Login Issues,I forgot my username — how can I retrieve it?,\b(can)\b
+account,Account & Login Issues,How do I create a new account?,\b(account|acount|profile|user\ account)\b
+create,Account & Login Issues,How do I create a new account?,\b(create)\b
+how,Account & Login Issues,How do I create a new account?,\b(how)\b
+new,Account & Login Issues,How do I create a new account?,\b(new)\b
+request,Access & Permissions,How do I request access to a system/application?,\b(request)\b
+system/application,Access & Permissions,How do I request access to a system/application?,\b(system/application)\b
+how,Access & Permissions,How do I request access to a system/application?,\b(how)\b
+access,Access & Permissions,How do I request access to a system/application?,\b(access)\b
+contact,Access & Permissions,How can I contact admin?,\b(contact)\b
+how,Access & Permissions,How can I contact admin?,\b(how)\b
+can,Access & Permissions,How can I contact admin?,\b(can)\b
+admin,Access & Permissions,How can I contact admin?,\b(admin)\b
+for,Access & Permissions,How do I remove access for a user?,\b(for)\b
+remove,Access & Permissions,How do I remove access for a user?,\b(remove)\b
+user,Access & Permissions,How do I remove access for a user?,\b(user)\b
+how,Access & Permissions,How do I remove access for a user?,\b(how)\b
+access,Access & Permissions,How do I remove access for a user?,\b(access)\b
+should,Network & Connectivity,I can’t connect to the VPN. What should I do?,\b(should)\b
+can’t,Network & Connectivity,I can’t connect to the VPN. What should I do?,\b(can’t)\b
+what,Network & Connectivity,I can’t connect to the VPN. What should I do?,\b(what)\b
+the,Network & Connectivity,I can’t connect to the VPN. What should I do?,\b(the)\b
+connect,Network & Connectivity,I can’t connect to the VPN. What should I do?,\b(connect)\b
+vpn,Network & Connectivity,I can’t connect to the VPN. What should I do?,\b(vpn|vpnn|virtual\ private\ network)\b
+wi-fi,Network & Connectivity,How do I connect to the Wi-Fi network?,\b(wi\-fi)\b
+how,Network & Connectivity,How do I connect to the Wi-Fi network?,\b(how)\b
+network,Network & Connectivity,How do I connect to the Wi-Fi network?,\b(network)\b
+the,Network & Connectivity,How do I connect to the Wi-Fi network?,\b(the)\b
+connect,Network & Connectivity,How do I connect to the Wi-Fi network?,\b(connect)\b
+slow,Network & Connectivity,What should I check if the internet is slow or unstable?,\b(slow)\b
+should,Network & Connectivity,What should I check if the internet is slow or unstable?,\b(should)\b
+check,Network & Connectivity,What should I check if the internet is slow or unstable?,\b(check)\b
+internet,Network & Connectivity,What should I check if the internet is slow or unstable?,\b(internet)\b
+what,Network & Connectivity,What should I check if the internet is slow or unstable?,\b(what)\b
+unstable,Network & Connectivity,What should I check if the internet is slow or unstable?,\b(unstable)\b
+the,Network & Connectivity,What should I check if the internet is slow or unstable?,\b(the)\b
+set,Email & Communication Tools,How do I set up my work email on my phone/laptop?,\b(set)\b
+email,Email & Communication Tools,How do I set up my work email on my phone/laptop?,\b(email|mail|e\-mail|outlook|gmail)\b
+phone/laptop,Email & Communication Tools,How do I set up my work email on my phone/laptop?,\b(phone/laptop)\b
+how,Email & Communication Tools,How do I set up my work email on my phone/laptop?,\b(how)\b
+work,Email & Communication Tools,How do I set up my work email on my phone/laptop?,\b(work)\b
+are,Email & Communication Tools,My emails are not sending/receiving.,\b(are)\b
+sending/receiving,Email & Communication Tools,My emails are not sending/receiving.,\b(sending/receiving)\b
+not,Email & Communication Tools,My emails are not sending/receiving.,\b(not)\b
+emails,Email & Communication Tools,My emails are not sending/receiving.,\b(emails)\b
+emails,Email & Communication Tools,How do I recover deleted emails?,\b(emails)\b
+how,Email & Communication Tools,How do I recover deleted emails?,\b(how)\b
+recover,Email & Communication Tools,How do I recover deleted emails?,\b(recover)\b
+deleted,Email & Communication Tools,How do I recover deleted emails?,\b(deleted)\b
+for,Email & Communication Tools,How do I configure Outlook/Gmail for my company email?,\b(for)\b
+email,Email & Communication Tools,How do I configure Outlook/Gmail for my company email?,\b(email|mail|e\-mail|outlook|gmail)\b
+how,Email & Communication Tools,How do I configure Outlook/Gmail for my company email?,\b(how)\b
+company,Email & Communication Tools,How do I configure Outlook/Gmail for my company email?,\b(company)\b
+configure,Email & Communication Tools,How do I configure Outlook/Gmail for my company email?,\b(configure)\b
+outlook/gmail,Email & Communication Tools,How do I configure Outlook/Gmail for my company email?,\b(outlook/gmail)\b
+should,Hardware Issues,My computer won’t turn on — what should I try?,\b(should)\b
+what,Hardware Issues,My computer won’t turn on — what should I try?,\b(what)\b
+computer,Hardware Issues,My computer won’t turn on — what should I try?,\b(computer)\b
+try,Hardware Issues,My computer won’t turn on — what should I try?,\b(try)\b
+won’t,Hardware Issues,My computer won’t turn on — what should I try?,\b(won’t)\b
+turn,Hardware Issues,My computer won’t turn on — what should I try?,\b(turn)\b
+how,Hardware Issues,My printer is not working — how do I fix it?,\b(how)\b
+printer,Hardware Issues,My printer is not working — how do I fix it?,\b(printer|print|printing\ device)\b
+not,Hardware Issues,My printer is not working — how do I fix it?,\b(not)\b
+working,Hardware Issues,My printer is not working — how do I fix it?,\b(working)\b
+fix,Hardware Issues,My printer is not working — how do I fix it?,\b(fix)\b
+report,Hardware Issues,How do I report damaged or lost company equipment?,\b(report)\b
+lost,Hardware Issues,How do I report damaged or lost company equipment?,\b(lost)\b
+how,Hardware Issues,How do I report damaged or lost company equipment?,\b(how)\b
+company,Hardware Issues,How do I report damaged or lost company equipment?,\b(company)\b
+damaged,Hardware Issues,How do I report damaged or lost company equipment?,\b(damaged)\b
+equipment,Hardware Issues,How do I report damaged or lost company equipment?,\b(equipment)\b
+approved,Software & Applications,How do I install approved software?,\b(approved)\b
+software,Software & Applications,How do I install approved software?,\b(software|application|program|app)\b
+how,Software & Applications,How do I install approved software?,\b(how)\b
+install,Software & Applications,How do I install approved software?,\b(install)\b
+should,Software & Applications,The application is freezing or crashing — what should I do?,\b(should)\b
+crashing,Software & Applications,The application is freezing or crashing — what should I do?,\b(crashing)\b
+what,Software & Applications,The application is freezing or crashing — what should I do?,\b(what)\b
+application,Software & Applications,The application is freezing or crashing — what should I do?,\b(application)\b
+freezing,Software & Applications,The application is freezing or crashing — what should I do?,\b(freezing)\b
+the,Software & Applications,The application is freezing or crashing — what should I do?,\b(the)\b
+how,Software & Applications,How do I update my applications?,\b(how)\b
+update,Software & Applications,How do I update my applications?,\b(update)\b
+applications,Software & Applications,How do I update my applications?,\b(applications)\b
+report,Security & Privacy,How do I report a phishing email?,\b(report)\b
+email,Security & Privacy,How do I report a phishing email?,\b(email|mail|e\-mail|outlook|gmail)\b
+how,Security & Privacy,How do I report a phishing email?,\b(how)\b
+phishing,Security & Privacy,How do I report a phishing email?,\b(phishing|scam\ email|fraud\ email)\b
+link,Security & Privacy,What should I do if I clicked a suspicious link?,\b(link)\b
+should,Security & Privacy,What should I do if I clicked a suspicious link?,\b(should)\b
+what,Security & Privacy,What should I do if I clicked a suspicious link?,\b(what)\b
+suspicious,Security & Privacy,What should I do if I clicked a suspicious link?,\b(suspicious)\b
+clicked,Security & Privacy,What should I do if I clicked a suspicious link?,\b(clicked)\b
+two-factor,Security & Privacy,How do I enable two-factor authentication (2FA)?,\b(two\-factor)\b
+authentication,Security & Privacy,How do I enable two-factor authentication (2FA)?,\b(authentication)\b
+how,Security & Privacy,How do I enable two-factor authentication (2FA)?,\b(how)\b
+(2fa),Security & Privacy,How do I enable two-factor authentication (2FA)?,\b(\(2fa\))\b
+enable,Security & Privacy,How do I enable two-factor authentication (2FA)?,\b(enable)\b
+file,Security & Privacy,How do I encrypt a file or email?,\b(file)\b
+email,Security & Privacy,How do I encrypt a file or email?,\b(email|mail|e\-mail|outlook|gmail)\b
+how,Security & Privacy,How do I encrypt a file or email?,\b(how)\b
+encrypt,Security & Privacy,How do I encrypt a file or email?,\b(encrypt)\b
+create,Service Requests & Ticketing,How do I create a support ticket?,\b(create)\b
+how,Service Requests & Ticketing,How do I create a support ticket?,\b(how)\b
+ticket,Service Requests & Ticketing,How do I create a support ticket?,\b(ticket|request|case|incident)\b
+support,Service Requests & Ticketing,How do I create a support ticket?,\b(support)\b
+check,Service Requests & Ticketing,How do I check the status of my ticket?,\b(check)\b
+status,Service Requests & Ticketing,How do I check the status of my ticket?,\b(status)\b
+how,Service Requests & Ticketing,How do I check the status of my ticket?,\b(how)\b
+ticket,Service Requests & Ticketing,How do I check the status of my ticket?,\b(ticket|request|case|incident)\b
+the,Service Requests & Ticketing,How do I check the status of my ticket?,\b(the)\b
+does,Service Requests & Ticketing,How long does it take to resolve an issue?,\b(does)\b
+take,Service Requests & Ticketing,How long does it take to resolve an issue?,\b(take)\b
+how,Service Requests & Ticketing,How long does it take to resolve an issue?,\b(how)\b
+resolve,Service Requests & Ticketing,How long does it take to resolve an issue?,\b(resolve)\b
+long,Service Requests & Ticketing,How long does it take to resolve an issue?,\b(long)\b
+issue,Service Requests & Ticketing,How long does it take to resolve an issue?,\b(issue)\b
+details,Service Requests & Ticketing,What details should I provide when submitting a ticket?,\b(details)\b
+should,Service Requests & Ticketing,What details should I provide when submitting a ticket?,\b(should)\b
+when,Service Requests & Ticketing,What details should I provide when submitting a ticket?,\b(when)\b
+what,Service Requests & Ticketing,What details should I provide when submitting a ticket?,\b(what)\b
+ticket,Service Requests & Ticketing,What details should I provide when submitting a ticket?,\b(ticket|request|case|incident)\b
+submitting,Service Requests & Ticketing,What details should I provide when submitting a ticket?,\b(submitting)\b
+provide,Service Requests & Ticketing,What details should I provide when submitting a ticket?,\b(provide)\b
+service,Company Policies & Guides,What is the IT support service hours?,\b(service)\b
+hours,Company Policies & Guides,What is the IT support service hours?,\b(hours)\b
+what,Company Policies & Guides,What is the IT support service hours?,\b(what)\b
+support,Company Policies & Guides,What is the IT support service hours?,\b(support)\b
+the,Company Policies & Guides,What is the IT support service hours?,\b(the)\b
+acceptable,Company Policies & Guides,What’s the acceptable use policy for company devices?,\b(acceptable)\b
+what’s,Company Policies & Guides,What’s the acceptable use policy for company devices?,\b(what’s)\b
+policy,Company Policies & Guides,What’s the acceptable use policy for company devices?,\b(policy)\b
+for,Company Policies & Guides,What’s the acceptable use policy for company devices?,\b(for)\b
+devices,Company Policies & Guides,What’s the acceptable use policy for company devices?,\b(devices)\b
+company,Company Policies & Guides,What’s the acceptable use policy for company devices?,\b(company)\b
+use,Company Policies & Guides,What’s the acceptable use policy for company devices?,\b(use)\b
+the,Company Policies & Guides,What’s the acceptable use policy for company devices?,\b(the)\b
+when,Company Policies & Guides,How do I return IT equipment when leaving the company?,\b(when)\b
+how,Company Policies & Guides,How do I return IT equipment when leaving the company?,\b(how)\b
+company,Company Policies & Guides,How do I return IT equipment when leaving the company?,\b(company)\b
+leaving,Company Policies & Guides,How do I return IT equipment when leaving the company?,\b(leaving)\b
+return,Company Policies & Guides,How do I return IT equipment when leaving the company?,\b(return)\b
+the,Company Policies & Guides,How do I return IT equipment when leaving the company?,\b(the)\b
+equipment,Company Policies & Guides,How do I return IT equipment when leaving the company?,\b(equipment)\b
+for,Miscellaneous,Who do I contact for urgent IT issues?,\b(for)\b
+contact,Miscellaneous,Who do I contact for urgent IT issues?,\b(contact)\b
+issues,Miscellaneous,Who do I contact for urgent IT issues?,\b(issues)\b
+who,Miscellaneous,Who do I contact for urgent IT issues?,\b(who)\b
+urgent,Miscellaneous,Who do I contact for urgent IT issues?,\b(urgent)\b
+join,Miscellaneous,How do I join a video conference?,\b(join)\b
+video,Miscellaneous,How do I join a video conference?,\b(video)\b
+how,Miscellaneous,How do I join a video conference?,\b(how)\b
+conference,Miscellaneous,How do I join a video conference?,\b(conference)\b
+shared,Miscellaneous,How do I access shared drives or cloud storage?,\b(shared)\b
+cloud,Miscellaneous,How do I access shared drives or cloud storage?,\b(cloud)\b
+storage,Miscellaneous,How do I access shared drives or cloud storage?,\b(storage)\b
+how,Miscellaneous,How do I access shared drives or cloud storage?,\b(how)\b
+access,Miscellaneous,How do I access shared drives or cloud storage?,\b(access)\b
+drives,Miscellaneous,How do I access shared drives or cloud storage?,\b(drives)\b

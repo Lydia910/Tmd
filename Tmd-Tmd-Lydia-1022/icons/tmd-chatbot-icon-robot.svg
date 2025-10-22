@@ -1,0 +1,19 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0057B8"/>
+      <stop offset="100%" stop-color="#00C0E3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#g)"/>
+  <!-- antenna -->
+  <line x1="32" y1="13" x2="32" y2="18" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="32" cy="10" r="3" fill="#FFFFFF"/>
+  <!-- head -->
+  <rect x="17" y="21" width="30" height="22" rx="8" fill="#FFFFFF"/>
+  <!-- eyes -->
+  <circle cx="25" cy="32" r="3" fill="#0A192F"/>
+  <circle cx="39" cy="32" r="3" fill="#0A192F"/>
+  <!-- mouth -->
+  <rect x="27" y="38" width="10" height="3" rx="1.5" fill="#0A192F"/>
+</svg>

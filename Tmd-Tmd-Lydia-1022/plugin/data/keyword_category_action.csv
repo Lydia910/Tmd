@@ -1,0 +1,36 @@
+Keyword,Category,Action
+printer,IT Service,Allowed
+network,IT Service,Allowed
+VPN,IT Service,Allowed
+Outlook,IT Service,Allowed
+email,IT Service,Allowed
+account lock,IT Service,Allowed
+password,IT Service,Allowed
+Windows update,IT Service,Allowed
+ticket,IT Service,Allowed
+incident,IT Service,Allowed
+Wi-Fi,IT Service,Allowed
+firewall,IT Service,Allowed
+recipe,Off-topic,Block
+bake,Off-topic,Block
+ingredient,Off-topic,Block
+kitchen,Off-topic,Block
+chef,Off-topic,Block
+guitar,Off-topic,Block
+playlist,Off-topic,Block
+album,Off-topic,Block
+song,Off-topic,Block
+concert,Off-topic,Block
+football,Off-topic,Block
+basketball,Off-topic,Block
+match,Off-topic,Block
+team,Off-topic,Block
+credit card,Sensitive,Flag HITL
+SSN,Sensitive,Flag HITL
+passport,Sensitive,Flag HITL
+bank account,Sensitive,Flag HITL
+key,Sensitive,Flag HITL
+token,Sensitive,Flag HITL
+kill,Sensitive,Flag HITL
+attack,Sensitive,Flag HITL
+hate,Sensitive,Flag HITL

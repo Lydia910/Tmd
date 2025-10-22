@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Login - TMD</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div id="navbar-root"></div>
+
+  <main>
+    <section class="container section login-popup" id="login-popup" style="position:relative;">
+      <!-- close button -->
+      <span id="login-close" class="close">&times;</span>
+
+      <h2>Login</h2>
+      <p>This is the login page content.</p>
+
+      <form action="#" method="post" class="login-form">
+        <label>
+          Email
+          <input type="email" name="email" required>
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" required>
+        </label>
+        <button type="submit" class="btn">Sign in</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Proudly Built &amp; Hosted in Australia 🇦🇺</p>
+  </footer>
+
+  <script src="navbar.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var closeBtn   = document.getElementById('login-close');
+
+    if (!closeBtn) return;
+
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+  
+      try {
+        if (window.top !== window && window.parent) {
+          window.parent.postMessage({ type: 'tmd-login-close' }, '*');
+          return; 
+        }
+      } catch {}
+
+    
+      if (document.referrer && document.referrer !== location.href) {
+        window.location.replace(document.referrer);
+      } else {
+        window.location.replace('index.html');
+      }
+    });
+  });
+  </script>
+  
+
+</body>
+</html>
+

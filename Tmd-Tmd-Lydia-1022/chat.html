@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chat – TMD</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .chat-shell { min-height: calc(100vh - 120px); display:grid; place-items:center; padding:40px 16px;}
+    .chat-placeholder{
+      max-width:720px; width:100%; border:1px solid #E6ECF3; border-radius:12px; padding:32px;
+      background:#F7F9FC; text-align:center;
+    }
+    .chat-placeholder h1{ margin:0 0 8px; font-size:24px; color:#0A192F;}
+    .chat-placeholder p{ margin:0; color:#4A5A70;}
+
+    .chat-card { max-width:960px; width:100%; border:1px solid #E6ECF3; border-radius:12px; background:#F7F9FC; padding:16px; }
+    .chat-frame { width:100%; height:70vh; border:0; border-radius:12px; display:block; }
+
+    @supports (height: 100dvh) {
+      .chat-frame { height: calc(100dvh - 180px); }
+    }
+
+    .guard { text-align:center; color:#4A5A70; }
+    .guard small { display:block; margin-top:12px; opacity:.8; }
+
+    .faq-wrap { margin-top:16px; display:grid; gap:12px; }
+    .faq-topics, .faq-questions { display:flex; flex-wrap:wrap; gap:8px; }
+    .faq-topics button, .faq-questions button {
+      border:1px solid #E6ECF3; background:#fff; border-radius:999px; padding:6px 12px; cursor:pointer;
+    }
+    .faq-answer { background:#fff; border:1px solid #E6ECF3; border-radius:12px; padding:12px; white-space:pre-wrap; }
+  </style>
+</head>
+<body>
+  <header id="navbar-container"></header>
+
+  <main class="chat-shell">
+    <!-- Login Verification Prompt -->
+    <div id="authGuard" class="chat-placeholder guard">
+      <img src="icons/tmd-chatbot-icon-robot.svg" alt="Chatbot" width="56" height="56" style="vertical-align:middle; margin-bottom:12px;" />
+      <h1>Checking your session…</h1>
+      <p>Please wait while we verify your login.</p>
+      <small>If you are not redirected automatically, you may need to sign in again.</small>
+    </div>
+
+    <!-- Chat and FAQ Container -->
+    <div id="chatMount" class="chat-card" style="display:none;">
+      <iframe
+        id="pluginChat"
+        title="TMD Chat"
+        class="chat-frame"
+        src=""
+        allow="clipboard-read; clipboard-write">
+      </iframe>
+      <noscript>
+        <div class="chat-placeholder" style="border:none; background:transparent;">
+          <p>Please enable JavaScript to use the chatbot.</p>
+        </div>
+      </noscript>
+
+      <!-- FAQ (Optional, non-blocking) -->
+      <section class="faq-wrap">
+        <div><strong>Quick Help</strong> — common topics & questions</div>
+        <div id="faq-topics" class="faq-topics" aria-label="FAQ topics"></div>
+        <div id="faq-questions" class="faq-questions" aria-label="FAQ questions"></div>
+        <div id="faq-answer" class="faq-answer" aria-live="polite" style="display:none;"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="container site-footer">
+    <p>© 2025 The Managed Desk. Built in Australia. Hosted on AWS Sydney.</p>
+  </footer>
+
+  <!-- Load config and navbar -->
+  <script src="config.js"></script>
+  <script src="navbar.js"></script>
+
+  <!-- Login verification and iframe loading -->
+  <script type="module">
+    const PLUGIN_BASE =
+      localStorage.getItem("tmd_plugin_base") ||
+      "https://617654bb26fa.ngrok-free.app/plugin";
+
+    const STATUS_URL = `${PLUGIN_BASE}/auth/status.php`;
+    const LOGIN_URL  = `${PLUGIN_BASE}/login.html`;
+    const CHAT_URL   = `${PLUGIN_BASE}/111.html`;
+
+    async function checkLogin() {
+      const ctrl = new AbortController();
+      const to = setTimeout(() => ctrl.abort(), 6000);
+      try {
+        const r = await fetch(STATUS_URL, {
+          credentials: "include",
+          signal: ctrl.signal,
+          headers: { "Accept": "application/json" }
+        });
+        clearTimeout(to);
+        if (!r.ok) return false;
+        const j = await r.json().catch(() => ({}));
+        return !!j.logged_in;
+      } catch {
+        return 'network-error';
+      }
+    }
+
+    function show(frameUrl) {
+      const guard = document.getElementById("authGuard");
+      const mount = document.getElementById("chatMount");
+      const frame = document.getElementById("pluginChat");
+      frame.src = frameUrl;
+      guard.style.display = "none";
+      mount.style.display = "block";
+    }
+
+    async function initChat() {
+      if (!PLUGIN_BASE || !/^https?:\/\//.test(PLUGIN_BASE)) {
+        const next = encodeURIComponent("/chat.html");
+        window.location.href = `${LOGIN_URL}?next=${next}`;
+        return;
+      }
+      const authed = await checkLogin();
+      if (authed === 'network-error') {
+        const guard = document.getElementById("authGuard");
+        guard.querySelector('h1').textContent = "Chat service is temporarily offline";
+        guard.querySelector('p').textContent  = "We can’t reach the plugin server right now. Please try again later.";
+        guard.querySelector('small').textContent = "Once the plugin domain is online, reload this page.";
+        return;
+      }
+      if (!authed) {
+        const next = encodeURIComponent("/chat.html");
+        window.location.href = `${LOGIN_URL}?next=${next}`;
+        return;
+      }
+      show(CHAT_URL);
+    }
+
+    initChat();
+  </script>
+
+  <!-- Preference Settings (defensive) -->
+  <script>
+  (function () {
+    const base = localStorage.getItem("tmd_plugin_base") || "https://617654bb26fa.ngrok-free.app/plugin";
+    const url  = base + "/preferences.json";
+
+    function withTimeout(promise, ms = 3000) {
+      return new Promise((resolve, reject) => {
+        const t = setTimeout(() => reject(new Error('pref-timeout')), ms);
+        promise.then(v => { clearTimeout(t); resolve(v); })
+               .catch(e => { clearTimeout(t); reject(e); });
+      });
+    }
+
+    async function loadPrefs() {
+      try {
+        const r = await withTimeout(fetch(url, { credentials: "include" }), 3000);
+        if (!r.ok) return;
+        const pref = await r.json().catch(() => null);
+        if (!pref) return;
+
+        if (pref.brandColor) document.documentElement.style.setProperty("--brand", pref.brandColor);
+        if (pref.welcomeMessage) console.log("Welcome:", pref.welcomeMessage);
+      } catch (_) {
+        // Silent failure
+      }
+    }
+    loadPrefs();
+  })();
+  </script>
+
+  <!-- FAQ (defensive, auto-hide when offline) -->
+  <script>
+  (function () {
+    const base = localStorage.getItem("tmd_plugin_base") || "https://617654bb26fa.ngrok-free.app/plugin";
+    const elWrap      = document.querySelector(".faq-wrap");
+    const elTopics    = document.getElementById("faq-topics");
+    const elQuestions = document.getElementById("faq-questions");
+    const elAnswer    = document.getElementById("faq-answer");
+    if (!elWrap || !elTopics || !elQuestions || !elAnswer) return;
+
+    const FAQ_URL = `${base}/faq/faq.php`;
+
+    function withTimeout(promise, ms = 3000) {
+      return new Promise((resolve, reject) => {
+        const t = setTimeout(() => reject(new Error('faq-timeout')), ms);
+        promise.then(v => { clearTimeout(t); resolve(v); })
+               .catch(e => { clearTimeout(t); reject(e); });
+      });
+    }
+
+    function hideWrap() { elWrap.style.display = "none"; }
+
+    withTimeout(fetch(FAQ_URL, { credentials: "include" }), 3000)
+      .then(r => r.ok ? r.json() : null)
+      .then(d => {
+        if (!d || !Array.isArray(d.topics) || d.topics.length === 0) { hideWrap(); return; }
+        elTopics.innerHTML = "";
+        d.topics.forEach(topic => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.textContent = topic;
+          btn.addEventListener("click", () => loadQuestions(topic));
+          elTopics.appendChild(btn);
+        });
+      })
+      .catch(() => hideWrap());
+
+    function loadQuestions(topic) {
+      elQuestions.innerHTML = "";
+      elAnswer.style.display = "none";
+      elAnswer.textContent = "";
+
+      withTimeout(fetch(`${FAQ_URL}?topic=${encodeURIComponent(topic)}`, { credentials: "include" }), 3000)
+        .then(r => r.ok ? r.json() : null)
+        .then(d => {
+          if (!d || !Array.isArray(d.questions)) return;
+          d.questions.forEach(q => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.textContent = q;
+            btn.addEventListener("click", () => loadAnswer(topic, q));
+            elQuestions.appendChild(btn);
+          });
+        })
+        .catch(() => {});
+    }
+
+    function loadAnswer(topic, question) {
+      elAnswer.style.display = "block";
+      elAnswer.textContent = "Loading…";
+      withTimeout(fetch(`${FAQ_URL}?topic=${encodeURIComponent(topic)}&question=${encodeURIComponent(question)}`, { credentials: "include" }), 3000)
+        .then(r => r.ok ? r.json() : null)
+        .then(d => {
+          const ans = d && (d.answer || d.response || "");
+          elAnswer.textContent = ans || "No answer available.";
+        })
+        .catch(() => { elAnswer.textContent = "Failed to load answer."; });
+    }
+  })();
+  </script>
+</body>
+</html>
